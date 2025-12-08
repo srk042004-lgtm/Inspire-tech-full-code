@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - CSS Class 4: The CSS Box Model</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .list-group-item.hidden {
+        display: none;
+      }
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#cssCourse"
+                  aria-expanded="true"
+                >
+                  CSS Full Course
+                </button>
+              </h2>
+              <div id="cssCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Css Class 1  Syntax.html" class="text-decoration-none">
+                        Class 1: Introduction, Syntax & Selectors
+                      </a>
+                    </li>
+                  
+                    <li class="list-group-item">
+                      <a href="/Css class 2 border background margin.html" class="text-decoration-none active-link">
+                        Class 2: The CSS Box Model (Margin, Border, Padding)
+                      </a>
+                    </li>
+
+                      <li class="list-group-item">
+                      <a
+                        href="/Css class 3 text align transform and outline.html"
+                        class="text-decoration-none"
+                      >
+                        Class 3: Text Alignment, Transformations & Outlines
+                      </a>
+                    </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="js-course.html" class="accordion-button collapsed text-decoration-none">
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="css5" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-primary">
+                            🎥 Class 5: Outline, Text Alignment, and Transformation
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/0zlBmn2p1XQ?si=lKsod46_KsfBuoiS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <p>
+                            This class focuses on styling text and controlling the visual border that is applied outside of the Box Model: the **Outline**. Mastering these properties allows you to control typography and enhance accessibility.
+                        </p>
+                        
+                        <hr>
+                       
+
+                        
+                        <div id="outline" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🏷️ CSS Outline Property</h4>
+                            <p>
+                                The **Outline** is a line drawn **outside** the element's border, and it does **not** take up space or affect the element's position. It is mainly used for **accessibility** to indicate that an element is in focus (e.g., when tabbing through form fields).
+                            </p>
+                            <h6 class="fw-bold text-secondary">Key Outline Properties:</h6>
+                            <table class="table table-bordered table-striped align-middle">
+                                <thead class="table-dark text-center">
+                                    <tr>
+                                        <th>Property</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>`outline-style`</td>
+                                        <td>Sets the style of the outline (e.g., `solid`, `dashed`, `dotted`).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>`outline-width`</td>
+                                        <td>Sets the thickness of the outline (e.g., `5px`).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>`outline-color`</td>
+                                        <td>Sets the color of the outline.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**Shorthand**</td>
+                                        <td>`outline: 3px solid green;` (width style color)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="alert alert-warning mt-3">
+                                ⚠️ **Accessibility Warning:** While `outline: none;` can hide the default focus ring, **avoid removing outlines** completely, as it makes your site unusable for keyboard users. Instead, style the outline to match your design.
+                            </div>
+                        </div>
+                        
+                        <hr>
+                         <div class="ratio ratio-16x9 mb-4">
+                           <iframe width="560" height="315" src="https://www.youtube.com/embed/KTLLQpTnLJQ?si=KWqnpT89sh8av27t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <div id="text-align" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">↔️ Text Alignment (`text-align`)</h4>
+                            <p>
+                                The `text-align` property controls the **horizontal alignment** of inline content (like text and images) inside a block-level element (like a `&lt;p&gt;` or `&lt;div&gt;`).
+                            </p>
+                            <h6 class="fw-bold text-secondary">Available Values:</h6>
+                            <ul class="list-group list-group-flush bg-light rounded p-2">
+                                <li class="list-group-item">**`left`**: Aligns content to the left (default for most languages).</li>
+                                <li class="list-group-item">**`right`**: Aligns content to the right.</li>
+                                <li class="list-group-item">**`center`**: Centers the content horizontally within the element.</li>
+                                <li class="list-group-item">**`justify`**: Stretches the lines of text so that both the left and right edges are aligned (like in newspapers).</li>
+                            </ul>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+.header {
+  text-align: center; /* Centers the text inside the header */
+}
+                            </code></pre>
+                        </div>
+                        
+                        <hr>
+                         <div class="ratio ratio-16x9 mb-4">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/_3RLU_KM6TY?si=t4DfkSw4hkyLjoaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        
+
+                        <div id="text-transform" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🅰️ Text Transformation (`text-transform`)</h4>
+                            <p>
+                                The `text-transform` property is used to convert text to different capitalizations without needing to change the HTML code itself. This is useful for consistent styling.
+                            </p>
+                            <h6 class="fw-bold text-secondary">Available Values:</h6>
+                            <table class="table table-bordered table-striped align-middle">
+                                <thead class="table-dark text-center">
+                                    <tr>
+                                        <th>Value</th>
+                                        <th>Example Output</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>**`uppercase`**</td>
+                                        <td>THIS IS ALL CAPS.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**`lowercase`**</td>
+                                        <td>this is all lowercase.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**`capitalize`**</td>
+                                        <td>Capitalizes The First Letter Of Each Word.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**`none`**</td>
+                                        <td>The text remains unchanged (default).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+.button {
+  text-transform: uppercase; 
+}
+                            </code></pre>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            💡 **Tip: Font Properties:** Other crucial text properties to explore include `font-size`, `font-weight`, `line-height`, and `text-decoration` (for removing underlines from links).
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/Css class 2 border background margin.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="/Css class 4 fonts liststyle overflow icons.html" class="btn btn-primary">Next Class ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - CSS Class 1: Introduction</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside
+          id="sidebar"
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar"
+        >
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Class 1 html.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#cssCourse"
+                  aria-expanded="true"
+                >
+                  CSS Full Course
+                </button>
+              </h2>
+              <div
+                id="cssCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a
+                        href="/Css Class 1  Syntax.html"
+                        class="text-decoration-none active-link"
+                      >
+                        Class 1: Introduction, Syntax & Selectors
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/Css class 2 border background margin.html"
+                        class="text-decoration-none"
+                      >
+                        Class 2: Css border background margin And Padding
+                        
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/Css class 3 text align transform and outline.html"
+                        class="text-decoration-none"
+                      >
+                        Class 3: Text Alignment, Transformations & Outlines
+                      </a>
+                    </li>
+
+                      </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/Css class 4 fonts liststyle overflow icons.html"
+                        class="text-decoration-none"
+                      >
+                        Class 4: Fonts, List Styles, Overflow & Icons
+                      </a>
+                    </li>
+                      <li class="list-group-item">
+                      <a
+                        href="/Css class 5 Table & display design and properties.html"
+                        class="text-decoration-none"
+                      >
+                        Class 5: Table & Display Property & Design Properties
+                      </a>
+                    </li>
+
+                      <li class="list-group-item">
+                      <a
+                        href="/Css class 6 position selector and float .html"
+                        class="text-decoration-none"
+                      >
+                        Class 6: Positioning, Advanced Selectors & Float
+                      </a>
+                    </li>
+
+                    <li class="list-group-item">
+                      <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="text-decoration-none">
+                        Class 7: Pseudo-classes, Tooltips & Hover Effects
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+        <main class="col-lg-9 col-md-8 main-content p-4">
+          <section id="css1" class="mb-5">
+            <div class="card shadow-lg border-0">
+              <div class="card-body">
+                <h3 class="fw-bold mb-3 text-primary">
+                  🎥 Class 1: Introduction, Syntax & Selectors
+                </h3>
+
+                <div class="ratio ratio-16x9 mb-3">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/KRXsAGEYrwo?si=YahiHZQ7fWyLzAzR"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+
+                <p>
+                  **CSS (Cascading Style Sheets)** is the language used to
+                  **style** a web page, defining how HTML elements should be
+                  displayed. It controls colors, fonts, layout, and visual
+                  effects, turning basic HTML structure into a beautiful,
+                  engaging website.
+                </p>
+
+                <div class="bg-light p-3 rounded my-4">
+                  <h5 class="fw-bold text-secondary mb-2">
+                    ✨ CSS Syntax: The Rule-Set
+                  </h5>
+                  <p>
+                    A CSS rule-set consists of a **selector** and one or more
+                    **declarations**.
+                  </p>
+
+                  <pre class="bg-dark text-white p-2 rounded"><code>
+/* Selector points to the HTML element you want to style */
+p {
+  /* Declaration is property: value; */
+  color: blue; 
+  font-size: 16px; 
+}
+                  </code></pre>
+                </div>
+
+                <h5 class="fw-bold text-secondary mb-2">🎯 Basic Selectors</h5>
+                <p>
+                  Selectors are the mechanisms used to find and select the HTML
+                  elements you want to style.
+                </p>
+                <table class="table table-bordered table-striped align-middle">
+                  <thead class="table-dark text-center">
+                    <tr>
+                      <th>Selector Type</th>
+                      <th>Syntax</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>**Element**</td>
+                      <td>`p { ... }`</td>
+                      <td>
+                        Selects all HTML elements of that type (e.g., all
+                        paragraphs).
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>**ID**</td>
+                      <td>`#header { ... }`</td>
+                      <td>
+                        Selects the element with a specific ID. **Use sparingly;
+                        must be unique.**
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>**Class**</td>
+                      <td>`.button { ... }`</td>
+                      <td>
+                        Selects all elements with a specific class. **Best for
+                        repeated styling.**
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <div class="container text-center my-5">
+            <a href="/Css introduction.html" class="btn btn-secondary me-2"
+              >⬅ Previous Course: HTML</a
+            >
+            <a href="/Css class 2 border background margin.html" class="btn btn-primary"
+              >Next Class ➡</a
+            >
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

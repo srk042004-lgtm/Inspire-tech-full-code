@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - HTML Course</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+  <!-- Sidebar toggle (visible on very small screens) -->
+  <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Backdrop for off-canvas sidebar (shown on small screens when sidebar opens) -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <aside id="sidebar" 
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3"
+        >
+          <h5 class="fw-bold">Courses</h5>
+
+          <!-- Search bar -->
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <!-- HTML Course (This Page) -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#htmlCourse"
+                  aria-expanded="true"
+                >
+                  HTML Full Course
+                </button>
+              </h2>
+              <div
+                id="htmlCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                    <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Class 1 html.html" class="text-decoration-none"
+                        >Class 1: Introduction to Html , Css And Javascript
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 2 vs code.html" class="text-decoration-none"
+                        >Class 2: How to Download And Install Vs code</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 3 Html structure.html" class="text-decoration-none"
+                        >Class 3: Basic Structure of a website</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 4 Paragraph and br.html" class="text-decoration-none"
+                        >Class 4: Html paragraph , Horizontal Rule And Br rule</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 5 Styling.html" class="text-decoration-none"
+                        >Class 5: Html Styling</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 6 Quotation and formatting.html" class="text-decoration-none"
+                        >Class 6: Quotation and Formatting</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 7 styling color.html" class="text-decoration-none"
+                        >Class 7: Styling Colors And its Values</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 8 Classes , Ids and bookmarks.html" class="text-decoration-none"
+                        >Class 8: HTML Classes , Ids And Bookmarks</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 9 inserting icons and images in html.html" class="text-decoration-none"
+                        >Class 9: How to insert images and Icons In Html Page?</a
+                      >
+                    </li>
+                        <li class="list-group-item">
+                      <a href="/Class 9.2 Media Elements and iframes.html" class="text-decoration-none"
+                        >Class 9.2: Media Elements and iframes?</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 10 table and its design.html" class="text-decoration-none"
+                        >Class 10: How to create Tables and Design it?</a
+                      >
+                    </li>
+
+                <li class="list-group-item">
+                  <a href="/class 11 forms and introduction.html" class="text-decoration-none">
+                    Class 11: How to create forms and its intoduction?
+                  </a>
+                </li>
+                
+                 <li class="list-group-item">
+                  <a href="/class 12 HTML Semantic Tags.html" class="text-decoration-none">
+                    Class 12: HTML Semantic Tags
+                  </a>
+                </li>
+
+                    <li class="list-group-item">
+                  <a href="/class 13 Project Creating a Complete Webpage.html" class="text-decoration-none">
+                    Class 13: Cretaing a complete project Using Html
+                  </a>
+                </li>
+
+                 <li class="list-group-item">
+                  <a href="/class 14 Revision + Final Assignment.html" class="text-decoration-none">
+                    Class 14: Revision + Final Assignment
+                  </a>
+                </li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+                  <!-- CSS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="css-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <!-- JS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+<!-- Main Content -->
+<main class="col-lg-9 col-md-8 main-content p-4">
+
+  <!-- Class 2: VS Code Installation -->
+  <section id="html2" class="mb-5">
+    <div class="card shadow-lg border-0">
+      <div class="card-body">
+        <h3 class="fw-bold mb-3 text-primary">
+          🎥 Class 2: How to Download and Install VS Code
+        </h3>
+
+        <!-- Video Section -->
+        <div class="ratio ratio-16x9 mb-3">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/bN6DE-4uFNo?si=h9cffqVZ11G1s5ym" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <!-- Description -->
+        <p>
+          In this class, you’ll learn how to download, install, and set up
+          <strong>Visual Studio Code (VS Code)</strong> — the most popular editor for
+          web development. We’ll also cover essential extensions and how to run your
+          first HTML file using <em>Live Server</em>.
+        </p>
+
+        <!-- Notes Section -->
+        <div class="bg-light p-3 rounded">
+          <h5 class="fw-bold text-secondary mb-2">📒 Key Notes:</h5>
+          <ul>
+            <li>Visit <a href="https://code.visualstudio.com" target="_blank">official VS Code website</a>.</li>
+            <li>Install setup with options: <strong>Add to PATH</strong> and <strong>Create Desktop Icon</strong>.</li>
+            <li>Recommended extensions: Live Server, Prettier, Auto Rename Tag.</li>
+            <li>Use “Open with Live Server” to preview HTML pages instantly.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<section>
+    <div class="container my-5">
+      <!-- Extensions Section -->
+      <h4 class="fw-bold text-success mb-3">✨ Recommended VS Code Extensions</h4>
+      <div class="row g-3">
+        <!-- Extension 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Live Server 🌐</h5>
+              <p class="card-text">
+                Automatically launches your web pages in the browser and refreshes them when you save changes.
+              </p>
+              <p><strong>Usage:</strong> Right-click → “Open with Live Server”</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extension 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Prettier 💅</h5>
+              <p class="card-text">
+                Formats your code automatically for consistent, beautiful style.
+              </p>
+              <p><strong>Usage:</strong> Ctrl + Shift + P → Format Document</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extension 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Auto Rename Tag 🏷️</h5>
+              <p class="card-text">
+                Renames both opening and closing tags automatically when you edit one.
+              </p>
+              <p><strong>Usage:</strong> Works automatically while editing tags.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extension 4 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title text-primary">HTML CSS Support 🎨</h5>
+              <p class="card-text">
+                Provides intelligent autocomplete and live suggestions for HTML and CSS.
+              </p>
+              <p><strong>Usage:</strong> Type style names or tag names to see suggestions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extension 5 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title text-primary">IntelliSense 🔍</h5>
+              <p class="card-text">
+                Offers smart code completion and function hints for HTML, CSS, and JS.
+              </p>
+              <p><strong>Usage:</strong> Appears automatically while typing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extension 6 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Material Icon Theme 🎯</h5>
+              <p class="card-text">
+                Adds colorful icons for files and folders to make your workspace more visually appealing.
+              </p>
+              <p><strong>Usage:</strong> Automatically applies after installation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Tip -->
+      <div class="alert alert-info mt-4">
+        💡 <strong>Tip:</strong> You can install all these extensions from the
+        <em>Extensions</em> tab in VS Code or by pressing <kbd>Ctrl + Shift + X</kbd>.
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Class 3: VS Code Extensions and Usage -->
+<section id="html3" class="container mb-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-body">
+      <h3 class="fw-bold text-primary mb-3">💡 VS Code Extensions and Usage</h3>
+
+      <!-- Introduction -->
+      <p>
+        In this class, we’ll explore the most important 
+        <strong>Visual Studio Code Extensions</strong> for web development and 
+        learn how to use them effectively while coding HTML, CSS, and JavaScript projects.
+      </p>
+
+      <!-- Table of Essential Extensions -->
+      <div class="table-responsive my-4">
+        <table class="table table-bordered table-striped align-middle">
+          <thead class="table-dark text-center">
+            <tr>
+              <th>Extension Name</th>
+              <th>Description</th>
+              <th>Developer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Live Server</strong></td>
+              <td>Launches your HTML page instantly in a browser and updates automatically when you save.</td>
+              <td>Ritwick Dey</td>
+            </tr>
+            <tr>
+              <td><strong>Prettier</strong></td>
+              <td>Automatically formats your code for clean and consistent indentation.</td>
+              <td>Prettier Team</td>
+            </tr>
+            <tr>
+              <td><strong>Auto Rename Tag</strong></td>
+              <td>When you edit an opening HTML tag, the closing tag updates automatically.</td>
+              <td>Jun Han</td>
+            </tr>
+            <tr>
+              <td><strong>HTML CSS Support</strong></td>
+              <td>Adds auto-suggestions for HTML and CSS classes for faster coding.</td>
+              <td>ecmel</td>
+            </tr>
+            <tr>
+              <td><strong>Bootstrap 5 Snippets</strong></td>
+              <td>Provides ready-made Bootstrap 5 components to speed up your workflow.</td>
+              <td>Wsdjeg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- How to Use Extensions -->
+      <div class="bg-light p-4 rounded mb-4">
+        <h5 class="fw-bold text-secondary mb-3">⚙️ How to Use Extensions</h5>
+        <ol>
+          <li>Open <strong>Visual Studio Code</strong> and click the <em>Extensions icon</em> on the sidebar.</li>
+          <li>Search for the desired extension, e.g. <strong>Live Server</strong>.</li>
+          <li>Click <strong>Install</strong> and wait for setup to complete.</li>
+          <li>After installation, right-click your HTML file → choose <strong>“Open with Live Server”</strong>.</li>
+          <li>For <strong>Prettier</strong>, press <kbd>Shift + Alt + F</kbd> to format your code instantly.</li>
+        </ol>
+      </div>
+
+     
+
+      
+
+        <div class="alert alert-info">
+          💡 <strong>Tip:</strong> Use <em>Prettier</em> regularly to keep your code clean, 
+          and <em>Live Server</em> for real-time project previews while learning HTML & CSS.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Class 4: VS Code Basic Features -->
+<section id="html4" class=" container mb-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-body">
+      <h3 class="fw-bold text-primary mb-3">🖥️ VS Code Basic Features</h3>
+
+      <p>
+        In this class, we will learn about the <strong>basic features</strong> of Visual Studio Code 
+        that make it one of the best editors for web developers. You’ll learn how to 
+        create, open, save, and manage your coding projects efficiently.
+      </p>
+
+      <!-- Feature Container -->
+      <div class="container bg-light p-4 rounded">
+        <h5 class="fw-bold text-secondary mb-3">⚙️ Common Features and Their Use</h5>
+
+        <div class="row gy-4">
+          <!-- Feature 1 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">📂 Open a File or Folder</h6>
+              <p>
+                To open an existing file or folder, go to 
+                <strong>File → Open File</strong> or <strong>Open Folder</strong>.  
+                You can also press <kbd>Ctrl + O</kbd> to open a file quickly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">📝 Create a New File</h6>
+              <p>
+                To create a new file, go to <strong>File → New File</strong> or press 
+                <kbd>Ctrl + N</kbd>.  
+                Then type your HTML, CSS, or JavaScript code.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">💾 Save Your File</h6>
+              <p>
+                Save your work by clicking <strong>File → Save</strong> or pressing 
+                <kbd>Ctrl + S</kbd>.  
+                Always use a meaningful name like <code>index.html</code> or <code>style.css</code>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">🧩 Run HTML with Live Server</h6>
+              <p>
+                After installing <strong>Live Server</strong>, right-click your HTML file and select 
+                <strong>“Open with Live Server”</strong>.  
+                This instantly opens your page in the browser and auto-refreshes on every save.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">🎨 Change Theme</h6>
+              <p>
+                Go to <strong>File → Preferences → Color Theme</strong> or press 
+                <kbd>Ctrl + K</kbd> then <kbd>Ctrl + T</kbd> to switch between light and dark themes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">🔍 Use Search and Replace</h6>
+              <p>
+                To find any word or tag in your project, press <kbd>Ctrl + F</kbd>.  
+                For replacing text, press <kbd>Ctrl + H</kbd> — a quick and powerful feature for large projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tip Box -->
+      <div class="alert alert-info mt-4">
+        💡 <strong>Tip:</strong> Use keyboard shortcuts regularly — it will make you much faster and more professional while coding.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Class 5: Introduction to GitHub -->
+<section id="github" class="container mb-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-body">
+      <h3 class="fw-bold text-primary mb-3">🌐 Introduction to GitHub</h3>
+
+      <p>
+        <strong>GitHub</strong> is an online platform where developers can 
+        <strong>store, manage, and share</strong> their code projects.  
+        It works with a system called <strong>Git</strong> that helps track changes 
+        in your files and collaborate with others easily.
+      </p>
+
+      <!-- Features Container -->
+      <div class="container bg-light p-4 rounded">
+        <h5 class="fw-bold text-secondary mb-3">⚙️ Key Features of GitHub</h5>
+
+        <div class="row gy-4">
+          <!-- Feature 1 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">🧠 Version Control</h6>
+              <p>
+                GitHub keeps a complete history of all changes made in your project, 
+                allowing you to go back to previous versions anytime.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">👥 Collaboration</h6>
+              <p>
+                Multiple people can work together on the same project by sharing 
+                code, reviewing updates, and merging improvements.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">☁️ Cloud Storage</h6>
+              <p>
+                Your code is safely stored online on GitHub servers — accessible 
+                from anywhere using your account.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="col-md-6">
+            <div class="border rounded p-3 h-100 shadow-sm">
+              <h6 class="fw-bold text-success">🚀 Portfolio & Backup</h6>
+              <p>
+                GitHub is also your public coding portfolio — showcase your work 
+                to clients or employers, and keep your code backed up securely.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Box -->
+      <div class="alert alert-info mt-4">
+        💡 <strong>Example:</strong> You can upload your HTML, CSS, and JS files to GitHub 
+        so others can view or download your projects online.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container text-center my-5">
+  <a href="class 1 html.html" class="btn btn-secondary me-2">⬅ Previous</a>
+  <a href="class 3 Html structure.html" class="btn btn-primary">Next ➡</a>
+</div>
+
+
+
+
+
+
+         <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>

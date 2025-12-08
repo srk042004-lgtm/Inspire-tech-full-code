@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - Class 9.2: Media Elements and iframes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Reset and Navbar Specifics from user's custom CSS */
+      * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+      }
+
+      .navbar {
+        height: fit-content;
+        overflow: hidden;
+      }
+
+      .navbar h2 {
+        color: rgba(128, 2, 2, 0.616);
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(248, 224, 224, 0.26);
+        font-family: serif;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 20px;
+        font-family: Fira Sans, sans-serif;
+        font-size: 20px;
+      }
+
+      /* General Body and Layout */
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background-color: #f8fafc;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      /* Sidebar (Aside) Styling for Desktop */
+      aside {
+        position: sticky;
+        top: 56px;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+        border-right: 1px solid #dee2e6;
+        background: #f8f9fa;
+      }
+
+      /* Main Content Area */
+      .main-content {
+        margin-left: 0;
+        padding: 20px 40px;
+      }
+
+      /* Content Styling */
+      .video-section {
+        margin-top: 0 !important;
+        margin-bottom: 30px;
+      }
+      iframe {
+        border-radius: 12px;
+      }
+
+      .content-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-bottom: 30px; /* Added for section separation */
+      }
+
+      /* Hide the mobile toggle button by default */
+      #sidebarToggle {
+        display: none;
+      }
+
+      /* Hide list items when not matched (for search functionality) */
+      .list-group-item.hidden {
+        display: none;
+      }
+
+      /* --- Mobile Responsiveness (Max-width 580px) --- */
+      @media (max-width: 580px) {
+        aside {
+          position: fixed;
+          transform: translateX(-110%);
+          top: 56px;
+          width: 260px;
+          height: calc(100vh - 56px);
+          overflow-y: auto;
+          border-right: 1px solid #dee2e6;
+          background: #f8f9fa;
+          transition: transform 0.25s ease-in-out;
+          z-index: 1060;
+        }
+
+        aside.open {
+          transform: translateX(0);
+        }
+
+        .sidebar-backdrop {
+          display: none;
+        }
+
+        body.sidebar-open .sidebar-backdrop {
+          display: block;
+          position: fixed;
+          inset: 56px 0 0 0;
+          background: rgba(0, 0, 0, 0.45);
+          z-index: 1055;
+        }
+
+        .main-content {
+          margin-left: 0;
+          padding: 20px;
+        }
+
+        main,
+        .main-content,
+        .col-lg-9,
+        .col-md-8,
+        [class*="main-content"] {
+          margin-left: 0 !important;
+          width: 100% !important;
+        }
+
+        aside .accordion {
+          visibility: visible;
+        }
+
+        #sidebarToggle {
+          display: inline-block !important;
+        }
+      }
+
+      /* --- Content Specific Styling --- */
+      .content-card h1 {
+        letter-spacing: 0.4px;
+        line-height: 1.7;
+      }
+
+      .content-card h2,
+      .content-card h3,
+      .content-card h4,
+      .content-card h5 {
+        margin-top: 25px;
+        margin-bottom: 12px;
+      }
+
+      .content-card p {
+        margin-bottom: 15px;
+      }
+
+      .example-code {
+        background-color: #e9ecef;
+        border-left: 5px solid #ffc107; /* Changed color to distinction */
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.9em;
+        font-family: monospace;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+
+      .example-code pre code {
+        font-size: 14px;
+        white-space: pre-wrap;
+        line-height: 1.6;
+      }
+
+      .demo-page {
+        border: 2px dashed #007bff;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        background-color: #f0f8ff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container-fluid">
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+        >
+          ☰
+        </button>
+
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Courses</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light p-3">
+          <h5 class="fw-bold">HTML Full Course</h5>
+
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control rounded-pill"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#htmlCourse"
+                  aria-expanded="true"
+                >
+                  HTML Modules (1-20)
+                </button>
+              </h2>
+              <div
+                id="htmlCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Class 1 html.html" class="text-decoration-none"
+                        >Class 1: Intro to HTML, CSS & JS</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 2 vs code.html"
+                        class="text-decoration-none"
+                        >Class 2: VS Code Installation</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 3 Html structure.html"
+                        class="text-decoration-none"
+                        >Class 3: Basic Website Structure</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 4 Paragraph and br.html"
+                        class="text-decoration-none"
+                        >Class 4: Paragraphs, HR & BR</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 5 Styling.html"
+                        class="text-decoration-none"
+                        >Class 5: Basic HTML Styling</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 6 Quotation and formatting.html"
+                        class="text-decoration-none"
+                        >Class 6: Quotation and Formatting</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 7 styling color.html"
+                        class="text-decoration-none"
+                        >Class 7: Styling Colors And Values</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 8 Classes , Ids and bookmarks.html"
+                        class="text-decoration-none"
+                        >Class 8: Classes, Ids And Bookmarks</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 9 inserting icons and images in html.html"
+                        class="text-decoration-none"
+                        >Class 9: Images and Icons</a
+                      >
+                    </li>
+                    <li class="list-group-item active">
+                      <a
+                        href="/Class 9.2 Media Elements and iframes.html"
+                        class="text-decoration-none"
+                        aria-current="page"
+                        >Class 9.2: Media Elements and iframes</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 10 table and its design.html"
+                        class="text-decoration-none"
+                        >Class 10: Tables and Structure</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 11 forms and introduction.html"
+                        class="text-decoration-none"
+                        >Class 11/12: HTML Forms and Controls</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 12 HTML Semantic Tags.html"
+                        class="text-decoration-none"
+                      >
+                        Class 12: HTML Semantic Tags
+                      </a>
+                    </li>
+
+                    <li class="list-group-item">
+                      <a
+                        href="/class 13 Project Creating a Complete Webpage.html"
+                        class="text-decoration-none"
+                      >
+                        Class 13: Creating a complete project Using Html
+                      </a>
+                    </li>
+
+                    <li class="list-group-item">
+                      <a
+                        href="/class 14 Revision + Final Assignment.html"
+                        class="text-decoration-none"
+                      >
+                        Class 14: Revision + Final Assignment
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/css-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                  >CSS Full Course</a
+                >
+              </h2>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/class 13 Form Designing (CSS Based).html"
+                  class="accordion-button collapsed text-decoration-none"
+                  >CSS Based Form Designing (Old Class 13)</a
+                >
+              </h2>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                  >JavaScript Full Course</a
+                >
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-12 main-content py-4">
+          <section id="class9-2" class="content-card">
+            <h1 class="mb-4 text-primary fw-bold">
+              Class 9.2: HTML Media Elements (Audio, Video) aur I-frames
+            </h1>
+
+            <p class="lead">
+              Is class mein hum seekhenge ke apni website mein **multimedia
+              (audio aur video)** kaise daalte hain. Hum **&lt;audio&gt;** aur
+              **&lt;video&gt;** tags ka istemaal dekhenge, aur saath hi
+              **&lt;iframe&gt;** tag se doosri websites ke content ko apne page
+              mein kaise embed (daakhil) karte hain.
+            </p>
+
+            <h2 class="h4 mt-4 mb-3">Video Lesson: Media Embedding in HTML</h2>
+            <div
+              class="ratio ratio-16x9 mb-5 shadow-lg rounded-3"
+              style="border: 5px solid #007bff"
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/DBaZPyXNgpA?si=Rrd2-uDP3GPN_U99"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <section id="media-elements" class="mb-5">
+              <h2 class="fw-bold text-success">
+                1. HTML Audio Aur Video Elements
+              </h2>
+              <p>
+                HTML5 mein audio aur video files ko directly embed karna bohot
+                aasan ho gaya hai. Ab humein kisi third-party plugin ki zaroorat
+                nahi padti.
+              </p>
+
+              <h3 class="h5 mt-4 text-secondary">A. &lt;video&gt; Tag</h3>
+              <p>
+                Yeh tag aapki website par video content display karne ke liye
+                istemal hota hai.
+              </p>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">
+                  **`src`**: Video file ka path batata hai.
+                </li>
+                <li class="list-group-item">
+                  **`controls`**: Browser ke default video controls (play,
+                  pause, volume) ko show karta hai.
+                </li>
+                <li class="list-group-item">
+                  **`width`** aur **`height`**: Video player ki dimension
+                  (lambaai aur choudaai) set karta hai.
+                </li>
+              </ul>
+
+              <div class="example-code">
+                <pre>
+                  <code>
+&lt;!-- Local Video File Ko Daakhil Karna --&gt;
+&lt;video width="320" height="240" controls&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    Aapka browser video tag ko support nahi karta.
+&lt;/video&gt;
+                  </code>
+                </pre>
+              </div>
+
+              <h3 class="h5 mt-4 text-secondary">B. &lt;audio&gt; Tag</h3>
+              <p>
+                Yeh tag webpage par audio content (music, podcast, etc.) daalne
+                ke liye istemal hota hai. Iska tareeqa &lt;video&gt; tag jaisa
+                hi hai.
+              </p>
+              <div class="example-code">
+                <pre>
+                  <code>
+&lt;!-- Local Audio File Ko Daakhil Karna --&gt;
+&lt;audio controls&gt;
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+    Aapka browser audio tag ko support nahi karta.
+&lt;/audio&gt;
+                  </code>
+                </pre>
+              </div>
+            </section>
+
+            <section id="iframes" class="mb-5">
+              <h2 class="fw-bold text-success">
+                2. Iframes (&lt;iframe&gt; Tag)
+              </h2>
+              <p>
+                An **iframe** (Inline Frame) ek HTML document ko dusre HTML
+                document ke andar embed karne ke liye istemal hota hai. Aam taur
+                par iska istemal **YouTube videos**, **Google Maps**, ya doosri
+                websites ke chote hisson ko apni website par dikhaane ke liye
+                kiya jata hai.
+              </p>
+
+              <h3 class="h5 mt-4 text-secondary">
+                Iframe Ke Khaas (Important) Attributes
+              </h3>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">
+                  **`src`**: Woh URL (web address) jise aap embed karna chahte
+                  hain.
+                </li>
+                <li class="list-group-item">
+                  **`width`** aur **`height`**: Iframe ka size set karta hai.
+                </li>
+                <li class="list-group-item">
+                  **`frameborder`**: Purane browsers mein frame ki border
+                  dikhaane ke liye (modern CSS se control hoti hai).
+                </li>
+              </ul>
+
+              <div class="example-code">
+                <pre>
+                  <code>
+&lt;h3&gt;Example: YouTube Video Embed Karna&lt;/h3&gt;
+&lt;!-- YouTube khud hi iframe code deta hai --&gt;
+&lt;iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allowfullscreen&gt;
+&lt;/iframe&gt;
+                  </code>
+                </pre>
+              </div>
+
+              <h3 class="h5 mt-4 text-secondary">
+                Iframe Ka Nateeja (Demo Output)
+              </h3>
+              <p>
+                Iframe ka istemaal aapke page mein Google Maps ko is tarah dikha
+                sakta hai:
+              </p>
+
+              <div class="demo-page p-3 text-center">
+                <h4 class="h6">Google Maps (Embedded via Iframe)</h4>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.312952402179!2d67.04259867503713!3d24.919702277884793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4m0!3e0!5m2!1s2025-06-01!2s2025-06-02"
+                  width="100%"
+                  height="250"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="rounded-3 shadow-sm"
+                ></iframe>
+              </div>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+
+          <div class="container text-center my-5">
+  <a href="/class 9 inserting icons and images in html.html 6 Quotation and formatting.html 1 html.html" class="btn btn-secondary me-2">⬅ Previous</a>
+  <a href="/class 10 table and its design.html 8 Classes , Ids and bookmarks.html 3 Html structure.html" class="btn btn-primary">Next ➡</a>
+</div>
+
+
+    <footer id="contact" class="bg-dark text-light py-4 mt-4 w-100">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold">Inspire Tech Institute</h5>
+            <p class="mb-1">📍 Nowshera, Pakistan</p>
+            <p class="mb-0">📞 0346-2345453</p>
+            <p class="mb-0">✉ info@inspiretech.com</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="/index.html" class="text-light text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="/about.html" class="text-light text-decoration-none"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">Courses</a>
+              </li>
+              <li>
+                <a href="#contact" class="text-light text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3 text-md-end text-center">
+            <h5 class="fw-bold">Follow Us</h5>
+            <a href="#" class="text-light me-3 text-decoration-none"
+              >Facebook</a
+            >
+            <a href="#" class="text-light me-3 text-decoration-none"
+              >Instagram</a
+            >
+            <a href="#" class="text-light text-decoration-none">YouTube</a>
+          </div>
+        </div>
+        <hr class="border-light" />
+        <div class="text-center small">
+          © 2025 Inspire Tech Institute — All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // --- Sidebar Toggle for Mobile Responsiveness (Uses custom CSS classes) ---
+      const sidebar = document.getElementById("sidebar");
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
+      sidebarToggle.addEventListener("click", () => {
+        // Toggle 'open' class on the sidebar (aside) element
+        sidebar.classList.toggle("open");
+        // Toggle 'sidebar-open' class on the body to show the backdrop and prevent scrolling
+        document.body.classList.toggle("sidebar-open");
+      });
+
+      // Close sidebar when backdrop is clicked (on mobile)
+      sidebarBackdrop.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+        document.body.classList.remove("sidebar-open");
+      });
+
+      // --- Search Filter Functionality ---
+      const searchInput = document.getElementById("searchInput");
+      const listItems = document.querySelectorAll(
+        ".course-list .list-group-item"
+      );
+
+      searchInput.addEventListener("keyup", function () {
+        let filter = searchInput.value.toLowerCase();
+        listItems.forEach((item) => {
+          let text = item.textContent.toLowerCase();
+          // Toggle 'hidden' class based on whether the text includes the filter
+          item.classList.toggle("hidden", !text.includes(filter));
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - HTML Course</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+  <!-- Sidebar toggle (visible on very small screens) -->
+  <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Backdrop for off-canvas sidebar (shown on small screens when sidebar opens) -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <aside id="sidebar" 
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3"
+        >
+          <h5 class="fw-bold">Courses</h5>
+
+          <!-- Search bar -->
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <!-- HTML Course (This Page) -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#htmlCourse"
+                  aria-expanded="true"
+                >
+                  HTML Full Course
+                </button>
+              </h2>
+              <div
+                id="htmlCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                    <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Class 1 html.html" class="text-decoration-none"
+                        >Class 1: Introduction to Html , Css And Javascript
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 2 vs code.html" class="text-decoration-none"
+                        >Class 2: How to Download And Install Vs code</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 3 Html structure.html" class="text-decoration-none"
+                        >Class 3: Basic Structure of a website</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 4 Paragraph and br.html" class="text-decoration-none"
+                        >Class 4: Html paragraph , Horizontal Rule And Br rule</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 5 Styling.html" class="text-decoration-none"
+                        >Class 5: Html Styling</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 6 Quotation and formatting.html" class="text-decoration-none"
+                        >Class 6: Quotation and Formatting</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 7 styling color.html" class="text-decoration-none"
+                        >Class 7: Styling Colors And its Values</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 8 Classes , Ids and bookmarks.html" class="text-decoration-none"
+                        >Class 8: HTML Classes , Ids And Bookmarks</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 9 inserting icons and images in html.html" class="text-decoration-none"
+                        >Class 9: How to insert images and Icons In Html Page?</a
+                      >
+                    </li>
+                        <li class="list-group-item">
+                      <a href="/Class 9.2 Media Elements and iframes.html" class="text-decoration-none"
+                        >Class 9.2: Media Elements and iframes?</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 10 table and its design.html" class="text-decoration-none"
+                        >Class 10: How to create Tables and Design it?</a
+                      >
+                    </li>
+
+                <li class="list-group-item">
+                  <a href="/class 11 forms and introduction.html" class="text-decoration-none">
+                    Class 11: How to create forms and its intoduction?
+                  </a>
+                </li>
+                
+                 <li class="list-group-item">
+                  <a href="/class 12 HTML Semantic Tags.html" class="text-decoration-none">
+                    Class 12: HTML Semantic Tags
+                  </a>
+                </li>
+
+                   <li class="list-group-item">
+                  <a href="/class 13 Project Creating a Complete Webpage.html" class="text-decoration-none">
+                    Class 13: Cretaing a complete project Using Html
+                  </a>
+                </li>
+
+                 <li class="list-group-item">
+                  <a href="/class 14 Revision + Final Assignment.html" class="text-decoration-none">
+                    Class 14: Revision + Final Assignment
+                  </a>
+                </li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- CSS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="css-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <!-- JS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content">
+          <div class="video-section">
+            <div class="ratio ratio-16x9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/dFaPyVz8FGY?si=_5DMESbNw4L22IiW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="content-section">
+            <h2>HTML Tables and Their Design</h2>
+            <p>
+              Tables are used to display data in rows and columns. In HTML, tables help organize information in a clear and structured way.
+            </p>
+
+            <h4>🔹 Basic Table Structure</h4>
+            <p>
+              The main elements of a table are:
+            </p>
+            <ul>
+              <li><code>&lt;table&gt;</code> — defines the table</li>
+              <li><code>&lt;tr&gt;</code> — defines a table row</li>
+              <li><code>&lt;th&gt;</code> — defines a table header cell</li>
+              <li><code>&lt;td&gt;</code> — defines a table data cell</li>
+            </ul>
+
+            <div class="example-box">
+              <h6>Example:</h6>
+              <code>
+                &lt;table border="1"&gt;<br>
+                &nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Age&lt;/th&gt;<br>
+                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                &nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Ali&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;20&lt;/td&gt;<br>
+                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                &lt;/table&gt;
+              </code>
+            </div>
+
+            <h4>🎨 Designing Tables with CSS</h4>
+            <p>
+              You can style your tables using CSS to make them look professional and readable.
+            </p>
+
+            <div class="example-box">
+              <h6>Example CSS:</h6>
+              <code>
+                table, th, td { border: 1px solid black; border-collapse: collapse; } <br>
+                th, td { padding: 10px; text-align: left; } <br>
+                th { background-color: #0d6efd; color: white; }
+              </code>
+            </div>
+
+            <h5>🧭 Styled Table Example:</h5>
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Course</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ali Khan</td>
+                  <td>HTML Basics</td>
+                  <td>95%</td>
+                </tr>
+                <tr>
+                  <td>Sara Ahmed</td>
+                  <td>CSS Styling</td>
+                  <td>90%</td>
+                </tr>
+                <tr>
+                  <td>Bilal Hussain</td>
+                  <td>JavaScript Intro</td>
+                  <td>88%</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4>💠 Using Bootstrap Table Classes</h4>
+            <p>
+              Bootstrap offers built-in table classes that make table design easier:
+            </p>
+            <ul>
+              <li><code>.table</code> — adds basic styling</li>
+              <li><code>.table-striped</code> — adds zebra stripes</li>
+              <li><code>.table-hover</code> — adds hover effect</li>
+              <li><code>.table-bordered</code> — adds borders</li>
+              <li><code>.table-dark</code> — dark mode table</li>
+            </ul>
+
+            <div class="example-box">
+              <h6>Example Bootstrap Table:</h6>
+              <table class="table table-striped table-hover table-bordered mt-3">
+                <thead class="table-primary">
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Availability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Laptop</td>
+                    <td>$800</td>
+                    <td>In Stock</td>
+                  </tr>
+                  <tr>
+                    <td>Mouse</td>
+                    <td>$20</td>
+                    <td>In Stock</td>
+                  </tr>
+                  <tr>
+                    <td>Keyboard</td>
+                    <td>$35</td>
+                    <td>Out of Stock</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+          <div class="container text-center my-5">
+  <a href="/Class 9.2 Media Elements and iframes.html 6 Quotation and formatting.html 1 html.html" class="btn btn-secondary me-2">⬅ Previous</a>
+  <a href="/class 11 forms and introduction.html 8 Classes , Ids and bookmarks.html 3 Html structure.html" class="btn btn-primary">Next ➡</a>
+</div>
+
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4 w-100">
+      <div class="container-fluid">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const listItems = document.querySelectorAll(".course-list .list-group-item");
+
+      searchInput.addEventListener("keyup", function () {
+        let filter = searchInput.value.toLowerCase();
+        listItems.forEach((item) => {
+          let text = item.textContent.toLowerCase();
+          item.classList.toggle("hidden", !text.includes(filter));
+        });
+      });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

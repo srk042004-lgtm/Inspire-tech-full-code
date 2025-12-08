@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - HTML Course</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+  <!-- Sidebar toggle (visible on very small screens) -->
+  <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Backdrop for off-canvas sidebar (shown on small screens when sidebar opens) -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <aside id="sidebar" 
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3"
+        >
+          <h5 class="fw-bold">Courses</h5>
+
+          <!-- Search bar -->
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <!-- HTML Course (This Page) -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#htmlCourse"
+                  aria-expanded="true"
+                >
+                  HTML Full Course
+                </button>
+              </h2>
+              <div
+                id="htmlCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                    <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Class 1 html.html" class="text-decoration-none"
+                        >Class 1: Introduction to Html , Css And Javascript
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 2 vs code.html" class="text-decoration-none"
+                        >Class 2: How to Download And Install Vs code</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 3 Html structure.html" class="text-decoration-none"
+                        >Class 3: Basic Structure of a website</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 4 Paragraph and br.html" class="text-decoration-none"
+                        >Class 4: Html paragraph , Horizontal Rule And Br rule</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 5 Styling.html" class="text-decoration-none"
+                        >Class 5: Html Styling</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 6 Quotation and formatting.html" class="text-decoration-none"
+                        >Class 6: Quotation and Formatting</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 7 styling color.html" class="text-decoration-none"
+                        >Class 7: Styling Colors And its Values</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 8 Classes , Ids and bookmarks.html" class="text-decoration-none"
+                        >Class 8: HTML Classes , Ids And Bookmarks</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 9 inserting icons and images in html.html" class="text-decoration-none"
+                        >Class 9: How to insert images and Icons In Html Page?</a
+                      >
+                    </li>
+                        <li class="list-group-item">
+                      <a href="/Class 9.2 Media Elements and iframes.html" class="text-decoration-none"
+                        >Class 9.2: Media Elements and iframes?</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 10 table and its design.html" class="text-decoration-none"
+                        >Class 10: How to create Tables and Design it?</a
+                      >
+                    </li>
+
+                <li class="list-group-item">
+                  <a href="/class 11 forms and introduction.html" class="text-decoration-none">
+                    Class 11: How to create forms and its intoduction?
+                  </a>
+                </li>
+                
+                 <li class="list-group-item">
+                  <a href="/class 12 HTML Semantic Tags.html" class="text-decoration-none">
+                    Class 12: HTML Semantic Tags
+                  </a>
+                </li>
+
+                  <li class="list-group-item">
+                  <a href="/class 13 Project Creating a Complete Webpage.html" class="text-decoration-none">
+                    Class 13: Cretaing a complete project Using Html
+                  </a>
+                </li>
+
+                 <li class="list-group-item">
+                  <a href="/class 14 Revision + Final Assignment.html" class="text-decoration-none">
+                    Class 14: Revision + Final Assignment
+                  </a>
+                </li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- CSS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="css-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <!-- JS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content">
+          <div class="video-section">
+            <div class="ratio ratio-16x9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/U1JvX-nYwsk?si=6o5q318gNTuU_a96" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+              <div class="ratio ratio-16x9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7nJN12cHyv8?si=ZKGjP8L6SvF4G5WC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="content-section">
+            <h2>Inserting Images and Icons in HTML</h2>
+            <p>
+              Adding <strong>images</strong> and <strong>icons</strong> is an important part of web design.  
+              Images help make your website more attractive, while icons improve user experience by representing actions or ideas visually.
+            </p>
+
+        <script src="app.js"></script>
+            <h4>🖼️ Inserting Images</h4>
+            <p>
+              You can use the <code>&lt;img&gt;</code> tag to insert an image into a webpage.  
+              This tag is self-closing and requires the <code>src</code> and <code>alt</code> attributes.
+            </p>
+
+            <div class="example-box">
+              <h6>Example:</h6>
+              <code>&lt;img src="images/photo.jpg" alt="Beautiful landscape" width="400" height="250"&gt;</code>
+            </div>
+
+            <ul>
+              <li><strong>src:</strong> The path of the image (local or URL).</li>
+              <li><strong>alt:</strong> Alternate text displayed if the image doesn’t load.</li>
+              <li><strong>width/height:</strong> Set image size in pixels or percentages.</li>
+            </ul>
+
+            <h4>🌐 Linking Images</h4>
+            <p>You can also make an image clickable by wrapping it inside an <code>&lt;a&gt;</code> tag:</p>
+            <div class="example-box">
+              <code>&lt;a href="index.html"&gt;<br>&nbsp;&nbsp;&lt;img src="logo.png" alt="Logo" width="100"&gt;<br>&lt;/a&gt;</code>
+            </div>
+
+            <h4>⭐ Inserting Icons</h4>
+            <p>
+              Icons are used to represent ideas and actions visually.  
+              You can add icons using services like <strong>Font Awesome</strong> or <strong>Bootstrap Icons</strong>.
+            </p>
+
+            <h5>Using Bootstrap Icons</h5>
+            <p>
+              Include this link in your <code>&lt;head&gt;</code> section:
+            </p>
+            <div class="example-box">
+              <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"&gt;</code>
+            </div>
+
+            <p>Then use icons like this:</p>
+            <div class="example-box">
+              <code>&lt;i class="bi bi-alarm"&gt;&lt;/i&gt; Alarm Icon</code>
+            </div>
+
+            <h5>Using Font Awesome</h5>
+            <p>Add this line in your <code>&lt;head&gt;</code>:</p>
+            <div class="example-box">
+              <code>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</code>
+            </div>
+            <p>Then use:</p>
+            <div class="example-box">
+              <code>&lt;i class="fa-solid fa-camera"&gt;&lt;/i&gt; Camera Icon</code>
+            </div>
+
+            <p>
+              You can customize icon color and size using CSS or inline styles:
+            </p>
+            <div class="example-box">
+              <code>&lt;i class="fa-solid fa-heart" style="color:red; font-size:30px;"&gt;&lt;/i&gt;</code>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+          <div class="container text-center my-5">
+  <a href="/class 8 Classes , Ids and bookmarks.html 6 Quotation and formatting.html 1 html.html" class="btn btn-secondary me-2">⬅ Previous</a>
+  <a href="/Class 9.2 Media Elements and iframes.html 8 Classes , Ids and bookmarks.html 3 Html structure.html" class="btn btn-primary">Next ➡</a>
+</div>
+
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4 w-100">
+      <div class="container-fluid">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Sidebar toggle (for small screens)
+      (function () {
+        const sidebar = document.querySelector('aside');
+        const toggle = document.getElementById('sidebarToggle');
+        const backdrop = document.getElementById('sidebarBackdrop');
+
+        function openSidebar() {
+          if (!sidebar) return;
+          sidebar.classList.add('open');
+          document.body.classList.add('sidebar-open');
+        }
+
+        function closeSidebar() {
+          if (!sidebar) return;
+          sidebar.classList.remove('open');
+          document.body.classList.remove('sidebar-open');
+        }
+
+        if (toggle) {
+          toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (sidebar.classList.contains('open')) closeSidebar();
+            else openSidebar();
+          });
+        }
+
+        // Close when clicking backdrop
+        if (backdrop) {
+          backdrop.addEventListener('click', closeSidebar);
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeSidebar();
+        });
+
+        // Ensure sidebar resets on resize to large screens
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 991) {
+            // remove off-canvas state
+            if (sidebar) sidebar.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
+          }
+        });
+      })();
+
+      // Search filter script
+      (function () {
+        const searchInput = document.getElementById("searchInput");
+        const listItems = document.querySelectorAll(".course-list .list-group-item");
+        if (!searchInput) return;
+        searchInput.addEventListener("keyup", function () {
+          let filter = searchInput.value.toLowerCase();
+          listItems.forEach((item) => {
+            let text = item.textContent.toLowerCase();
+            item.classList.toggle("hidden", !text.includes(filter));
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

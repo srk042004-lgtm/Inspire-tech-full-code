@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - Class 14: HTML Comprehensive Revision</title>
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Custom Styles (Incorporated from your project's shared CSS) -->
+    <style>
+      /* Global Reset and Navbar Specifics */
+      * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+      }
+
+      .navbar {
+        height: fit-content;
+        overflow: hidden;
+      }
+
+      .navbar h2 {
+        color: rgba(128, 2, 2, 0.616);
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(248, 224, 224, 0.26);
+        font-family: serif;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 20px;
+        font-family: Fira Sans, sans-serif;
+        font-size: 20px;
+      }
+
+      /* General Body and Layout */
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background-color: #f8fafc;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      /* Sidebar (Aside) Styling for Desktop */
+      aside {
+        position: sticky;
+        top: 56px;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+        border-right: 1px solid #dee2e6;
+        background: #f8f9fa;
+      }
+
+      /* Main Content Area */
+      .main-content {
+        margin-left: 0;
+        padding: 20px 40px;
+      }
+
+      /* Content Styling */
+      .video-section {
+        margin-top: 0 !important;
+        margin-bottom: 30px;
+      }
+      iframe {
+        border-radius: 12px;
+      }
+
+      .content-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-bottom: 30px; /* Added for section separation */
+      }
+
+      /* Hide the mobile toggle button by default */
+      #sidebarToggle {
+        display: none;
+      }
+
+      /* Hide list items when not matched (for search functionality) */
+      .list-group-item.hidden {
+        display: none;
+      }
+
+      /* --- Mobile Responsiveness (Max-width 580px) --- */
+      @media (max-width: 580px) {
+        aside {
+          position: fixed;
+          transform: translateX(-110%);
+          top: 56px;
+          width: 260px;
+          height: calc(100vh - 56px);
+          overflow-y: auto;
+          border-right: 1px solid #dee2e6;
+          background: #f8f9fa;
+          transition: transform 0.25s ease-in-out;
+          z-index: 1060;
+        }
+
+        aside.open {
+          transform: translateX(0);
+        }
+
+        .sidebar-backdrop {
+          display: none;
+        }
+
+        body.sidebar-open .sidebar-backdrop {
+          display: block;
+          position: fixed;
+          inset: 56px 0 0 0;
+          background: rgba(0, 0, 0, 0.45);
+          z-index: 1055;
+        }
+
+        .main-content {
+          margin-left: 0;
+          padding: 20px;
+        }
+
+        main,
+        .main-content,
+        .col-lg-9,
+        .col-md-8,
+        [class*="main-content"] {
+          margin-left: 0 !important;
+          width: 100% !important;
+        }
+
+        aside .accordion {
+          visibility: visible;
+        }
+
+        #sidebarToggle {
+          display: inline-block !important;
+        }
+      }
+
+      /* --- Content Specific Styling --- */
+      .content-card h1 {
+        letter-spacing: 0.4px;
+        line-height: 1.7;
+      }
+
+      .content-card h2,
+      .content-card h3,
+      .content-card h4,
+      .content-card h5 {
+        margin-top: 25px;
+        margin-bottom: 12px;
+      }
+
+      .content-card p {
+        margin-bottom: 15px;
+      }
+
+      .example-code {
+        background-color: #e9ecef;
+        border-left: 5px solid #0dcaf0; /* Cyan for revision */
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.9em;
+        font-family: monospace;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+
+      .example-code pre code {
+        font-size: 14px;
+        white-space: pre-wrap;
+        line-height: 1.6;
+      }
+
+      .exercise-box {
+        border: 2px solid #0dcaf0;
+        background-color: #f0f8ff;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+        box-shadow: 0 4px 6px rgba(0, 150, 200, 0.1);
+      }
+      .exercise-box h4 {
+        color: #0d6efd;
+        border-bottom: 1px dashed #0dcaf0;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+      .mistake-box {
+        background-color: #fff3f3;
+        border: 1px solid #dc3545;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container-fluid">
+        <!-- Sidebar toggle (visible on small screens) -->
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+        >
+          ☰
+        </button>
+
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Courses</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Backdrop for off-canvas sidebar -->
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar (3 Columns on Large Screens) -->
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light p-3">
+          <h5 class="fw-bold">HTML Full Course</h5>
+
+          <!-- Search bar -->
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control rounded-pill"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#htmlCourse"
+                  aria-expanded="true"
+                >
+                  HTML Modules (1-21)
+                </button>
+              </h2>
+              <div
+                id="htmlCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Class 1 html.html" class="text-decoration-none"
+                        >Class 1: Intro to HTML, CSS & JS</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 2 vs code.html"
+                        class="text-decoration-none"
+                        >Class 2: VS Code Installation</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 3 Html structure.html"
+                        class="text-decoration-none"
+                        >Class 3: Basic Website Structure</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 4 Paragraph and br.html"
+                        class="text-decoration-none"
+                        >Class 4: Paragraphs, HR & BR</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 5 Styling.html"
+                        class="text-decoration-none"
+                        >Class 5: Basic HTML Styling</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 6 Quotation and formatting.html"
+                        class="text-decoration-none"
+                        >Class 6: Quotation and Formatting</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 7 styling color.html"
+                        class="text-decoration-none"
+                        >Class 7: Styling Colors And Values</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 8 Classes , Ids and bookmarks.html"
+                        class="text-decoration-none"
+                        >Class 8: Classes, Ids And Bookmarks</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 9 inserting icons and images in html.html"
+                        class="text-decoration-none"
+                        >Class 9: Images and Icons</a
+                      >
+                    </li>
+                        <li class="list-group-item">
+                      <a href="/Class 9.2 Media Elements and iframes.html" class="text-decoration-none"
+                        >Class 9.2: Media Elements and iframes?</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 10 table and its design.html"
+                        class="text-decoration-none"
+                        >Class 10: Tables and Structure</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 11 forms and introduction.html"
+                        class="text-decoration-none"
+                        >Class 11/12: HTML Forms and Controls</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/class 12 HTML Semantic Tags.html"
+                        class="text-decoration-none"
+                      >
+                        Class 12: HTML Semantic Tags
+                      </a>
+                    </li>
+
+                    <li class="list-group-item">
+                      <a
+                        href="/class 13 Project Creating a Complete Webpage.html"
+                        class="text-decoration-none"
+                      >
+                        Class 13: Cretaing a complete project Using Html
+                      </a>
+                    </li>
+
+                    <li class="list-group-item">
+                      <a
+                        href="/class 14 Revision + Final Assignment.html"
+                        class="text-decoration-none"
+                      >
+                        Class 14: Revision + Final Assignment
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Courses -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/css-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                  >CSS Full Course</a
+                >
+              </h2>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/class 13 Form Designing (CSS Based).html"
+                  class="accordion-button collapsed text-decoration-none"
+                  >CSS Based Form Designing (Old Class 13)</a
+                >
+              </h2>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                  >JavaScript Full Course</a
+                >
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content (9 Columns on Large Screens) -->
+        <main class="col-lg-9 col-md-12 main-content py-4">
+          <section id="class14" class="content-card">
+            <h1 class="mb-4 text-info fw-bolder">
+              Class 14: HTML Comprehensive Revision and Practice
+              <i class="fas fa-redo-alt"></i>
+            </h1>
+
+            <p class="lead">
+              Mubarak ho! Aapne HTML ka aadha safar pura kar liya hai. Yeh class
+              pichle sabhi topics (Class 1 se 13 tak) ko mazboot karne ke liye
+              hai. Hum **core concepts** ko revise karenge aur complex web
+              structure banane ki practice karenge.
+            </p>
+
+            <!-- YouTube Video (Focus on Review) -->
+            <h2 class="h4 mt-4 mb-3">
+              Video Lesson: Quick HTML Review and Best Practices
+            </h2>
+            <div
+              class="ratio ratio-16x9 mb-5 shadow-lg rounded-3"
+              style="border: 5px solid #007bff"
+            >
+              <!-- Placeholder video related to HTML review and best practices -->
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/Ut4RpySLM6Y?si=_eJOzAJbIjhOkCDl"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <!-- --- -->
+            <hr class="my-5" />
+            <!-- --- -->
+
+            <!-- SECTION 1: Deep Dive Revision -->
+            <section id="deep-revision" class="mb-5">
+              <h2 class="fw-bold text-success">
+                1. Deep Dive Revision: Tags Aur Attributes
+              </h2>
+
+              <h3 class="h5 mt-4 text-secondary">
+                A. Core Structure & Metadata (Class 1, 3)
+              </h3>
+              <div class="example-code">
+                <p>
+                  Har page <code>&lt;!DOCTYPE html&gt;</code> se shuru hota hai.
+                  **Head** section mein metadata (`&lt;meta&gt;`) aur **Title**
+                  zaroori hain. **Body** tag mein poora visible content aata
+                  hai.
+                </p>
+                <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Practice Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Content Here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            </code></pre>
+              </div>
+
+              <h3 class="h5 mt-4 text-secondary">
+                B. Text Formatting and Quotations (Class 4, 6)
+              </h3>
+              <div class="example-code">
+                <p>
+                  Headings **H1** se **H6** tak hote hain (sirf ek H1 use karna
+                  best practice hai). Use **`&lt;strong&gt;`** for importance,
+                  **`&lt;em&gt;`** for emphasis. Quotations ke liye
+                  **`&lt;blockquote&gt;`** (long quote) aur **`&lt;q&gt;`**
+                  (inline quote) ka use karen.
+                </p>
+                <pre><code>
+&lt;h1&gt;Main Title of the Document&lt;/h1&gt;
+&lt;p&gt;This text is normal, but &lt;strong&gt;this part is important&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote cite="Source URL"&gt;
+    A long quotation goes here.
+&lt;/blockquote&gt;
+                            </code></pre>
+              </div>
+
+              <h3 class="h5 mt-4 text-secondary">
+                C. Links, Classes, aur IDs (Class 8)
+              </h3>
+              <div class="example-code">
+                <p>
+                  Links (`&lt;a&gt;`) mein **`href`** destination batata hai.
+                  **`target="_blank"`** se naye tab mein link khulta hai.
+                  **Classes** (`class="btn"`) styling ke liye, aur **IDs**
+                  (`id="section1"`) unique element identify karne ya
+                  **bookmarks** banane ke liye use hote hain.
+                </p>
+                <pre><code>
+&lt;a href="https://example.com" target="_blank"&gt;Visit Site&lt;/a&gt;
+&lt;a href="#contact-form"&gt;Jump to Contact&lt;/a&gt; &lt;!-- Bookmark --&gt;
+&lt;div id="contact-form" class="main-container"&gt;...&lt;/div&gt;
+                            </code></pre>
+              </div>
+
+              <h3 class="h5 mt-4 text-secondary">
+                D. Images and Icons (Class 9)
+              </h3>
+              <div class="example-code">
+                <p>
+                  Image tag **`&lt;img src="" alt=""&gt;`** self-closing hota
+                  hai. **`alt`** attribute screen readers aur jab image load na
+                  ho to zaroori hota hai. Icons ke liye Font Awesome ya SVG ka
+                  istemaal kar sakte hain.
+                </p>
+                <pre><code>
+&lt;img src="my-photo.jpg" alt="A professional portrait" width="300"&gt;
+&lt;i class="fas fa-star"&gt;&lt;/i&gt; &lt;!-- Font Awesome Icon --&gt;
+                            </code></pre>
+              </div>
+
+              <h3 class="h5 mt-4 text-secondary">E. Tables (Class 10)</h3>
+              <div class="example-code">
+                <p>
+                  Tables mein **`&lt;thead&gt;`**, **`&lt;tbody&gt;`**, aur
+                  **`&lt;tfoot&gt;`** structure dete hain. **`colspan`** aur
+                  **`rowspan`** se cells ko merge kiya jata hai.
+                </p>
+                <pre><code>
+&lt;table border="1"&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th colspan="2"&gt;Product Details&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Price&lt;/td&gt;&lt;td&gt;$50&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                            </code></pre>
+              </div>
+
+              <h3 class="h5 mt-4 text-secondary">
+                F. Forms and Input Controls (Class 11/12)
+              </h3>
+              <div class="example-code">
+                <p>
+                  Forms mein **`&lt;label&gt;`** hamesha **`&lt;input&gt;`** se
+                  `for` aur `id` attributes ke zariye link hona chahiye.
+                  Different **`type`** attributes (text, email, radio, password)
+                  use hote hain. **`required`** attribute se validation lagai
+                  jati hai.
+                </p>
+                <pre><code>
+&lt;form&gt;
+    &lt;label for="user_email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="user_email" required placeholder="Enter valid email"&gt;
+    &lt;input type="submit" value="Sign Up"&gt;
+&lt;/form&gt;
+                            </code></pre>
+              </div>
+            </section>
+
+            <!-- --- -->
+            <hr class="my-5" />
+            <!-- --- -->
+
+            <!-- SECTION 2: Practice Challenge 1 -->
+            <section id="practice-challenge-1" class="mb-5">
+              <h2 class="fw-bold text-primary">
+                2. Practice Challenge 1: E-commerce Product Card
+              </h2>
+              <p>
+                Aapko ek single **E-commerce Product Detail Card** banana hai jo
+                neeche diye gaye sabhi elements ko combine karega:
+              </p>
+
+              <div class="exercise-box">
+                <h4>
+                  <i class="fas fa-shopping-bag me-2"></i>Task: Product Detail
+                  Page Skeleton
+                </h4>
+                <ol>
+                  <li>
+                    **Heading:** Product ka naam (`&lt;h1&gt;`) aur brief
+                    description (`&lt;p&gt;`).
+                  </li>
+                  <li>
+                    **Image & Caption:** Product ki ek image (`&lt;img&gt;`) use
+                    karen. Image ke neeche image ka naam **bold** karke likhen.
+                  </li>
+                  <li>
+                    **Features Table:** Product features ke liye ek table
+                    banayein (e.g., Colour, Warranty, Delivery Time). Delivery
+                    Time ke liye `colspan` use karen.
+                  </li>
+                  <li>
+                    **Order Form:** Ek chota form jismein sirf **Quantity**
+                    (`type="number"`) aur **Add to Cart** (`type="submit"`)
+                    button ho.
+                  </li>
+                  <li>
+                    **Internal Link:** Table ke upar ek internal bookmark link
+                    dein jo form tak jump kare.
+                  </li>
+                </ol>
+                <p class="text-danger mt-3">
+                  **Goal:** Code mein <code>class</code> attributes ka istemaal
+                  zaroor karen taki woh aage styling ke liye ready ho.
+                </p>
+              </div>
+            </section>
+
+            <!-- SECTION 3: Practice Challenge 2 -->
+            <section id="practice-challenge-2" class="mb-5">
+              <h2 class="fw-bold text-primary">
+                3. Practice Challenge 2: Detailed Feedback Form
+              </h2>
+              <p>
+                Aapko ek detailed feedback form banana hai. Yeh form forms,
+                links, aur formatting ko acchi tarah use karega.
+              </p>
+
+              <div class="exercise-box">
+                <h4>
+                  <i class="fas fa-comments me-2"></i>Task: Advanced Feedback
+                  Form
+                </h4>
+                <ol>
+                  <li>
+                    **Personal Info:** Full Name (`text`), Email (`email` -
+                    required), Password (`password`), Aur Phone Number (`tel` -
+                    `placeholder` use karen).
+                  </li>
+                  <li>
+                    **Rating:** Ek question banayein: "How was your experience?"
+                    Aur teen options dein: Excellent, Average, Poor (use
+                    **`type="radio"`** aur har input ka `name` same hona
+                    chahiye).
+                  </li>
+                  <li>
+                    **Checkboxes:** Ek question banayein: "Which topics should
+                    we cover next?" Aur teen options dein: HTML Forms, CSS
+                    Basics, JS Basics (use **`type="checkbox"`**).
+                  </li>
+                  <li>
+                    **External Link:** Form ke neeche ek link dein jo "Privacy
+                    Policy" page par jaye (`target="_blank"`).
+                  </li>
+                  <li>**Submit Button:** Ek submit button dein.</li>
+                </ol>
+                <p class="text-danger mt-3">
+                  **Goal:** Har input ko uske corresponding **`&lt;label&gt;`**
+                  tag ke saath zaroor jodein (using `for` and `id`).
+                </p>
+              </div>
+            </section>
+
+            <!-- SECTION 4: Common Mistakes -->
+            <section id="common-mistakes" class="mb-5">
+              <h2 class="fw-bold text-danger">
+                4. Common Mistakes Aur Unka Hal
+              </h2>
+
+              <div class="mistake-box">
+                <h4 class="text-danger h6">Mistake 1: Missing Closing Tags</h4>
+                <p>
+                  **Galti:** `&lt;p&gt;This is a paragraph.` (Closing
+                  `&lt;/p&gt;` bhool jana). **Sahi Hal:** Hamesha closing tag
+                  use karen. **VS Code** auto-closing tags mein madad karta hai.
+                </p>
+              </div>
+              <div class="mistake-box">
+                <h4 class="text-danger h6">
+                  Mistake 2: Missing `alt` Attribute in Images
+                </h4>
+                <p>
+                  **Galti:** `&lt;img src="logo.png"&gt;` **Sahi Hal:** `alt`
+                  attribute bahut zaroori hai. `&lt;img src="logo.png"
+                  alt="Company Logo"&gt;`
+                </p>
+              </div>
+              <div class="mistake-box">
+                <h4 class="text-danger h6">
+                  Mistake 3: Incorrectly Linking Label and Input
+                </h4>
+                <p>
+                  **Galti:** `&lt;label&gt;Name&lt;/label&gt; &lt;input
+                  type="text" id="name"&gt;` (Label mein `for` missing hai).
+                  **Sahi Hal:** `&lt;label for="full_name"&gt;Name&lt;/label&gt;
+                  &lt;input type="text" id="full_name"&gt;` (`for` aur `id`
+                  match hone chahiye).
+                </p>
+              </div>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+
+          <div class="container text-center my-5">
+  <a href="/class 13 Project Creating a Complete Webpage.html 6 Quotation and formatting.html 1 html.html" class="btn btn-secondary me-2">⬅ Previous</a>
+  <a href="/Class 1 html.html 8 Classes , Ids and bookmarks.html 3 Html structure.html" class="btn btn-primary">Next ➡</a>
+</div>
+
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-light py-4 mt-4 w-100">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <!-- Institute Info -->
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold">Inspire Tech Institute</h5>
+            <p class="mb-1">📍 Nowshera, Pakistan</p>
+            <p class="mb-0">📞 0346-2345453</p>
+            <p class="mb-0">✉ info@inspiretech.com</p>
+          </div>
+          <!-- Quick Links -->
+          <div class="col-md-4 mb-3">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="/index.html" class="text-light text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="/about.html" class="text-light text-decoration-none"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">Courses</a>
+              </li>
+              <li>
+                <a href="#contact" class="text-light text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Social Media -->
+          <div class="col-md-4 mb-3 text-md-end text-center">
+            <h5 class="fw-bold">Follow Us</h5>
+            <a href="#" class="text-light me-3 text-decoration-none"
+              >Facebook</a
+            >
+            <a href="#" class="text-light me-3 text-decoration-none"
+              >Instagram</a
+            >
+            <a href="#" class="text-light text-decoration-none">YouTube</a>
+          </div>
+        </div>
+        <hr class="border-light" />
+        <div class="text-center small">
+          © 2025 Inspire Tech Institute — All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // --- Sidebar Toggle for Mobile Responsiveness (Uses custom CSS classes) ---
+      const sidebar = document.getElementById("sidebar");
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
+      sidebarToggle.addEventListener("click", () => {
+        // Toggle 'open' class on the sidebar (aside) element
+        sidebar.classList.toggle("open");
+        // Toggle 'sidebar-open' class on the body to show the backdrop and prevent scrolling
+        document.body.classList.toggle("sidebar-open");
+      });
+
+      // Close sidebar when backdrop is clicked (on mobile)
+      sidebarBackdrop.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+        document.body.classList.remove("sidebar-open");
+      });
+
+      // --- Search Filter Functionality ---
+      const searchInput = document.getElementById("searchInput");
+      const listItems = document.querySelectorAll(
+        ".course-list .list-group-item"
+      );
+
+      searchInput.addEventListener("keyup", function () {
+        let filter = searchInput.value.toLowerCase();
+        listItems.forEach((item) => {
+          let text = item.textContent.toLowerCase();
+          // Toggle 'hidden' class based on whether the text includes the filter
+          item.classList.toggle("hidden", !text.includes(filter));
+        });
+      });
+    </script>
+  </body>
+</html>

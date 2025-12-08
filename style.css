@@ -1,0 +1,150 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.navbar{
+    height: fit-content;
+    overflow: hidden;
+}
+
+.navbar h2{
+    color: rgba(128, 2, 2, 0.616);
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(248, 224, 224, 0.26);
+    font-family: serif;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 20px;
+    font-family: Fira Sans, sans-serif;
+    font-size: 20px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+aside {
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    border-right: 1px solid #dee2e6;
+    background: #f8f9fa;
+}
+
+.main-content {
+    margin-left: 0;
+    padding: 20px 40px;
+}
+
+.video-section { margin-top: 0 !important; margin-bottom: 30px; }
+iframe { border-radius: 12px; }
+
+.content-section {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+#sidebarToggle { display: none; }
+
+@media (max-width: 580px) {
+    aside {
+        position: fixed;
+        transform: translateX(-110%);
+        top: 56px;
+        width: 260px;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+        border-right: 1px solid #dee2e6;
+        background: #f8f9fa;
+        transition: transform 0.25s ease-in-out;
+        z-index: 1060;
+    }
+
+    aside.open { transform: translateX(0); }
+
+    .sidebar-backdrop { display: none; }
+
+    body.sidebar-open .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 56px 0 0 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1055;
+    }
+
+    .main-content { margin-left: 0; padding: 20px; }
+
+    main, .main-content, .col-lg-9, .col-md-8, [class*="main-content"] {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    aside .accordion {
+        visibility: visible;
+    }
+
+    #sidebarToggle { display: inline-block !important; }
+}
+/* Better text readability */
+#form-intro {
+  letter-spacing: 0.4px;
+  line-height: 1.7;
+}
+
+/* Spacing between headings and paragraphs */
+#form-intro h2,
+#form-intro h3,
+#form-intro h4,
+#form-intro h5 {
+  margin-top: 25px;
+  margin-bottom: 12px;
+}
+
+/* Paragraph spacing */
+#form-intro p {
+  margin-bottom: 15px;
+}
+
+/* List spacing */
+#form-intro ul li {
+  margin-bottom: 8px;
+}
+
+/* Example box styling */
+.example-box {
+  background: #f8f9fa;
+  border-left: 4px solid #0d6efd;
+  padding: 12px 15px;
+  margin: 15px 0;
+  border-radius: 6px;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+/* Code styling */
+#form-intro code {
+  font-size: 14px;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+/* Improve line breaking */
+#form-intro br {
+  line-height: 1.3;
+}
+
+

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - HTML Course</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+  <!-- Sidebar toggle (visible on very small screens) -->
+  <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Backdrop for off-canvas sidebar (shown on small screens when sidebar opens) -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <aside id="sidebar" 
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3"
+        >
+          <h5 class="fw-bold">Courses</h5>
+
+          <!-- Search bar -->
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <!-- HTML Course (This Page) -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#htmlCourse"
+                  aria-expanded="true"
+                >
+                  HTML Full Course
+                </button>
+              </h2>
+              <div
+                id="htmlCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                    <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Class 1 html.html" class="text-decoration-none"
+                        >Class 1: Introduction to Html , Css And Javascript
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 2 vs code.html" class="text-decoration-none"
+                        >Class 2: How to Download And Install Vs code</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 3 Html structure.html" class="text-decoration-none"
+                        >Class 3: Basic Structure of a website</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 4 Paragraph and br.html" class="text-decoration-none"
+                        >Class 4: Html paragraph , Horizontal Rule And Br rule</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 5 Styling.html" class="text-decoration-none"
+                        >Class 5: Html Styling</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 6 Quotation and formatting.html" class="text-decoration-none"
+                        >Class 6: Quotation and Formatting</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 7 styling color.html" class="text-decoration-none"
+                        >Class 7: Styling Colors And its Values</a
+                      >
+                    </li>
+                     </li>
+                    <li class="list-group-item">
+                      <a href="/class 8 Classes , Ids and bookmarks.html" class="text-decoration-none"
+                        >Class 8: HTML Classes , Ids And Bookmarks</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 9 inserting icons and images in html.html" class="text-decoration-none"
+                        >Class 9: How to insert images and Icons In Html Page?</a
+                      >
+                    </li>
+                        <li class="list-group-item">
+                      <a href="/Class 9.2 Media Elements and iframes.html" class="text-decoration-none"
+                        >Class 9.2: Media Elements and iframes?</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/class 10 table and its design.html" class="text-decoration-none"
+                        >Class 10: How to create Tables and Design it?</a
+                      >
+                    </li>
+
+                <li class="list-group-item">
+                  <a href="/class 11 forms and introduction.html" class="text-decoration-none">
+                    Class 11: How to create forms and its intoduction?
+                  </a>
+                </li>
+                
+                 <li class="list-group-item">
+                  <a href="/class 12 HTML Semantic Tags.html" class="text-decoration-none">
+                    Class 12: HTML Semantic Tags
+                  </a>
+                </li>
+
+              <li class="list-group-item">
+                  <a href="/class 13 Project Creating a Complete Webpage.html" class="text-decoration-none">
+                    Class 13: Cretaing a complete project Using Html
+                  </a>
+                </li>
+
+                 <li class="list-group-item">
+                  <a href="/class 14 Revision + Final Assignment.html" class="text-decoration-none">
+                    Class 14: Revision + Final Assignment
+                  </a>
+                </li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+                  <!-- CSS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="css-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <!-- JS Course -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+
+
+        <!-- Right Content -->
+        <main class="col-md-9 p-0">
+          <!-- =========================
+                Video Section
+          ========================= -->
+          <section class="video-wrapper mb-5">
+            <div class="video-section ratio ratio-16x9 mb-3">
+              <iframe
+                src="https://www.youtube.com/embed/UB1O30fR-EE"
+                title="HTML Paragraph and Line Break Tutorial"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h2 class="text-center fw-bold text-primary">
+              📖 HTML Paragraph, Line Break & Horizontal Rule
+            </h2>
+            <p class="text-center text-muted">
+              Learn how to structure text content using simple but powerful tags.
+            </p>
+          </section>
+
+          <!-- Paragraph Tag -->
+          <div class="card shadow-sm border-0 mb-4 mx-3">
+            <div class="card-body">
+              <h4 class="text-success mb-3">📝 1️⃣ Paragraph Tag &lt;p&gt;</h4>
+              <p>
+                The <code>&lt;p&gt;</code> tag defines a block of text known as a
+                paragraph. Browsers automatically add space before and after it.
+              </p>
+
+              <pre>
+&lt;p&gt;This is my first paragraph.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt;
+              </pre>
+
+              <div class="bg-white border p-3 rounded mt-3">
+                <p>This is my first paragraph.</p>
+                <p>This is another paragraph.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Line Break Tag -->
+          <div class="card shadow-sm border-0 mb-4 mx-3">
+            <div class="card-body">
+              <h4 class="text-success mb-3">🔹 2️⃣ Line Break Tag &lt;br&gt;</h4>
+              <p>
+                The <code>&lt;br&gt;</code> tag is used to break a line inside a
+                paragraph or text block. It is an empty tag (no closing tag).
+              </p>
+
+              <pre>
+&lt;p&gt;This is a line.&lt;br&gt;This is another line after break.&lt;/p&gt;
+              </pre>
+
+              <div class="bg-white border p-3 rounded mt-3">
+                <p>This is a line.<br />This is another line after break.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Horizontal Rule Tag -->
+          <div class="card shadow-sm border-0 mb-4 mx-3">
+            <div class="card-body">
+              <h4 class="text-success mb-3">➖ 3️⃣ Horizontal Rule Tag &lt;hr&gt;</h4>
+              <p>
+                The <code>&lt;hr&gt;</code> tag inserts a horizontal line that divides
+                content sections. It’s often used for visual separation.
+              </p>
+
+              <pre>
+&lt;h2&gt;About Us&lt;/h2&gt;
+&lt;p&gt;We are learning HTML.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Contact Us&lt;/h2&gt;
+&lt;p&gt;Email: info@example.com&lt;/p&gt;
+              </pre>
+
+              <div class="bg-white border p-3 rounded mt-3">
+                <h2>About Us</h2>
+                <p>We are learning HTML.</p>
+                <hr />
+                <h2>Contact Us</h2>
+                <p>Email: info@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practice Section -->
+          <div class="card border-0 shadow-sm mx-3 mb-5">
+            <div class="card-header bg-dark text-white fw-bold">
+              🧠 Practice Task: Try It Yourself
+            </div>
+            <div class="card-body">
+              <p>Create a webpage using all the tags you learned:</p>
+              <ul class="list-group mb-3">
+                <li class="list-group-item">Use at least 2 paragraphs.</li>
+                <li class="list-group-item">Add a line break with &lt;br&gt;.</li>
+                <li class="list-group-item">
+                  Separate sections with a horizontal rule &lt;hr&gt;.
+                </li>
+              </ul>
+              <div class="bg-light p-3 rounded">
+                <pre class="mb-0">
+&lt;h1&gt;My Webpage&lt;/h1&gt;
+&lt;p&gt;Welcome to my HTML lesson.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I love coding.&lt;br&gt;I also enjoy teaching.&lt;/p&gt;
+                </pre>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div class="container text-center my-5">
+  <a href="/class 3 Html structure.html 1 html.html" class="btn btn-secondary me-2">⬅ Previous</a>
+  <a href="/class 5 Styling.html" class="btn btn-primary">Next ➡</a>
+</div>
+
+
+
+         <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Search filter script -->
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const listItems = document.querySelectorAll(
+        ".course-list .list-group-item"
+      );
+
+      searchInput.addEventListener("keyup", function () {
+        let filter = searchInput.value.toLowerCase();
+        listItems.forEach((item) => {
+          let text = item.textContent.toLowerCase();
+          item.classList.toggle("hidden", !text.includes(filter));
+        });
+      });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
