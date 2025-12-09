@@ -3,12 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Inspire Tech Academy - CSS Class 7: Pseudo-classes, Tooltips & Hover Effects</title>
+    <title>
+      Inspire Tech Academy - CSS Class 7: Pseudo-classes, Tooltips & Hover
+      Effects
+    </title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
       /* Hide list items when not matched */
       .list-group-item.hidden {
@@ -58,9 +61,24 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
       <div class="container">
-        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
-        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
@@ -81,26 +99,37 @@
         </div>
       </div>
     </nav>
-    
+
     <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
 
     <div class="container-fluid">
       <div class="row">
-        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+        <aside
+          id="sidebar"
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar"
+        >
           <h5 class="fw-bold">Courses</h5>
           <div class="mb-3">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
           </div>
 
           <div class="accordion" id="coursesAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                <a
+                  href="/Class 1 html.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
                   HTML Full Course
                 </a>
               </h2>
             </div>
-            
+
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button
@@ -113,76 +142,122 @@
                   CSS Full Course
                 </button>
               </h2>
-              <div id="cssCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+              <div
+                id="cssCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
                 <div class="accordion-body p-0">
                   <ul class="list-group list-group-flush course-list">
                     <li class="list-group-item">
-                      <a href="/Css Class 1 Syntax.html" class="text-decoration-none">
+                      <a
+                        href="/Css Class 1 Syntax.html"
+                        class="text-decoration-none"
+                      >
                         Class 1: Introduction, Syntax & Selectors
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 2 border background margin.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 2 border background margin.html"
+                        class="text-decoration-none"
+                      >
                         Class 2: Css border background margin And Padding
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 3 text align transform and outline.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 3 text align transform and outline.html"
+                        class="text-decoration-none"
+                      >
                         Class 3: Text Alignment, Transformations & Outlines
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 4 fonts liststyle overflow icons.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 4 fonts liststyle overflow icons.html"
+                        class="text-decoration-none"
+                      >
                         Class 4: Fonts, List Styles, Overflow & Icons
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 5 Table & display design and properties.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 5 Table & display design and properties.html"
+                        class="text-decoration-none"
+                      >
                         Class 5: Table & Display Property & Design Properties
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 6 position selector and float .html" class="text-decoration-none">
+                      <a
+                        href="/Css class 6 position selector and float .html"
+                        class="text-decoration-none"
+                      >
                         Class 6: Positioning, Advanced Selectors & Float
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="text-decoration-none active-link">
+                      <a
+                        href="/Css Class 7 Pseudo tooltip hover before and after.html"
+                        class="text-decoration-none active-link"
+                      >
                         Class 7: Pseudo-classes, Tooltips & Hover Effects
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 8 navbar design and position.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 8 navbar design and position.html"
+                        class="text-decoration-none"
+                      >
                         Class 8: Navbar Design & Positioning
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 9 creating a school time table.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 9 creating a school time table.html"
+                        class="text-decoration-none"
+                      >
                         Class 9: Creating a School Timetable
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 10 dropdown creation.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 10 dropdown creation.html"
+                        class="text-decoration-none"
+                      >
                         Class 10: Dropdown Creation
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 11 responsive input form.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 11 responsive input form.html"
+                        class="text-decoration-none"
+                      >
                         Class 11: Responsive Input Form
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 12 Responsive image gallery.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 12 Responsive image gallery.html"
+                        class="text-decoration-none"
+                      >
                         Class 12: Responsive Image Gallery
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 13 full Css revision.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 13 full Css revision.html"
+                        class="text-decoration-none"
+                      >
                         Class 13: Full CSS Revision
                       </a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/Css class 14 Excercise & test.html" class="text-decoration-none">
+                      <a
+                        href="/Css class 14 Excercise & test.html"
+                        class="text-decoration-none"
+                      >
                         Class 14: Exercise & Test
                       </a>
                     </li>
@@ -193,7 +268,10 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <a href="js-course.html" class="accordion-button collapsed text-decoration-none">
+                <a
+                  href="js-course.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
                   JavaScript Full Course
                 </a>
               </h2>
@@ -202,57 +280,95 @@
         </aside>
 
         <main class="col-lg-9 col-md-8 main-content p-4">
+          <section id="css7-main" class="mb-5">
+            <div class="card shadow-lg border-0">
+              <div class="card-body">
+                <h3 class="fw-bold mb-3 text-primary">
+                  ✨ Class 7: Pseudo-classes, Tooltips & Hover Effects
+                </h3>
 
-            <section id="css7-main" class="mb-5">
-                <div class="card shadow-lg border-0">
-                    <div class="card-body">
-                        <h3 class="fw-bold mb-3 text-primary">
-                            ✨ Class 7: Pseudo-classes, Tooltips & Hover Effects
-                        </h3>
+                <div
+                  class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1"
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/sNOFUvAR5pk?si=acdFx6pmWv41nhyx"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
 
-                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
-                            <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_CSS_CLASS_7_MAIN" title="CSS Pseudo-classes, Tooltips and Hover Effects Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
-                                <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR MAIN VIDEO EMBED**</p>
-                            </iframe>
-                        </div>
+                <p>
+                  In this crucial class, we move beyond static styling and
+                  introduce **dynamic CSS**. We will learn how to apply styles
+                  based on an element's **state** (Pseudo-classes) or
+                  **position** (Pseudo-elements), and use these concepts to
+                  build interactive features like **tooltips** and **advanced
+                  hover effects**.
+                </p>
 
-                        <p>
-                            In this crucial class, we move beyond static styling and introduce **dynamic CSS**. We will learn how to apply styles based on an element's **state** (Pseudo-classes) or **position** (Pseudo-elements), and use these concepts to build interactive features like **tooltips** and **advanced hover effects**.
-                        </p>
-                        
-                        <hr>
-                        
-                        <div id="pseudo-classes" class="my-4">
-                            <h4 class="fw-bold text-success mb-3">🖱️ Pseudo-classes (`:`) - Styling Element States</h4>
-                            
-                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
-                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_PSEUDO_CLASSES" title="CSS Pseudo-classes Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
-                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR PSEUDO-CLASSES VIDEO EMBED**</p>
-                                </iframe>
-                            </div>
-                            
-                            <p>
-                                A **Pseudo-class** is used to define a special state of an element. It starts with a single colon (`:`). They are essential for user interaction and dynamic lists.
-                            </p>
-                            <h6 class="fw-bold text-secondary">Common Interactive Pseudo-classes:</h6>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">**`:hover`**: Applies styles when the user's mouse pointer is over the element (used for buttons, links, etc.).</li>
-                                <li class="list-group-item">**`:active`**: Applies styles when the element is being clicked.</li>
-                                <li class="list-group-item">**`:focus`**: Applies styles when an element (like an input field or button) has received focus, typically via clicking or tabbing.</li>
-                                <li class="list-group-item">**Link Pseudo-classes (L-V-H-A)**:
-                                    <ul>
-                                        <li>**`:link`**: Unvisited link.</li>
-                                        <li>**`:visited`**: Visited link.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <h6 class="fw-bold text-secondary mt-3">Structural Pseudo-classes (Targeting Position):</h6>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">**`:first-child`**: Targets the element if it is the first child of its parent.</li>
-                                <li class="list-group-item">**`:last-child`**: Targets the element if it is the last child of its parent.</li>
-                                <li class="list-group-item">**`:nth-child(n)`**: Targets children based on a formula (e.g., `(even)` or `(2n+1)` for odd, often used for zebra-striping).</li>
-                            </ul>
-                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+                <hr />
+
+                <div id="pseudo-classes" class="my-4">
+                  <h4 class="fw-bold text-success mb-3">
+                    🖱️ Pseudo-classes (`:`) - Styling Element States
+                  </h4>
+
+                  
+
+                  <p>
+                    A **Pseudo-class** is used to define a special state of an
+                    element. It starts with a single colon (`:`). They are
+                    essential for user interaction and dynamic lists.
+                  </p>
+                  <h6 class="fw-bold text-secondary">
+                    Common Interactive Pseudo-classes:
+                  </h6>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      **`:hover`**: Applies styles when the user's mouse pointer
+                      is over the element (used for buttons, links, etc.).
+                    </li>
+                    <li class="list-group-item">
+                      **`:active`**: Applies styles when the element is being
+                      clicked.
+                    </li>
+                    <li class="list-group-item">
+                      **`:focus`**: Applies styles when an element (like an
+                      input field or button) has received focus, typically via
+                      clicking or tabbing.
+                    </li>
+                    <li class="list-group-item">
+                      **Link Pseudo-classes (L-V-H-A)**:
+                      <ul>
+                        <li>**`:link`**: Unvisited link.</li>
+                        <li>**`:visited`**: Visited link.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <h6 class="fw-bold text-secondary mt-3">
+                    Structural Pseudo-classes (Targeting Position):
+                  </h6>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      **`:first-child`**: Targets the element if it is the first
+                      child of its parent.
+                    </li>
+                    <li class="list-group-item">
+                      **`:last-child`**: Targets the element if it is the last
+                      child of its parent.
+                    </li>
+                    <li class="list-group-item">
+                      **`:nth-child(n)`**: Targets children based on a formula
+                      (e.g., `(even)` or `(2n+1)` for odd, often used for
+                      zebra-striping).
+                    </li>
+                  </ul>
+                  <pre class="bg-dark text-white p-2 rounded mt-3"><code>
 /* Changes button color when mouse hovers over it */
 button:hover {
   background-color: #0056b3;
@@ -263,34 +379,49 @@ li:nth-child(3n) {
   border-bottom: 2px dashed #ccc;
 }
                             </code></pre>
-                            
-                        </div>
-                        
-                        <hr>
+                </div>
 
-                        <div id="pseudo-elements" class="my-4">
-                            <h4 class="fw-bold text-success mb-3">✍️ Pseudo-elements (`::`) - Adding Content</h4>
-                            
-                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
-                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_PSEUDO_ELEMENTS" title="CSS Before and After Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
-                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR PSEUDO-ELEMENTS VIDEO EMBED**</p>
-                                </iframe>
-                            </div>
-                            
-                            <p>
-                                A **Pseudo-element** is used to style a specific part of an element. It starts with a double colon (`::`). The two most powerful are `::before` and `::after`, which allow you to insert entirely new content *without* adding extra HTML.
-                            </p>
-                            <h6 class="fw-bold text-secondary">Key Pseudo-elements:</h6>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">**`::before`**: Inserts content before the content of the selected element.</li>
-                                <li class="list-group-item">**`::after`**: Inserts content after the content of the selected element.</li>
-                                <li class="list-group-item">**`::first-line`**: Styles the first line of an element's text.</li>
-                                <li class="list-group-item">**`::selection`**: Styles the portion of an element that is selected by the user (highlighted).</li>
-                            </ul>
-                            <div class="alert alert-info mt-3">
-                                **Note on `::before` and `::after`:** To make these visible, you **must** include the `content` property, even if it's set to an empty string (`content: "";`). They are typically used for decorative elements, icons, or clear fixes.
-                            </div>
-                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+                <hr />
+
+                <div id="pseudo-elements" class="my-4">
+                  <h4 class="fw-bold text-success mb-3">
+                    ✍️ Pseudo-elements (`::`) - Adding Content
+                  </h4>
+
+                  
+
+                  <p>
+                    A **Pseudo-element** is used to style a specific part of an
+                    element. It starts with a double colon (`::`). The two most
+                    powerful are `::before` and `::after`, which allow you to
+                    insert entirely new content *without* adding extra HTML.
+                  </p>
+                  <h6 class="fw-bold text-secondary">Key Pseudo-elements:</h6>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      **`::before`**: Inserts content before the content of the
+                      selected element.
+                    </li>
+                    <li class="list-group-item">
+                      **`::after`**: Inserts content after the content of the
+                      selected element.
+                    </li>
+                    <li class="list-group-item">
+                      **`::first-line`**: Styles the first line of an element's
+                      text.
+                    </li>
+                    <li class="list-group-item">
+                      **`::selection`**: Styles the portion of an element that
+                      is selected by the user (highlighted).
+                    </li>
+                  </ul>
+                  <div class="alert alert-info mt-3">
+                    **Note on `::before` and `::after`:** To make these visible,
+                    you **must** include the `content` property, even if it's
+                    set to an empty string (`content: "";`). They are typically
+                    used for decorative elements, icons, or clear fixes.
+                  </div>
+                  <pre class="bg-dark text-white p-2 rounded mt-3"><code>
 /* Example: Adding a decorative dash before a heading */
 h4::before {
   content: "— ";
@@ -308,43 +439,66 @@ h4::before {
   height: 100%;
 }
                             </code></pre>
-                            
-                        </div>
-                        
-                        <hr>
+                </div>
 
-                        <div id="tooltips-and-hover" class="my-4">
-                            <h4 class="fw-bold text-success mb-3">💡 Creating Tooltips and Custom Hover Effects</h4>
-                            
-                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
-                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_TOOLTIPS" title="CSS Tooltips and Hover Effects Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
-                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR TOOLTIPS & HOVER VIDEO EMBED**</p>
-                                </iframe>
-                            </div>
+                <hr />
 
-                            <p>
-                                Combining **`:hover`** (a pseudo-class) and **`::after`** (a pseudo-element) is the classic pure-CSS method for creating stylish tooltips.
-                            </p>
-                            
-                            <h6 class="fw-bold text-secondary">Tooltip Implementation Steps:</h6>
-                            <ol>
-                                <li>Set the main container (e.g., a `span` or `div`) to **`position: relative;`**.</li>
-                                <li>Use the **`::after`** pseudo-element to hold the tooltip text/box.</li>
-                                <li>Set the `::after` element to **`position: absolute;`** to take it out of the flow.</li>
-                                <li>By default, set the `::after` element to `visibility: hidden;` and `opacity: 0;`.</li>
-                                <li>Use the **`:hover`** pseudo-class on the container to change the `visibility` and `opacity` to show the tooltip.</li>
-                            </ol>
-                            
-                            <div class="tooltip-container">
-                                Hover over me for a tip!
-                                <span class="tooltip-text">I'm a pure CSS tooltip!</span>
-                            </div>
+                <div id="tooltips-and-hover" class="my-4">
+                  <h4 class="fw-bold text-success mb-3">
+                    💡 Creating Tooltips and Custom Hover Effects
+                  </h4>
 
-                            <h6 class="fw-bold text-secondary mt-3">Creating Smooth Hover Effects:</h6>
-                            <p>
-                                To make transitions between states look professional (e.g., button color changing smoothly), always use the **`transition`** property.
-                            </p>
-                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+                  <div
+                    class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1"
+                  >
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/m8XBAUg5I3I?si=0hbz9NgLkVFy8VqL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                  <p>
+                    Combining **`:hover`** (a pseudo-class) and **`::after`** (a
+                    pseudo-element) is the classic pure-CSS method for creating
+                    stylish tooltips.
+                  </p>
+
+                  <h6 class="fw-bold text-secondary">
+                    Tooltip Implementation Steps:
+                  </h6>
+                  <ol>
+                    <li>
+                      Set the main container (e.g., a `span` or `div`) to
+                      **`position: relative;`**.
+                    </li>
+                    <li>
+                      Use the **`::after`** pseudo-element to hold the tooltip
+                      text/box.
+                    </li>
+                    <li>
+                      Set the `::after` element to **`position: absolute;`** to
+                      take it out of the flow.
+                    </li>
+                    <li>
+                      By default, set the `::after` element to `visibility:
+                      hidden;` and `opacity: 0;`.
+                    </li>
+                    <li>
+                      Use the **`:hover`** pseudo-class on the container to
+                      change the `visibility` and `opacity` to show the tooltip.
+                    </li>
+                  </ol>
+
+                  <div class="tooltip-container">
+                    Hover over me for a tip!
+                    <span class="tooltip-text">I'm a pure CSS tooltip!</span>
+                  </div>
+
+                  <h6 class="fw-bold text-secondary mt-3">
+                    Creating Smooth Hover Effects:
+                  </h6>
+                  <p>
+                    To make transitions between states look professional (e.g.,
+                    button color changing smoothly), always use the
+                    **`transition`** property.
+                  </p>
+                  <pre class="bg-dark text-white p-2 rounded mt-3"><code>
 .button-effect {
   background-color: #0d6efd;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -355,16 +509,23 @@ h4::before {
   transform: translateY(-2px); /* Slight lift effect */
 }
                             </code></pre>
-                        </div>
-                    </div>
                 </div>
-            </section>
-
-            <div class="container text-center my-5">
-                <a href="/Css class 6 position selector and float .html" class="btn btn-secondary me-2">⬅ Previous Class</a>
-                <a href="/Css class 8 navbar design and position.html" class="btn btn-primary">Next Class ➡</a>
+              </div>
             </div>
+          </section>
 
+          <div class="container text-center my-5">
+            <a
+              href="/Css class 6 position selector and float .html"
+              class="btn btn-secondary me-2"
+              >⬅ Previous Class</a
+            >
+            <a
+              href="/Css class 8 navbar design and position.html"
+              class="btn btn-primary"
+              >Next Class ➡</a
+            >
+          </div>
         </main>
       </div>
     </div>

@@ -171,3 +171,31 @@
   }
 
 })();
+// --- Code for app.js (or in a <script> tag) ---
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+    const body = document.body;
+
+    // 1. Toggle the sidebar when the button is clicked
+    sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+        body.classList.toggle('sidebar-open');
+    });
+
+    // 2. Close the sidebar when the backdrop is clicked (on mobile)
+    sidebarBackdrop.addEventListener('click', function() {
+        sidebar.classList.remove('open');
+        body.classList.remove('sidebar-open');
+    });
+
+    // Optional: Auto-close sidebar if screen size changes from mobile to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) { // Based on Bootstrap's 'lg' breakpoint
+            sidebar.classList.remove('open');
+            body.classList.remove('sidebar-open');
+        }
+    });
+});
