@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - CSS Class 12: Responsive Image Gallery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      /* Example CSS for Grid Gallery Demo */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+        gap: 15px;
+        padding: 15px;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+      }
+      .gallery-item {
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+      .gallery-item img:hover {
+        transform: scale(1.05);
+      }
+      /* Simple Media Query for the Grid */
+      @media (max-width: 576px) {
+        .gallery-grid {
+          grid-template-columns: 1fr; /* Single column on phones */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#cssCourse"
+                  aria-expanded="true"
+                >
+                  CSS Full Course
+                </button>
+              </h2>
+              <div id="cssCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Css Class 1 Syntax.html" class="text-decoration-none">
+                        Class 1: Introduction, Syntax & Selectors
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 2 border background margin.html" class="text-decoration-none">
+                        Class 2: Css border background margin And Padding
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 3 text align transform and outline.html" class="text-decoration-none">
+                        Class 3: Text Alignment, Transformations & Outlines
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 4 fonts liststyle overflow icons.html" class="text-decoration-none">
+                        Class 4: Fonts, List Styles, Overflow & Icons
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 5 Table & display design and properties.html" class="text-decoration-none">
+                        Class 5: Table & Display Property & Design Properties
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 6 position selector and float .html" class="text-decoration-none">
+                        Class 6: Positioning, Advanced Selectors & Float
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="text-decoration-none">
+                        Class 7: Pseudo-classes, Tooltips & Hover Effects
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 8 navbar design and position.html" class="text-decoration-none">
+                        Class 8: Navbar Design & Positioning
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 9 creating a school time table.html" class="text-decoration-none">
+                        Class 9: Creating a School Timetable
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 10 dropdown creation.html" class="text-decoration-none">
+                        Class 10: Dropdown Creation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 11 responsive input form.html" class="text-decoration-none">
+                        Class 11: Responsive Input Form
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 12 Responsive image gallery.html" class="text-decoration-none active-link">
+                        Class 12: Responsive Image Gallery
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 13 full Css revision.html" class="text-decoration-none">
+                        Class 13: Full CSS Revision
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 14 Excercise & test.html" class="text-decoration-none">
+                        Class 14: Exercise & Test
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="js-course.html" class="accordion-button collapsed text-decoration-none">
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="css12-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-primary">
+                            🖼️ Class 12: Responsive Image Gallery (Introduction to CSS Grid)
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_CSS_CLASS_12_MAIN" title="CSS Responsive Image Gallery Grid Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR MAIN VIDEO EMBED**</p>
+                            </iframe>
+                        </div>
+
+                        <p>
+                            Image galleries are essential for portfolios and commercial sites. Creating a truly **responsive gallery** that fluidly changes the number of columns based on screen size is best achieved using **CSS Grid**. This class introduces the basics of Grid and combines it with Media Queries for a perfect gallery layout.
+                        </p>
+                        
+                        <hr>
+                        
+                        <div id="css-grid-intro" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🌐 Step 1: CSS Grid Fundamentals</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_CSS_GRID_INTRO" title="CSS Grid Fundamentals Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR CSS GRID INTRO VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+                            
+                            <p>
+                                **CSS Grid** is a two-dimensional layout system that allows you to define rows and columns, making it ideal for overall page layouts and complex components like galleries.
+                            </p>
+                            <h6 class="fw-bold text-secondary">Key Grid Properties:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**`display: grid;`**: Applied to the parent container to activate the Grid layout.</li>
+                                <li class="list-group-item">**`grid-template-columns`**: Defines the number and size of the columns. Example: `grid-template-columns: 1fr 1fr 1fr;` creates three equal columns.</li>
+                                <li class="list-group-item">**`gap`**: Sets the spacing between the grid items (both rows and columns).</li>
+                            </ul>
+                            <div class="alert alert-info mt-3">
+                                **Grid vs. Flexbox**: Flexbox is for laying out items in a single dimension (row OR column), while Grid is for two dimensions (rows AND columns) simultaneously.
+                            </div>
+                            
+                        </div>
+                        
+                        <hr>
+
+                        <div id="responsive-gallery" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">📐 Step 2: Auto-Placing Items with `minmax` and `auto-fit`</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_RESPONSIVE_GRID" title="Responsive Grid Auto-fit Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR RESPONSIVE GRID VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+                            
+                            <p>
+                                To make a gallery automatically adjust the number of columns, we use the following powerful combination within `grid-template-columns`:
+                            </p>
+                            <dl class="row">
+                                <dt class="col-sm-3">**`repeat()`**</dt>
+                                <dd class="col-sm-9">A function to repeat a column definition multiple times.</dd>
+                                <dt class="col-sm-3">**`auto-fit`**</dt>
+                                <dd class="col-sm-9">Tells the browser to automatically calculate how many columns will fit.</dd>
+                                <dt class="col-sm-3">**`minmax()`**</dt>
+                                <dd class="col-sm-9">A function that defines a minimum and maximum size for a column. Example: `minmax(200px, 1fr)` ensures the column is at least 200px wide, but can grow to fill space (`1fr`).</dd>
+                            </dl>
+                            <h6 class="mt-3">The Responsive Gallery Magic Code:</h6>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+.gallery-grid {
+  display: grid;
+  /* Columns will adjust based on available space: 
+     - They will try to fit as many as possible (auto-fit).
+     - Each column will be at least 250px wide.
+     - They will take up equal remaining space (1fr). */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+                            </code></pre>
+                            
+                        </div>
+                        
+                        <hr>
+
+                        <div id="image-optimization" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🖼️ Step 3: Image Sizing and Aspect Ratios</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_IMAGE_OPTIMIZATION" title="CSS Image Sizing and Optimization Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR IMAGE OPTIMIZATION VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+
+                            <p>
+                                In a grid gallery, it's common to maintain a consistent look regardless of the image's original dimensions.
+                            </p>
+                            <h6 class="fw-bold text-secondary">Crucial Image Styling for Grids:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**Full-Cell Fill**: Set the image to **`width: 100%;`** and **`height: 100%;`** inside its grid item container.</li>
+                                <li class="list-group-item">**`object-fit: cover;`**: This property forces the image to cover the entire container area, cropping any excess part so the image maintains its aspect ratio without stretching. This is superior to simply setting a fixed height.</li>
+                                <li class="list-group-item">**Image Hover Effects**: Add a slight **`transform: scale(1.05);`** effect on hover, coupled with a `transition`, to give the gallery an interactive, professional feel.</li>
+                            </ul>
+                            
+                            <h6 class="mt-3">Demo Gallery Layout (Placeholder Images):</h6>
+                            <div class="gallery-grid">
+                                <div class="gallery-item"><img src="placeholder1.jpg" alt="Gallery Image 1" style="height: 250px;"></div>
+                                <div class="gallery-item"><img src="placeholder2.jpg" alt="Gallery Image 2" style="height: 250px;"></div>
+                                <div class="gallery-item"><img src="placeholder3.jpg" alt="Gallery Image 3" style="height: 250px;"></div>
+                                <div class="gallery-item"><img src="placeholder4.jpg" alt="Gallery Image 4" style="height: 250px;"></div>
+                                <div class="gallery-item"><img src="placeholder5.jpg" alt="Gallery Image 5" style="height: 250px;"></div>
+                                <div class="gallery-item"><img src="placeholder6.jpg" alt="Gallery Image 6" style="height: 250px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/Css class 11 responsive input form.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="/Css class 13 full Css revision.html" class="btn btn-primary">Next Class ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

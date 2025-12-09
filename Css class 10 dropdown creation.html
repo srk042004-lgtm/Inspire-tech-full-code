@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - CSS Class 10: Dropdown Creation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      /* Example CSS for Dropdown Demo */
+      .dropdown-container {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none; /* Crucial: hidden by default */
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      /* In a real stylesheet, we use: .dropdown-container:hover .dropdown-content { display: block; } */
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#cssCourse"
+                  aria-expanded="true"
+                >
+                  CSS Full Course
+                </button>
+              </h2>
+              <div id="cssCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Css Class 1 Syntax.html" class="text-decoration-none">
+                        Class 1: Introduction, Syntax & Selectors
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 2 border background margin.html" class="text-decoration-none">
+                        Class 2: Css border background margin And Padding
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 3 text align transform and outline.html" class="text-decoration-none">
+                        Class 3: Text Alignment, Transformations & Outlines
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 4 fonts liststyle overflow icons.html" class="text-decoration-none">
+                        Class 4: Fonts, List Styles, Overflow & Icons
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 5 Table & display design and properties.html" class="text-decoration-none">
+                        Class 5: Table & Display Property & Design Properties
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 6 position selector and float .html" class="text-decoration-none">
+                        Class 6: Positioning, Advanced Selectors & Float
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="text-decoration-none">
+                        Class 7: Pseudo-classes, Tooltips & Hover Effects
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 8 navbar design and position.html" class="text-decoration-none">
+                        Class 8: Navbar Design & Positioning
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 9 creating a school time table.html" class="text-decoration-none">
+                        Class 9: Creating a School Timetable
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 10 dropdown creation.html" class="text-decoration-none active-link">
+                        Class 10: Dropdown Creation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 11 responsive input form.html" class="text-decoration-none">
+                        Class 11: Responsive Input Form
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 12 Responsive image gallery.html" class="text-decoration-none">
+                        Class 12: Responsive Image Gallery
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 13 full Css revision.html" class="text-decoration-none">
+                        Class 13: Full CSS Revision
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 14 Excercise & test.html" class="text-decoration-none">
+                        Class 14: Exercise & Test
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="js-course.html" class="accordion-button collapsed text-decoration-none">
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="css10-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-primary">
+                            ⬇️ Class 10: Dropdown Creation (Using CSS Positioning)
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_CSS_CLASS_10_MAIN" title="CSS Dropdown Creation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR MAIN VIDEO EMBED**</p>
+                            </iframe>
+                        </div>
+
+                        <p>
+                            Dropdown menus are a common feature on navigation bars. Creating one in pure CSS requires mastering **`position: relative`** and **`position: absolute`** (from Class 6), and using the **`:hover`** pseudo-class (from Class 7) to control the menu's visibility.
+                        </p>
+                        
+                        <hr>
+                        
+                        <div id="dropdown-html" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">📂 Step 1: HTML Nesting and Structure</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_DROPDOWN_HTML" title="Dropdown HTML Structure Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR HTML STRUCTURE VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+                            
+                            <p>
+                                A dropdown requires a **parent container** for the main button/link, and a **nested container** for the hidden menu links.
+                            </p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**Outer Container (`.dropdown-container`)**: Holds the trigger element and the menu. This must be set to **`position: relative;`**.</li>
+                                <li class="list-group-item">**Inner Menu (`.dropdown-content`)**: This is the actual menu list. It must be set to **`display: none;`** by default and **`position: absolute;`**.</li>
+                            </ul>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+&lt;div class="dropdown-container"&gt;
+  &lt;button class="dropbtn"&gt;Courses&lt;/button&gt;
+  &lt;div class="dropdown-content"&gt;
+    &lt;a href="#"&gt;Web Development&lt;/a&gt;
+    &lt;a href="#"&gt;Graphic Design&lt;/a&gt;
+    &lt;a href="#"&gt;Digital Marketing&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </code></pre>
+                        </div>
+                        
+                        <hr>
+
+                        <div id="dropdown-css" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">📍 Step 2: Positioning and Controlling Visibility</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_DROPDOWN_CSS" title="Dropdown CSS Positioning Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR CSS POSITIONING VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+                            
+                            <p>
+                                The core functionality of a CSS dropdown relies on two simple rules:
+                            </p>
+                            <h6 class="fw-bold text-secondary">Key CSS Logic:</h6>
+                            <ol>
+                                <li>**Container Relativity**: Set the parent to **`position: relative;`**. This makes it the reference point for the absolute-positioned menu.</li>
+                                <li>**Menu Placement**: Set the menu to **`position: absolute;`**. Use `top: 100%;` to position it directly below the button.</li>
+                                <li>**Show/Hide Logic**: Use the **`:hover`** pseudo-class on the parent to change the menu's display state. When the mouse hovers over the parent, the hidden element is revealed.</li>
+                            </ol>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+/* 1. Parent is the reference point */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* 2. Menu is positioned absolutely inside the parent, hidden */
+.dropdown-content {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  display: none; 
+}
+
+/* 3. Show the content when the parent is hovered */
+.dropdown-container:hover .dropdown-content {
+  display: block; 
+}
+                            </code></pre>
+                            
+                        </div>
+                        
+                        <hr>
+
+                        <div id="dropdown-styling" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">✨ Step 3: Menu Styling and User Experience</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_DROPDOWN_STYLING" title="Dropdown Styling and UX Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR STYLING VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+
+                            <p>
+                                Good styling makes the dropdown professional and user-friendly.
+                            </p>
+                            <h6 class="fw-bold text-secondary">Key Styling Points:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**Menu Appearance**: Apply a light background color, padding, and a **`box-shadow`** to lift the menu off the page.</li>
+                                <li class="list-group-item">**Link Styling**: The links inside the menu must be set to **`display: block;`** so they stack vertically and occupy the full width of the menu.</li>
+                                <li class="list-group-item">**Sub-hover**: Use a specific hover style on the **menu links** themselves (e.g., `a:hover`) to give visual feedback when selecting an option.</li>
+                                <li class="list-group-item">**Z-Index**: Use a high **`z-index`** value (e.g., `z-index: 10;`) on the dropdown content to ensure it appears over any other surrounding elements on the page.</li>
+                            </ul>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Essential for stacked vertical menu links */
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd; /* Feedback on individual link hover */
+}
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/Css class 9 creating a school time table.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="/Css class 11 responsive input form.html" class="btn btn-primary">Next Class ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

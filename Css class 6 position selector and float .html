@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - CSS Class 6: Positioning, Advanced Selectors & Float</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      /* Example CSS for Positioning Demo */
+      .position-box {
+        width: 100px;
+        height: 100px;
+        background-color: #ffc107; /* Bootstrap Warning */
+        border: 2px solid #a07a00;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        color: #333;
+        margin: 10px;
+      }
+      .position-relative {
+        position: relative;
+        border: 2px dashed #0d6efd;
+        height: 200px;
+      }
+      .position-absolute-example {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #dc3545; /* Bootstrap Danger */
+        color: white;
+      }
+      .float-container {
+        border: 2px solid #28a745; /* Bootstrap Success */
+        padding: 10px;
+        overflow: auto; /* Clearing float using overflow */
+      }
+      .float-image {
+        float: left;
+        width: 150px;
+        margin-right: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#cssCourse"
+                  aria-expanded="true"
+                >
+                  CSS Full Course
+                </button>
+              </h2>
+              <div id="cssCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Css Class 1 Syntax.html" class="text-decoration-none">
+                        Class 1: Introduction, Syntax & Selectors
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 2 border background margin.html" class="text-decoration-none">
+                        Class 2: Css border background margin And Padding
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 3 text align transform and outline.html" class="text-decoration-none">
+                        Class 3: Text Alignment, Transformations & Outlines
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 4 fonts liststyle overflow icons.html" class="text-decoration-none">
+                        Class 4: Fonts, List Styles, Overflow & Icons
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 5 Table & display design and properties.html" class="text-decoration-none">
+                        Class 5: Table & Display Property & Design Properties
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 6 position selector and float .html" class="text-decoration-none active-link">
+                        Class 6: Positioning, Advanced Selectors & Float
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="text-decoration-none">
+                        Class 7: Pseudo-classes, Tooltips & Hover Effects
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 8 navbar design and position.html" class="text-decoration-none">
+                        Class 8: Navbar Design & Positioning
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 9 creating a school time table.html" class="text-decoration-none">
+                        Class 9: Creating a School Timetable
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 10 dropdown creation.html" class="text-decoration-none">
+                        Class 10: Dropdown Creation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 11 responsive input form.html" class="text-decoration-none">
+                        Class 11: Responsive Input Form
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 12 Responsive image gallery.html" class="text-decoration-none">
+                        Class 12: Responsive Image Gallery
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 13 full Css revision.html" class="text-decoration-none">
+                        Class 13: Full CSS Revision
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 14 Excercise & test.html" class="text-decoration-none">
+                        Class 14: Exercise & Test
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="js-course.html" class="accordion-button collapsed text-decoration-none">
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="css6-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-primary">
+                            📍 Class 6: Positioning, Advanced Selectors & Float
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/jYfPahYHteQ?si=k6h9IvhvQ1h7ED2X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <p>
+                            This class introduces three powerful concepts critical for complex web layouts: **CSS Positioning** (controlling element placement with precision), **Advanced Selectors** (targeting elements with greater accuracy), and the **Float** property (used for wrapping text around elements and creating early grid systems).
+                        </p>
+                        
+                        <hr>
+                        
+                        <div id="positioning" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🧭 CSS `position` Property</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                              <iframe width="560" height="315" src="https://www.youtube.com/embed/ATR5zHgvUfw?si=Ts9uaUvJ4jasEfCV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            
+                            <p>
+                                The **`position`** property is essential for moving elements away from their normal document flow. It works in conjunction with the offset properties: **`top`**, **`bottom`**, **`left`**, and **`right`**.
+                            </p>
+
+                            <h6 class="fw-bold text-secondary">Key Position Values:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**`static` (Default)**: The element follows the normal flow. Offset properties have **no effect**.</li>
+                                <li class="list-group-item">**`relative`**: The element remains in the normal flow, but the offset properties (**`top`, `left`, etc.**) shift it **relative to its normal position**. The space it originally occupied remains empty.</li>
+                                <li class="list-group-item">**`absolute`**: The element is removed from the normal flow. It is positioned **relative to its closest positioned ancestor** (any ancestor with `position: relative`, `absolute`, or `fixed`). If no ancestor is positioned, it is relative to the `<body>`.</li>
+                                <li class="list-group-item">**`fixed`**: The element is removed from the normal flow and positioned **relative to the browser viewport**. It remains in place even when the user scrolls (e.g., sticky headers or sidebars).</li>
+                                <li class="list-group-item">**`sticky`**: A mix of `relative` and `fixed`. It behaves as `relative` until the viewport scrolls past a specified threshold (e.g., `top: 0`), at which point it becomes `fixed`.</li>
+                            </ul>
+                            
+                            <div class="position-relative mt-3 p-3">
+                                Parent Container (`position: relative`)
+                                <div class="position-box position-absolute-example">
+                                    Child (`position: absolute`)
+                                </div>
+                            </div>
+                            
+
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+/* Example: Using absolute positioning within a relative container */
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 10px;
+  left: 10px; /* Positions 10px from the top-left of the parent */
+  z-index: 10; /* Controls stacking order */
+}
+                            </code></pre>
+                        </div>
+                        
+                        <hr>
+
+                        <div id="advanced-selectors" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🔍 Advanced Selectors (Targeting Elements)</h4>
+                            
+                            
+                            <p>
+                                While you are familiar with element, class, and ID selectors, advanced selectors allow you to target elements based on their relationship to other elements or their attributes.
+                            </p>
+                            <h6 class="fw-bold text-secondary">Useful Advanced Selectors:</h6>
+                            <table class="table table-bordered table-striped align-middle">
+                                <thead class="table-dark text-center">
+                                    <tr>
+                                        <th>Selector</th>
+                                        <th>Meaning</th>
+                                        <th>Example Use</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>**`E &gt; F`**</td>
+                                        <td>**Child Selector**: Targets element **F** only if it is a **direct child** of element **E**.</td>
+                                        <td>`ul > li` (Targets only list items directly inside the `ul`)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**`E + F`**</td>
+                                        <td>**Adjacent Sibling**: Targets element **F** only if it immediately follows element **E**.</td>
+                                        <td>`h2 + p` (Targets the first paragraph immediately following an `h2`)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**`E ~ F`**</td>
+                                        <td>**General Sibling**: Targets element **F** that follows element **E**, anywhere on the same level.</td>
+                                        <td>`h2 ~ p` (Targets all paragraphs that come after an `h2`)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**`[attr]`**</td>
+                                        <td>**Attribute Selector**: Targets elements with a specific HTML attribute, regardless of its value.</td>
+                                        <td>`input[required]` (Targets all input fields marked as required)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+/* Styling only direct link children of the navbar */
+.navbar > a {
+  color: #17a2b8;
+}
+
+/* Styling a link based on its attribute value */
+a[target="_blank"] {
+  border-bottom: 1px dotted #333;
+}
+                            </code></pre>
+                        </div>
+                        
+                        <hr>
+
+                        <div id="float-property" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🌊 The `float` Property and Clearing</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/-HTZmly1xTM?si=Htj8EXKFn_czW0mv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+
+                            <p>
+                                The **`float`** property was originally used to position images or text blocks to the left or right, allowing text to wrap around them. While largely superseded by Flexbox and Grid for layout, it remains important for certain legacy tasks.
+                            </p>
+                            
+                            <h6 class="fw-bold text-secondary">Float Values:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**`left`**: Floats the element to the left of its container. Subsequent content wraps around the element's right side.</li>
+                                <li class="list-group-item">**`right`**: Floats the element to the right of its container. Subsequent content wraps around the element's left side.</li>
+                                <li class="list-group-item">**`none` (Default)**: The element does not float.</li>
+                            </ul>
+                            
+                            <h6 class="fw-bold text-secondary mt-3">Clearing Floats (`clear` Property):</h6>
+                            <p>
+                                When an element is floated, it is removed from the normal flow, which can cause the parent container to collapse or the following elements to move up unexpectedly. The **`clear`** property is used on an element *after* the float to prevent it from being placed next to the floated element.
+                            </p>
+                            <table class="table table-bordered table-striped align-middle">
+                                <tr>
+                                    <td>**`clear: left;`**</td>
+                                    <td>Moves the element below any preceding left-floated elements.</td>
+                                </tr>
+                                <tr>
+                                    <td>**`clear: right;`**</td>
+                                    <td>Moves the element below any preceding right-floated elements.</td>
+                                </tr>
+                                <tr>
+                                    <td>**`clear: both;`**</td>
+                                    <td>Moves the element below both left and right-floated elements.</td>
+                                </tr>
+                            </table>
+
+                            <div class="float-container">
+                                <p class="float-image position-box">Floated Box</p>
+                                <p>
+                                    This text wraps around the floated box, demonstrating how the `float: left;` property works. The parent container has a workaround (`overflow: auto;`) to fix the common float collapse issue, which is known as clearing the float.
+                                </p>
+                                <div style="clear: both;"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/Css class 5 Table & display design and properties.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="btn btn-primary">Next Class ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

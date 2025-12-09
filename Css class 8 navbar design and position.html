@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - CSS Class 8: Navbar Design & Positioning</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      /* Example CSS for Navbar Demo */
+      .demo-navbar {
+          background-color: #343a40;
+          padding: 10px 0;
+          margin-bottom: 20px;
+          border-radius: 5px;
+      }
+      .demo-navbar ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex; /* Key to horizontal layout */
+          justify-content: space-around;
+      }
+      .demo-navbar li a {
+          color: white;
+          text-decoration: none;
+          padding: 10px 15px;
+          display: block;
+          transition: background-color 0.3s;
+      }
+      .demo-navbar li a:hover {
+          background-color: #0d6efd;
+      }
+      /* Example CSS for Sticky Demo */
+      .sticky-demo-box {
+        height: 50px;
+        background-color: #28a745;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        font-weight: bold;
+        top: 0; /* Important for sticky */
+        margin-bottom: 1500px; /* Force scrollable content below */
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#cssCourse"
+                  aria-expanded="true"
+                >
+                  CSS Full Course
+                </button>
+              </h2>
+              <div id="cssCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Css Class 1 Syntax.html" class="text-decoration-none">
+                        Class 1: Introduction, Syntax & Selectors
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 2 border background margin.html" class="text-decoration-none">
+                        Class 2: Css border background margin And Padding
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 3 text align transform and outline.html" class="text-decoration-none">
+                        Class 3: Text Alignment, Transformations & Outlines
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 4 fonts liststyle overflow icons.html" class="text-decoration-none">
+                        Class 4: Fonts, List Styles, Overflow & Icons
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 5 Table & display design and properties.html" class="text-decoration-none">
+                        Class 5: Table & Display Property & Design Properties
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 6 position selector and float .html" class="text-decoration-none">
+                        Class 6: Positioning, Advanced Selectors & Float
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="text-decoration-none">
+                        Class 7: Pseudo-classes, Tooltips & Hover Effects
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 8 navbar design and position.html" class="text-decoration-none active-link">
+                        Class 8: Navbar Design & Positioning
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 9 creating a school time table.html" class="text-decoration-none">
+                        Class 9: Creating a School Timetable
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 10 dropdown creation.html" class="text-decoration-none">
+                        Class 10: Dropdown Creation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 11 responsive input form.html" class="text-decoration-none">
+                        Class 11: Responsive Input Form
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 12 Responsive image gallery.html" class="text-decoration-none">
+                        Class 12: Responsive Image Gallery
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 13 full Css revision.html" class="text-decoration-none">
+                        Class 13: Full CSS Revision
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/Css class 14 Excercise & test.html" class="text-decoration-none">
+                        Class 14: Exercise & Test
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="js-course.html" class="accordion-button collapsed text-decoration-none">
+                  JavaScript Full Course
+                </a>
+              </h2>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="css8-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-primary">
+                            ⚙️ Class 8: Navbar Design & Positioning
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_CSS_CLASS_8_MAIN" title="CSS Navbar Design and Positioning Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR MAIN VIDEO EMBED**</p>
+                            </iframe>
+                        </div>
+
+                        <p>
+                            The **Navigation Bar (Navbar)** is arguably the most critical element on any website, serving as the user's primary means of travel. This class combines knowledge of **CSS Box Model**, **Display properties**, and **Positioning** to build professional, well-structured, and sticky navigation bars.
+                        </p>
+                        
+                        <hr>
+                        
+                        <div id="navbar-structure" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🛠️ Basic Navbar Structure and Horizontal Layout</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_NAVBAR_STRUCTURE" title="CSS Navbar Structure Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR NAVBAR STRUCTURE VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+                            
+                            <p>
+                                A standard HTML navbar uses an unordered list (`<ul>`) nested inside a structural container (like a `<div>` or `<nav>`). The main challenge is converting the vertical list items into a horizontal menu.
+                            </p>
+
+                            <h6 class="fw-bold text-secondary">Key Techniques for Horizontal Menus:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**Remove List Defaults**: Start by setting `list-style: none;` and removing default `padding`/`margin` on the `<ul>`.</li>
+                                <li class="list-group-item">**Horizontal Layout**: Apply one of the following to the list items (`<li>` or `<a>`):
+                                    <ul>
+                                        <li>**`float: left;`** (Older method, requires clearing).</li>
+                                        <li>**`display: inline-block;`** (Popular method, maintains box model properties).</li>
+                                        <li>**`display: flex;`** (Modern and recommended method for flexible spacing).</li>
+                                    </ul>
+                                </li>
+                                <li class="list-group-item">**Styling Links**: Links (`<a>`) must be set to **`display: block;`** within the list item so that the entire link area is clickable, not just the text.</li>
+                            </ul>
+                            
+                            <h6 class="mt-3">Demo of Horizontal Menu using Flex:</h6>
+                            <div class="demo-navbar">
+                                <ul>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#services">Services</a></li>
+                                    <li><a href="#contact">Contact</a></li>
+                                </ul>
+                            </div>
+                            
+
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+nav ul {
+  list-style: none;
+  display: flex; /* Makes list items flow horizontally */
+  justify-content: space-between; /* Distributes space evenly */
+}
+nav li a {
+  display: block; /* Makes the entire link area clickable */
+  padding: 15px 20px;
+  text-decoration: none;
+}
+                            </code></pre>
+                        </div>
+                        
+                        <hr>
+
+                        <div id="sticky-fixed" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">📌 Navbar Positioning: `fixed` vs. `sticky`</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_NAVBAR_POSITIONING" title="CSS Fixed and Sticky Navbar Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR POSITIONING VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+                            
+                            <p>
+                                Using the `position` property is crucial for making the navbar persistent across scrolls.
+                            </p>
+
+                            <h6 class="fw-bold text-secondary">Positioning Techniques for Navbars:</h6>
+                            <table class="table table-bordered table-striped align-middle">
+                                <thead class="table-dark text-center">
+                                    <tr>
+                                        <th>Property</th>
+                                        <th>Behavior</th>
+                                        <th>Use Case</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>**`position: fixed;`**</td>
+                                        <td>Stays in a fixed location on the **viewport** regardless of scrolling. Requires `top: 0;` and `width: 100%;` to cover the screen.</td>
+                                        <td>Global, non-hiding header (like the one in this template).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>**`position: sticky;`**</td>
+                                        <td>Acts as `relative` until the scroll position hits the specified offset (`top`, `bottom`), then acts as `fixed`.</td>
+                                        <td>Table headers or section titles that should only stick once they reach the top of the screen.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="alert alert-warning mt-3">
+                                **Caution:** When using **`position: fixed;`**, the element is taken out of the document flow. This means the content immediately following it will shift up and hide under the fixed navbar. You must compensate by adding **`padding-top`** to the body or main content equal to the height of the fixed navbar.
+                            </div>
+
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+/* Creating a navbar that stays visible at the top */
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays above all other content */
+}
+
+/* Compensating for the fixed navbar's height (e.g., 50px) */
+main {
+  padding-top: 50px;
+}
+                            </code></pre>
+                        </div>
+                        
+                        <hr>
+
+                        <div id="ux-design" class="my-4">
+                            <h4 class="fw-bold text-success mb-3">🎨 Improving Navbar UX with CSS</h4>
+                            
+                            <div class="ratio ratio-16x9 mb-3 border border-secondary rounded p-1">
+                                <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL_FOR_NAVBAR_UX" title="CSS Navbar UX Design Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="background: #f0f0f0;">
+                                    <p style="text-align: center; line-height: 315px;">**PLACEHOLDER FOR UX DESIGN VIDEO EMBED**</p>
+                                </iframe>
+                            </div>
+
+                            <p>
+                                A great navbar is functional, but a professional one uses CSS to enhance the user experience (UX).
+                            </p>
+                            <h6 class="fw-bold text-secondary">UX Enhancements:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">**Visual Hierarchy**: Use larger font sizes, bolder weights, or contrasting colors for the logo/brand name to make it stand out.</li>
+                                <li class="list-group-item">**Active State**: Use the **`.active`** class or `:not(:hover)` to style the link corresponding to the current page differently, guiding the user.</li>
+                                <li class="list-group-item">**Transitions**: Apply **`transition: all 0.3s ease;`** to link hovers to ensure color or background changes are smooth, not instant and jarring.</li>
+                                <li class="list-group-item">**Box Shadow**: Apply a subtle `box-shadow` to the main `<nav>` element, especially when it's fixed, to visually lift it off the content and create depth.</li>
+                            </ul>
+                            <pre class="bg-dark text-white p-2 rounded mt-3"><code>
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.nav-item a.active {
+  background-color: #17a2b8; /* Highlight the current page link */
+  border-radius: 5px;
+}
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/Css Class 7 Pseudo tooltip hover before and after.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="/Css class 9 creating a school time table.html" class="btn btn-primary">Next Class ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

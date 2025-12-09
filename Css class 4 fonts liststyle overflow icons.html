@@ -566,11 +566,36 @@ ol {
                                 </div>
                             </div>
                         </div>
-    
+    <script>
+        // Sidebar toggle functionality
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebarBackdrop');
+            sidebar.classList.toggle('show');
+            backdrop.classList.toggle('show');
+        });
+
+        document.getElementById('sidebarBackdrop').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.remove('show');
+            this.classList.remove('show');
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const items = document.querySelectorAll('.course-list .list-group-item');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.classList.toggle('hidden', !text.includes(filter));
+            });
+        });
+    </script>
+
                         <footer id="contact"
                             class="bg-dark text-white text-center p-3 mt-4" style="width: 100%; margin: 0;">
                             <div class="container">
-                                <div class="row"></div>
+                                <div class="row">
                                     <div class="col-md-6 text-start">
                                         <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
                                     </div>
