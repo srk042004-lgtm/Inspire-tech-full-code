@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Class 4: Loops & Strings</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      .code-example {
+        background-color: #272822; /* Dark background for code */
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-family: monospace;
+        white-space: pre-wrap;
+        margin-bottom: 20px;
+      }
+      .loop-box {
+        border: 1px solid #ff9800; /* Orange theme for loops */
+        border-left: 5px solid #ff9800;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        background-color: #fff8e1;
+      }
+      .string-method-table th {
+        background-color: #20c997; /* Teal theme for strings */
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside
+          id="sidebar"
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar"
+        >
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Class 1 html.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Css Class 1 Syntax.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div
+                id="jsCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a
+                        href="/Js Class 1 introduction.html"
+                        class="text-decoration-none"
+                      >
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/js-class-2-variables-and-data-types.html"
+                        class="text-decoration-none"
+                      >
+                        Class 2: Variables (var, let, const) & Data Types
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/js-class-3-operators-and-conditionals.html"
+                        class="text-decoration-none"
+                      >
+                        Class 3: Operators & Conditional Statements
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/js-class-4-loops-and-strings.html"
+                        class="text-decoration-none active-link"
+                      >
+                        Class 4: Loops & String Manipulation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-5-functions.html"
+                        class="text-decoration-none"
+                      >
+                        Class 5: Functions & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-6-arrays.html"
+                        class="text-decoration-none"
+                      >
+                        Class 6: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-7-objects-dom.html"
+                        class="text-decoration-none"
+                      >
+                        Class 7: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-8-dom-manipulation.html"
+                        class="text-decoration-none"
+                      >
+                        Class 8: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-9-events.html"
+                        class="text-decoration-none"
+                      >
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-10-advanced-topics.html"
+                        class="text-decoration-none"
+                      >
+                        Class 10: Advanced Topics
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+          <section id="js4-main" class="mb-5">
+            <div class="card shadow-lg border-0">
+              <div class="card-body">
+                <h3 class="fw-bold mb-3 text-info">
+                  🔁 Class 4: Loops & String Manipulation
+                </h3>
+
+                <div
+                  class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1"
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/UmRtFFSDSFo?si=L-WWFsnNcK393nLj"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+
+                <p>
+                  This class introduces two core concepts: **Loops**, which are
+                  used to automate repetitive tasks, and **Strings**, the
+                  essential data type for handling text, which often requires
+                  repetitive processing.
+                </p>
+
+                <hr />
+
+                <h4 class="fw-bold text-primary mb-4 mt-4">
+                  PART 1: Loops (Automating Repetitive Tasks)
+                </h4>
+                <p>
+                  Loops execute a block of code multiple times, as long as a
+                  specified condition is true. They save countless lines of
+                  redundant code.
+                </p>
+
+                <h5 class="fw-bold text-warning">
+                  A. The `for` Loop (The General Purpose Loop)
+                </h5>
+                <p>
+                  The `for` loop is the most commonly used loop, especially when
+                  you know exactly how many times you want to iterate (like
+                  counting from 1 to 10, or looping through an array).
+                </p>
+                <p>
+                  A `for` loop requires three parts, separated by semicolons:
+                  **Initialization**, **Condition**, and
+                  **Increment/Decrement**.
+                </p>
+                <div class="loop-box">
+                  <h6 class="fw-bold text-secondary">
+                    Syntax: `for (initialization; condition; increment)`
+                  </h6>
+                  <pre class="code-example">
+// Print numbers from 1 to 5
+for (let i = 1; i <= 5; i++) {
+    console.log("Count: " + i);
+}
+
+// Output:
+// Count: 1
+// ...
+// Count: 5
+                            </pre
+                  >
+                </div>
+
+                <h5 class="fw-bold text-warning mt-4">
+                  B. The `while` Loop (Condition-Based Loop)
+                </h5>
+                <p>
+                  The `while` loop runs only as long as its specified condition
+                  remains `true`. It is best used when you don't know the exact
+                  number of iterations beforehand (e.g., waiting for user
+                  input).
+                </p>
+                <div class="loop-box">
+                  <h6 class="fw-bold text-secondary">
+                    Syntax: `while (condition)`
+                  </h6>
+                  <pre class="code-example">
+let fuel = 10;
+while (fuel > 0) {
+    console.log("Car running, fuel remaining: " + fuel);
+    fuel--; // MUST include an increment/decrement to avoid infinite loop!
+}
+                            </pre
+                  >
+                </div>
+
+                <h5 class="fw-bold text-warning mt-4">
+                  C. The `do...while` Loop
+                </h5>
+                <p>
+                  The `do...while` loop is similar to `while`, but it guarantees
+                  that the code block **executes at least once**, because the
+                  condition is checked *after* the first run.
+                </p>
+                <div class="loop-box">
+                  <h6 class="fw-bold text-secondary">
+                    Syntax: `do { code } while (condition)`
+                  </h6>
+                  <pre class="code-example">
+let attempt = 0;
+do {
+    console.log("Attempting at least once.");
+    attempt++;
+} while (attempt < 0); 
+// Loop runs once, then checks condition (0 < 0 is false), and stops.
+                            </pre
+                  >
+                </div>
+
+                <h5 class="fw-bold text-warning mt-4">
+                  D. Loop Control: `break` and `continue`
+                </h5>
+                <ul class="list-group list-group-flush mb-3">
+                  <li class="list-group-item">
+                    **`break`**: Immediately exits the loop entirely.
+                  </li>
+                  <li class="list-group-item">
+                    **`continue`**: Skips the current iteration and jumps to the
+                    next one.
+                  </li>
+                </ul>
+                <pre class="code-example">
+for (let i = 1; i <= 10; i++) {
+    if (i === 5) {
+        continue; // Skip 5, jumps to i=6
+    }
+    if (i === 8) {
+        break;    // Stop looping when i is 8
+    }
+    console.log(i); // Prints 1, 2, 3, 4, 6, 7
+}
+                        </pre
+                >
+
+                <hr />
+
+                <h4 class="fw-bold text-primary mb-4 mt-5">
+                  PART 2: String Manipulation
+                </h4>
+                <p>
+                  A String is a sequence of characters, and it is a primitive
+                  data type. In JavaScript, strings are **immutable**, meaning
+                  once a string is created, you cannot change it; any method
+                  that appears to "change" a string actually creates and returns
+                  a **new** string.
+                </p>
+
+                <h5 class="fw-bold text-success">
+                  A. String Properties and Access
+                </h5>
+                <ul class="list-group list-group-flush mb-3">
+                  <li class="list-group-item">
+                    **`.length`**: A property that returns the number of
+                    characters in the string.
+                  </li>
+                  <li class="list-group-item">
+                    **Indexing**: Characters are accessed using square brackets
+                    `[]`, starting from index **0**.
+                  </li>
+                </ul>
+                <pre class="code-example">
+let word = "Python";
+console.log(word.length); // Output: 6
+console.log(word[0]);     // Output: 'P' (First character)
+console.log(word[5]);     // Output: 'n' (Last character)
+                        </pre
+                >
+
+                <h5 class="fw-bold text-success mt-4">
+                  B. Essential String Methods
+                </h5>
+                <p>
+                  String methods are functions built into the String object used
+                  to transform or analyze the text.
+                </p>
+                <table class="table table-bordered string-method-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>`.toLowerCase()`<br />`.toUpperCase()`</td>
+                      <td>
+                        Converts the string to all lowercase or all uppercase.
+                      </td>
+                      <td>`"Text".toLowerCase()` returns `"text"`</td>
+                    </tr>
+                    <tr>
+                      <td>`.trim()`</td>
+                      <td>Removes whitespace from both ends of a string.</td>
+                      <td>`" hi ".trim()` returns `"hi"`</td>
+                    </tr>
+                    <tr>
+                      <td>`.slice(start, end)`</td>
+                      <td>
+                        Extracts a section of a string and returns it as a new
+                        string. (End index is non-inclusive)
+                      </td>
+                      <td>`"apple".slice(1, 4)` returns `"ppl"`</td>
+                    </tr>
+                    <tr>
+                      <td>`.replace(old, new)`</td>
+                      <td>
+                        Replaces the first occurrence of a specified value with
+                        another value.
+                      </td>
+                      <td>`"dog".replace('d', 'f')` returns `"fog"`</td>
+                    </tr>
+                    <tr>
+                      <td>`.includes(text)`</td>
+                      <td>
+                        Checks if a string contains another string, returning a
+                        boolean (`true`/`false`).
+                      </td>
+                      <td>`"Hello".includes('ell')` returns `true`</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h5 class="fw-bold text-success mt-4">
+                  C. Template Literals (ES6)
+                </h5>
+                <p>
+                  Template literals (backticks `` ` ``) are the modern way to
+                  define strings. They allow for **string interpolation**
+                  (inserting variables directly into the string) and multi-line
+                  strings easily.
+                </p>
+                <pre class="code-example">
+let name = "Imran";
+let subject = "JavaScript";
+
+// Old way (Concatenation)
+// let message = "Hi, " + name + ". You are learning " + subject + ".";
+
+// New way (Template Literal)
+let message = `Hi, ${name}. You are learning ${subject}.`;
+console.log(message);
+                        </pre
+                >
+              </div>
+            </div>
+          </section>
+
+          <div class="container text-center my-5">
+            <a
+              href="/js-class-3-operators-and-conditionals.html"
+              class="btn btn-secondary me-2"
+              >⬅ Previous Class</a
+            >
+            <a href="js-class-5-functions.html" class="btn btn-primary"
+              >Next Class (Functions) ➡</a
+            >
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

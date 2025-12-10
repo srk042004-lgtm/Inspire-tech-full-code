@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Reference: Asynchronous JS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* General Layout and Styling */
+      .list-group-item.hidden { display: none; }
+      .course-list a.active-link { font-weight: bold; color: #0d6efd; }
+      .main-content { padding-top: 20px; }
+      .code-example {
+          background-color: #272822; 
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 5px;
+          overflow-x: auto;
+          font-family: monospace;
+          white-space: pre-wrap;
+          margin-bottom: 20px;
+      }
+
+      /* Async Specific Styles */
+      .async-box {
+          border: 1px solid #ff4500; /* Orange-Red theme for Async */
+          border-left: 5px solid #ff4500;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #fffaf7;
+      }
+      .promise-box {
+          border: 1px solid #17a2b8; /* Cyan theme for Promises */
+          border-left: 5px solid #17a2b8;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #f1faff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div id="jsCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="js-class-9-events.html" class="text-decoration-none">
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-10-advanced-topics.html" class="text-decoration-none">
+                        Class 10: Advanced Topics
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-ref-async.html" class="text-decoration-none active-link">
+                        **REF: Callbacks, Promises, Async** ⏱️
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-project-1-tictactoe.html" class="text-decoration-none">
+                        Project: Tic-Tac-Toe Game
+                      </a>
+                    </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="js-ref-async-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-info">
+                            ⏱️ Advanced Reference: Callbacks, Promises, and Async/Await
+                        </h3>
+
+                         <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                   <iframe width="560" height="315" src="https://www.youtube.com/embed/d3jXofmQm44?si=av7mXGiKO0ysVKJp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                 </div>
+
+                        <p>
+                            JavaScript's core is synchronous, meaning code runs line-by-line. To handle operations that take an unpredictable amount of time—like network requests, file reading, or timers—we need **Asynchronous Programming**. This section traces the evolution of handling async code in JavaScript.
+                        </p>
+                        
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-4">PART 1: Callbacks (The Traditional Approach)</h4>
+                        <p>
+                            A **callback function** is simply a function passed as an argument to another function, which is then executed once the original function completes its task. Callbacks were the original mechanism for handling asynchronous results.
+                        </p>
+                        
+                        <h5 class="fw-bold text-danger">A. The `setTimeout` Example</h5>
+                        <p>
+                            The built-in `setTimeout` function is the simplest example of async execution using a callback.
+                        </p>
+                        <div class="async-box">
+                            <pre class="code-example">
+console.log("1. Starting operation...");
+
+// This runs *after* the specified time (1000ms)
+setTimeout(() => {
+    console.log("3. Callback executed after 1 second."); 
+}, 1000);
+
+console.log("2. Synchronous code continues immediately.");
+// Output Order: 1, 2, 3
+                            </pre>
+                        </div>
+                        
+                        <h5 class="fw-bold text-danger mt-4">B. The Problem: Callback Hell</h5>
+                        <p>
+                            When multiple asynchronous operations depend on each other, nesting callbacks leads to deeply indented, unreadable, and hard-to-maintain code, known as **"Callback Hell."**
+                        </p>
+                        <div class="async-box">
+                            <pre class="code-example">
+getUser(id, (user) => {
+    getOrders(user.id, (orders) => {
+        getDetails(orders[0].id, (details) => {
+            // Very deep nesting, hard to track errors...
+            console.log(details); 
+        });
+    });
+});
+                            </pre>
+                        </div>
+                        
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 2: Promises (The Intermediate Solution)</h4>
+                        <p>
+                            A **Promise** is a cleaner, more readable structure used to handle the result of an asynchronous operation, serving as a placeholder for a value that is currently unknown.
+                        </p>
+                        
+
+                        <h5 class="fw-bold text-cyan">A. Promise States</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="bg-info text-white"><th>State</th><th>Meaning</th><th>Action</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>**Pending**</td><td>Initial state; operation is running.</td><td>Waiting...</td></tr>
+                                <tr><td>**Fulfilled**</td><td>Operation completed successfully.</td><td>Handled by **`.then()`**</td></tr>
+                                <tr><td>**Rejected**</td><td>Operation failed (an error occurred).</td><td>Handled by **`.catch()`**</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h5 class="fw-bold text-cyan mt-4">B. Chaining Promises</h5>
+                        <p>
+                            Promises allow us to chain `.then()` calls sequentially, which eliminates callback hell. The return value of one `.then()` block becomes the input for the next.
+                        </p>
+                        <div class="promise-box">
+                            <h6 class="fw-bold text-info">Using Fetch (A Promise-based API)</h6>
+                            <pre class="code-example">
+fetch('https://api.example.com/user/1') // Returns Promise 1 (HTTP Response)
+    .then(response => {
+        // First .then: Check response status & extract JSON (Returns Promise 2)
+        if (!response.ok) throw new Error('Network error');
+        return response.json(); 
+    })
+    .then(userData => {
+        // Second .then: Work with the parsed data
+        console.log("User data:", userData); 
+    })
+    .catch(error => {
+        // Handle ANY error in the chain (Promise rejection or thrown error)
+        console.error("Operation Failed:", error); 
+    });
+                            </pre>
+                        </div>
+
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 3: Async / Await (The Modern Standard)</h4>
+                        <p>
+                            `async/await` is modern JavaScript syntax (ES2017+) built on top of Promises that makes asynchronous code look and behave like synchronous code, greatly improving readability.
+                        </p>
+
+                        <h5 class="fw-bold text-success">A. The `async` Keyword</h5>
+                        <p>
+                            You must use `async` before a function declaration (`async function`) to signal that the function will execute asynchronous code. An `async` function always implicitly returns a **Promise**.
+                        </p>
+
+                        <h5 class="fw-bold text-success mt-4">B. The `await` Keyword</h5>
+                        <p>
+                            The `await` keyword can **only** be used inside an `async` function. It pauses the execution of the `async` function until the Promise it is waiting for is **resolved** (fulfilled or rejected).
+                        </p>
+                        <div class="promise-box">
+                            <h6 class="fw-bold text-info">Example: Fetch using `async/await`</h6>
+                            <pre class="code-example">
+async function loadUserData() {
+    try {
+        // 1. Await pauses until the HTTP response is received
+        const response = await fetch('https://api.example.com/user/1'); 
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // 2. Await pauses until the JSON data is parsed
+        const userData = await response.json(); 
+        
+        console.log("User data loaded:", userData);
+        return userData;
+
+    } catch (error) {
+        // 3. Errors are handled cleanly using try...catch
+        console.error("Could not fetch user data:", error.message);
+    }
+}
+
+// Call the async function
+loadUserData();
+                            </pre>
+                        </div>
+                        
+                        <div class="alert alert-warning mt-5">
+                            **Key Takeaway:** While Callbacks were the first step, **Promises** provide the underlying structure, and **`async/await`** provides the best, cleanest syntax for working with that structure today.
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/js-class-10-advanced-topics.html" class="btn btn-secondary me-2">⬅ Back to Class 10</a>
+                <a href="js-project-1-tictactoe.html" class="btn btn-primary">Next Project 🎯</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

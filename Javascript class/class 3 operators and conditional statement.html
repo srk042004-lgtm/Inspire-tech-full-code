@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Class 3: Operators & Conditional Statements</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      .code-example {
+          background-color: #272822; /* Dark background for code */
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 5px;
+          overflow-x: auto;
+          font-family: monospace;
+          white-space: pre-wrap;
+          margin-bottom: 20px;
+      }
+      .operator-table th {
+          background-color: #6f42c1; /* Purple theme for operators */
+          color: white;
+      }
+      .conditional-box {
+          border: 1px solid #dc3545; /* Red theme for conditionals */
+          border-left: 5px solid #dc3545;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #fff0f0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Css Class 1 Syntax.html" class="accordion-button collapsed text-decoration-none">
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div id="jsCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Js Class 1 introduction.html" class="text-decoration-none">
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-2-variables-and-data-types.html" class="text-decoration-none">
+                        Class 2: Variables (var, let, const) & Data Types
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-3-operators-and-conditionals.html" class="text-decoration-none active-link">
+                        Class 3: Operators & Conditional Statements
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-4-loops.html" class="text-decoration-none">
+                        Class 4: Loops (for, while, do/while)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-5-functions.html" class="text-decoration-none">
+                        Class 5: Functions & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-6-arrays.html" class="text-decoration-none">
+                        Class 6: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-7-objects-dom.html" class="text-decoration-none">
+                        Class 7: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-8-dom-manipulation.html" class="text-decoration-none">
+                        Class 8: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-9-events.html" class="text-decoration-none">
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-10-advanced-topics.html" class="text-decoration-none">
+                        Class 10: Advanced Topics
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="js3-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-info">
+                            ⚖️ Class 3: Operators & Conditional Statements
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Zg4-uSjxosE?si=tGpcCQHFn9sqfXNV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <p>
+                            This class introduces the core tools programmers use to perform calculations and make decisions in code: **Operators** and **Conditional Statements**. Mastering these allows your programs to react dynamically to different data and inputs.
+                        </p>
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-4">PART 1: JavaScript Operators</h4>
+                        <p>
+                            Operators are special symbols used to perform operations on operands (values and variables).
+                        </p>
+
+                        <h5 class="fw-bold text-success">A. Arithmetic Operators (Calculations)</h5>
+                        <p>Used to perform basic mathematical calculations.</p>
+                        <table class="table table-bordered operator-table">
+                            <thead>
+                                <tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>`+`</td><td>Addition</td><td>`x + y`</td><td>Sum of x and y</td></tr>
+                                <tr><td>`-`</td><td>Subtraction</td><td>`x - y`</td><td>Difference of x and y</td></tr>
+                                <tr><td>`*`</td><td>Multiplication</td><td>`x * y`</td><td>Product of x and y</td></tr>
+                                <tr><td>`/`</td><td>Division</td><td>`x / y`</td><td>Quotient of x and y</td></tr>
+                                <tr><td>`%`</td><td>Modulus</td><td>`10 % 3`</td><td>1 (Remainder of division)</td></tr>
+                                <tr><td>`**`</td><td>Exponentiation</td><td>`2 ** 3`</td><td>8 ($2^3$)</td></tr>
+                                <tr><td>`++`</td><td>Increment</td><td>`x++`</td><td>Increases value by 1</td></tr>
+                                <tr><td>`--`</td><td>Decrement</td><td>`x--`</td><td>Decreases value by 1</td></tr>
+                            </tbody>
+                        </table>
+                        <pre class="code-example">
+let a = 5;
+a++; // a is now 6
+let result = a % 2; // result is 0
+                        </pre>
+
+                        <h5 class="fw-bold text-success mt-4">B. Assignment Operators (Setting Values)</h5>
+                        <p>Used to assign values to variables. Compound assignments are shorthand for performing an operation and assignment at the same time.</p>
+                        <table class="table table-bordered operator-table">
+                            <thead>
+                                <tr><th>Operator</th><th>Example</th><th>Is same as</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>`=`</td><td>`x = 10`</td><td>Assignment</td></tr>
+                                <tr><td>`+=`</td><td>`x += 5`</td><td>`x = x + 5`</td></tr>
+                                <tr><td>`*=`</td><td>`x *= 2`</td><td>`x = x * 2`</td></tr>
+                                <tr><td>`/=`</td><td>`x /= 4`</td><td>`x = x / 4`</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h5 class="fw-bold text-success mt-4">C. Comparison Operators (The Decision Makers)</h5>
+                        <p>Used to compare two values. They always return a **Boolean** value (`true` or `false`).</p>
+                        <table class="table table-bordered operator-table">
+                            <thead>
+                                <tr><th>Operator</th><th>Name</th><th>Result</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>`==`</td><td>Equal to (Loose equality)</td><td>Compares value only (e.g., `5 == '5'` is true)</td></tr>
+                                <tr><td>`===`</td><td>**Strictly Equal**</td><td>Compares **value AND type** (e.g., `5 === '5'` is false)</td></tr>
+                                <tr><td>`!=`</td><td>Not equal to (Loose)</td><td>Compares value only</td></tr>
+                                <tr><td>`!==`</td><td>**Strictly Not Equal**</td><td>Compares **value AND type**</td></tr>
+                                <tr><td>`>`</td><td>Greater than</td><td></td></tr>
+                                <tr><td>`<`</td><td>Less than</td><td></td></tr>
+                                <tr><td>`>=`</td><td>Greater than or equal to</td><td></td></tr>
+                                <tr><td>`<=`</td><td>Less than or equal to</td><td></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="alert alert-danger">
+                            **IMPORTANT:** Always use **Strict Equality (`===` and `!==`)** in JavaScript. Loose equality (`==` and `!=`) often causes confusing bugs by automatically converting data types.
+                        </div>
+
+                        <h5 class="fw-bold text-success mt-4">D. Logical Operators (Combining Conditions)</h5>
+                        <p>Used to determine the logic between variables or expressions.</p>
+                        <table class="table table-bordered operator-table">
+                            <thead>
+                                <tr><th>Operator</th><th>Name</th><th>Description</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>`&&`</td><td>AND</td><td>Returns `true` only if **both** conditions are true.</td></tr>
+                                <tr><td>`||`</td><td>OR</td><td>Returns `true` if **at least one** condition is true.</td></tr>
+                                <tr><td>`!`</td><td>NOT</td><td>Reverses the boolean result (e.g., `!true` is `false`).</td></tr>
+                            </tbody>
+                        </table>
+                        <pre class="code-example">
+let isRaining = true;
+let isCold = false;
+
+// Will be false, because isCold is false
+let stayHome = isRaining && isCold; 
+                        </pre>
+                        
+
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 2: Conditional Statements</h4>
+                        <p>
+                            Conditional statements allow your code to make decisions based on conditions (which are evaluated using comparison and logical operators).
+                        </p>
+                        
+                        <h5 class="fw-bold text-danger">A. The `if`, `else if`, and `else` Structure</h5>
+                        <p>The most common way to make decisions. The code inside the curly braces will run only if the condition is `true`.</p>
+                        <div class="conditional-box">
+                            <pre class="code-example">
+let score = 85;
+
+if (score >= 90) {
+    console.log("Grade A");
+} else if (score >= 80) {
+    console.log("Grade B"); // This code runs
+} else {
+    console.log("Grade C");
+}
+                            </pre>
+                        </div>
+                        
+                        <h5 class="fw-bold text-danger mt-4">B. The Ternary Operator (`? :`)</h5>
+                        <p>A shorthand way to write simple `if/else` statements. It is ideal for assigning a value based on a condition.</p>
+                        <div class="conditional-box">
+                            <p>Syntax: `condition ? value_if_true : value_if_false;`</p>
+                            <pre class="code-example">
+let age = 19;
+let status = (age >= 18) ? "Adult" : "Minor"; 
+// status is assigned the value "Adult"
+                            </pre>
+                        </div>
+
+                        <h5 class="fw-bold text-danger mt-4">C. The `switch` Statement</h5>
+                        <p>Used to perform different actions based on different conditions. It is cleaner than using many `else if` statements for a single variable.</p>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">**`case`**: Defines a possible value for the expression.</li>
+                            <li class="list-group-item">**`break`**: Crucial! It stops the execution inside the switch block. If omitted, the code will continue to run into the next `case`.</li>
+                            <li class="list-group-item">**`default`**: Code that executes if none of the cases match (like the `else` block).</li>
+                        </ul>
+                        <div class="conditional-box">
+                            <pre class="code-example">
+let day = "Monday";
+let activity;
+
+switch (day) {
+    case "Saturday":
+    case "Sunday": // Multiple cases can share one block
+        activity = "Weekend Relax";
+        break;
+    case "Monday":
+        activity = "Start of Work"; // This code runs
+        break;
+    default:
+        activity = "Midweek Routine";
+}
+console.log(activity); // Output: Start of Work
+                            </pre>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/js-class-2-variables-and-data-types.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="js-class-4-loops.html" class="btn btn-primary">Next Class (Loops) ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

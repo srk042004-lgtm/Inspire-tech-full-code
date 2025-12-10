@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Inspire Tech Academy - JS Class 1: Introduction, History & Core Function
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      .js-concept-box {
+        border: 1px solid #ffc107;
+        border-left: 5px solid #ffc107;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        background-color: #fff8e1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside
+          id="sidebar"
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar"
+        >
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Class 1 html.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Css Class 1 Syntax.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div
+                id="jsCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a
+                        href="/Js Class 1 introduction.html"
+                        class="text-decoration-none active-link"
+                      >
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-2-variables.html"
+                        class="text-decoration-none"
+                      >
+                        Class 2: Variables (var, let, const)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-3-data-types.html"
+                        class="text-decoration-none"
+                      >
+                        Class 3: Data Types & Operators
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-4-conditionals.html"
+                        class="text-decoration-none"
+                      >
+                        Class 4: Conditional Statements (if/else, switch)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-5-loops.html"
+                        class="text-decoration-none"
+                      >
+                        Class 5: Loops (for, while, do/while)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-6-functions.html"
+                        class="text-decoration-none"
+                      >
+                        Class 6: Functions & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-7-arrays.html"
+                        class="text-decoration-none"
+                      >
+                        Class 7: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-8-objects-dom.html"
+                        class="text-decoration-none"
+                      >
+                        Class 8: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-9-dom-manipulation.html"
+                        class="text-decoration-none"
+                      >
+                        Class 9: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-10-events.html"
+                        class="text-decoration-none"
+                      >
+                        Class 10: Event Handling
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+          <section id="js1-main" class="mb-5">
+            <div class="card shadow-lg border-0">
+              <div class="card-body">
+                <h3 class="fw-bold mb-3 text-warning">
+                  💡 JavaScript Class 1: Deep Dive - History, Engine & Core
+                  Function
+                </h3>
+
+                <div
+                  class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1"
+                >
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/ER9SspLe4Hg?si=NNgoeYMVmxUPcdmX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <p>
+                  JavaScript (JS) is the third pillar of web development. While
+                  HTML provides the content structure and CSS provides the
+                  visual style, **JavaScript** is the high-level, interpreted
+                  programming language that provides the **behavior** and
+                  **interactivity**, transforming a static web page into a
+                  dynamic application.
+                </p>
+
+                <hr />
+
+                <div id="js-history" class="my-4">
+                  <h4 class="fw-bold text-success mb-3">
+                    📜 Step 1: Technical Origin and The ECMAScript Standard
+                  </h4>
+
+                  
+                  <p>
+                    JavaScript was created in 1995 by **Brendan Eich** at
+                    Netscape Communications. Its original purpose was simple: to
+                    add small client-side scripting functionality to the
+                    Netscape Navigator browser.
+                  </p>
+
+                  <h6 class="fw-bold text-secondary">
+                    The Standardization (ECMAScript):
+                  </h6>
+                  <p>
+                    To prevent web browsers from implementing their own
+                    conflicting versions of JS, the language was submitted to
+                    ECMA International for standardization. The official name
+                    for the standard is **ECMAScript (ES)**.
+                  </p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      **ECMAScript 5 (ES5, 2009)**: The baseline version for
+                      modern JS development.
+                    </li>
+                    <li class="list-group-item">
+                      **ECMAScript 2015 (ES6)**: A massive update that
+                      introduced modern features like `let`, `const`, arrow
+                      functions, and classes—features we will rely on heavily.
+                    </li>
+                    <li class="list-group-item">
+                      **Annual Updates**: Today, the standard is updated
+                      annually (ES2016, ES2017, etc.), constantly refining the
+                      language.
+                    </li>
+                  </ul>
+                </div>
+
+                <hr />
+
+                <div id="js-engine" class="my-4">
+                  <h4 class="fw-bold text-success mb-3">
+                    ⚙️ Step 2: How JS is Executed (The Engine & Compiler)
+                  </h4>
+
+                  
+                  <p>
+                    Every browser has a **JavaScript Engine** (like V8 in
+                    Chrome, SpiderMonkey in Firefox) responsible for parsing and
+                    executing your JS code.
+                  </p>
+
+                  <div class="js-concept-box">
+                    <h6 class="fw-bold text-warning">
+                      Interpreted vs. Compiled (JIT Compilation):
+                    </h6>
+                    <p>
+                      Historically, JS was considered an interpreted language.
+                      However, modern engines use **Just-In-Time (JIT)
+                      compilation**. This means the code is executed
+                      immediately, but also compiled into highly optimized
+                      machine code while running, making it incredibly fast.
+                    </p>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item bg-transparent">
+                        **V8 Engine (Google)**: Used by Chrome, Edge
+                        (Chromium-based), and the server environment Node.js.
+                        It's known for its speed and optimization.
+                      </li>
+                      <li class="list-group-item bg-transparent">
+                        **Single-Threaded**: JavaScript is fundamentally
+                        single-threaded, meaning it processes one command at a
+                        time. This simplifies programming but requires careful
+                        handling of time-consuming operations (which we address
+                        using asynchronous programming later).
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div id="js-dom" class="my-4">
+                  <h4 class="fw-bold text-success mb-3">
+                    🔗 Step 3: The Document Object Model (DOM) - Core Function
+                  </h4>
+
+                  
+                  <p>
+                    JavaScript's core function in the browser is interacting
+                    with the page content and structure. It does this through
+                    the **Document Object Model (DOM)**.
+                  </p>
+                  <h6 class="fw-bold text-secondary">The DOM as an API:</h6>
+                  <p>
+                    The DOM is essentially an **API (Application Programming
+                    Interface)** for HTML and XML documents. It represents the
+                    page as a hierarchical tree structure where every HTML
+                    element, text, and attribute is a **node**.
+                  </p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      **Listening**: JS listens for events (e.g., a button
+                      click, a form submission).
+                    </li>
+                    <li class="list-group-item">
+                      **Manipulation**: When an event occurs, JS uses the DOM
+                      API to find a specific node and modify it.
+                    </li>
+                    <li class="list-group-item">
+                      **Examples**: Changing the text of a paragraph,
+                      dynamically adding a new list item, or changing the CSS
+                      color of an element.
+                    </li>
+                  </ul>
+                </div>
+
+                <hr />
+
+                <div id="js-ubiquity" class="my-4">
+                  <h4 class="fw-bold text-success mb-3">
+                    🌍 Step 4: Industry Importance and Full-Stack Capability
+                  </h4>
+
+                  
+                  <p>
+                    JavaScript is consistently ranked as the most popular
+                    programming language globally because its use extends far
+                    beyond the browser:
+                  </p>
+                  <dl class="row">
+                    <dt class="col-sm-3 text-primary">**Front-End**</dt>
+                    <dd class="col-sm-9">
+                      Powers all client-side interactivity using libraries like
+                      **React**, **Angular**, and **Vue.js**.
+                    </dd>
+                    <dt class="col-sm-3 text-primary">**Back-End**</dt>
+                    <dd class="col-sm-9">
+                      The **Node.js** runtime environment (which uses the V8
+                      engine) allows JS to run server-side, enabling full-stack
+                      development using a single language.
+                    </dd>
+                    <dt class="col-sm-3 text-primary">**Mobile & Desktop**</dt>
+                    <dd class="col-sm-9">
+                      Used for building native mobile apps (**React Native**)
+                      and cross-platform desktop applications (**Electron**).
+                    </dd>
+                  </dl>
+                  <div class="alert alert-info mt-3">
+                    **Key takeaway:** Mastering JavaScript is the gateway to
+                    becoming a versatile Full-Stack Developer, capable of
+                    building any part of a modern web application.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="container text-center my-5">
+            <a
+              href="/Css class 14 Excercise & test.html"
+              class="btn btn-secondary me-2"
+              >⬅ Previous Course (CSS Test)</a
+            >
+            <a href="js-class-2-variables.html" class="btn btn-primary"
+              >Next Class (Variables) ➡</a
+            >
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

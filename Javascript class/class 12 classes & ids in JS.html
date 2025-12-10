@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Reference: DOM Classes & IDs</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* General Layout and Styling */
+      .list-group-item.hidden { display: none; }
+      .course-list a.active-link { font-weight: bold; color: #0d6efd; }
+      .main-content { padding-top: 20px; }
+      .code-example {
+          background-color: #272822; 
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 5px;
+          overflow-x: auto;
+          font-family: monospace;
+          white-space: pre-wrap;
+          margin-bottom: 20px;
+      }
+
+      /* Class/ID Specific Styles */
+      .id-box {
+          border: 1px solid #6610f2; /* Indigo theme for IDs */
+          border-left: 5px solid #6610f2;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #f6f0ff;
+      }
+      .class-box {
+          border: 1px solid #20c997; /* Teal theme for Classes */
+          border-left: 5px solid #20c997;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #f0fff8;
+      }
+      .demo-element {
+        padding: 15px;
+        border: 2px dashed #000;
+        margin: 20px auto;
+        width: 80%;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .highlight {
+        background-color: #ffc107; /* yellow */
+        color: #333;
+        font-weight: bold;
+      }
+      .error-text {
+        color: #dc3545; /* red */
+        border-color: #dc3545;
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Css Class 1 Syntax.html" class="accordion-button collapsed text-decoration-none">
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div id="jsCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="js-class-8-dom-manipulation.html" class="text-decoration-none">
+                        Class 8: DOM Manipulation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-ref-dom-classes.html" class="text-decoration-none active-link">
+                        **REF: Classes and IDs in JS** 💡
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-9-events.html" class="text-decoration-none">
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="js-ref-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-info">
+                            💡 DOM Reference: Managing Classes and IDs
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/N-O4w6PynGY?si=dt1OLXJm9uO79P2O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                        <p>
+                            In professional web development, the best way to change the appearance of an element is usually **not** by setting individual styles (`.style.color`), but by toggling CSS **Classes**. JavaScript also uses **IDs** heavily for unique selection.
+                        </p>
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-4">PART 1: Managing IDs in JavaScript</h4>
+                        <p>
+                            In HTML, an `id` must be unique per page. In JavaScript, the `id` property on an element object is used for both reading and writing the element's ID.
+                        </p>
+                        
+                        <h5 class="fw-bold text-indigo">A. Selecting by ID</h5>
+                        <div class="id-box">
+                            <pre class="code-example">
+// HTML: &lt;button id="submitBtn"&gt;...&lt;/button&gt;
+// The fastest way to select a single, unique element:
+const button = document.getElementById("submitBtn"); 
+                            </pre>
+                        </div>
+
+                        <h5 class="fw-bold text-indigo mt-4">B. Reading and Changing ID</h5>
+                        <p>
+                            You can easily check the current ID or assign a new one, though changing an ID is rare in practice.
+                        </p>
+                        <div class="id-box">
+                            <pre class="code-example">
+// Check the current ID
+console.log(button.id); // Output: "submitBtn"
+
+// Change the ID (use with caution!)
+button.id = "newSubmitId";
+                            </pre>
+                        </div>
+                        
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 2: Controlling CSS Classes with `classList`</h4>
+                        <p>
+                            The `classList` property of a DOM element is the key to dynamic styling. It returns a collection of the element's class attributes and provides methods to easily modify them. 
+                        </p>
+
+                        <h5 class="fw-bold text-teal">A. Adding, Removing, and Toggling Classes</h5>
+                        <p>
+                            These are the three most frequently used methods for controlling dynamic appearance.
+                        </p>
+                        
+                        <div class="class-box">
+                            <h6 class="fw-bold text-info">Example Setup (HTML & CSS)</h6>
+                            <pre class="code-example">
+&lt;!-- HTML --&gt;
+&lt;div id="message" class="base-style"&gt;Status Update&lt;/div&gt;
+
+/* CSS */
+.base-style { border: 2px solid grey; }
+.highlight { background-color: yellow; }
+.error { color: red; font-weight: bold; }
+                            </pre>
+                            
+                            <h6 class="fw-bold text-info mt-3">JavaScript ClassList Methods</h6>
+                            <pre class="code-example">
+const message = document.getElementById("message");
+
+// 1. ADD: Add a class
+message.classList.add("highlight"); 
+// Result: class="base-style highlight"
+
+// 2. REMOVE: Remove a class
+message.classList.remove("base-style");
+// Result: class="highlight"
+
+// 3. TOGGLE: Add the class if it's not present, remove if it is (great for buttons)
+message.classList.toggle("error"); // Adds 'error'
+message.classList.toggle("error"); // Removes 'error'
+                            </pre>
+                        </div>
+
+                        <h5 class="fw-bold text-teal mt-4">B. Checking and Replacing Classes</h5>
+                        <p>
+                            Two less frequent but useful methods for more complex state management.
+                        </p>
+                        <div class="class-box">
+                            <pre class="code-example">
+// 4. CONTAINS: Check if a class exists (returns boolean: true/false)
+if (message.classList.contains("highlight")) {
+    console.log("Element is highlighted."); 
+}
+
+// 5. REPLACE: Replace an existing class with a new one
+// message.classList.replace("oldClass", "newClass");
+message.classList.replace("highlight", "warning");
+                            </pre>
+                        </div>
+
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 3: Live Demonstration</h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="demo-box" class="demo-element">
+                                    Click the buttons below to manipulate me!
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-grid gap-2">
+                                <button id="addClassBtn" class="btn btn-outline-warning">Add Highlight</button>
+                                <button id="removeClassBtn" class="btn btn-outline-info">Remove Highlight</button>
+                                <button id="toggleClassBtn" class="btn btn-outline-danger">Toggle Error State</button>
+                                <button id="checkClassBtn" class="btn btn-outline-success">Check for Highlight</button>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold text-secondary mt-5">Demo JavaScript (Event Handling from Class 9)</h5>
+                        <div class="code-example">
+// 1. Select the demo element and buttons
+const demoBox = document.getElementById('demo-box');
+const addBtn = document.getElementById('addClassBtn');
+const removeBtn = document.getElementById('removeClassBtn');
+const toggleBtn = document.getElementById('toggleClassBtn');
+const checkBtn = document.getElementById('checkClassBtn');
+
+// 2. Attach the listeners
+addBtn.addEventListener('click', () => {
+    demoBox.classList.add('highlight');
+    demoBox.textContent = "Highlight Added!";
+});
+
+removeBtn.addEventListener('click', () => {
+    demoBox.classList.remove('highlight');
+    demoBox.textContent = "Highlight Removed.";
+});
+
+toggleBtn.addEventListener('click', () => {
+    demoBox.classList.toggle('error-text');
+    if (demoBox.classList.contains('error-text')) {
+        demoBox.textContent = "ERROR State Active!";
+    } else {
+        demoBox.textContent = "Error State Off.";
+    }
+});
+
+checkBtn.addEventListener('click', () => {
+    if (demoBox.classList.contains('highlight')) {
+        alert("Success! The element currently has the 'highlight' class.");
+    } else {
+        alert("The 'highlight' class is NOT present.");
+    }
+});
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/js-class-8-dom-manipulation.html" class="btn btn-secondary me-2">⬅ Back to Class 8</a>
+                <a href="js-class-9-events.html" class="btn btn-primary">Next Class (Event Handling) ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const demoBox = document.getElementById('demo-box');
+        const addBtn = document.getElementById('addClassBtn');
+        const removeBtn = document.getElementById('removeClassBtn');
+        const toggleBtn = document.getElementById('toggleClassBtn');
+        const checkBtn = document.getElementById('checkClassBtn');
+
+        addBtn.addEventListener('click', () => {
+            demoBox.classList.add('highlight');
+            demoBox.textContent = "Highlight Added!";
+        });
+
+        removeBtn.addEventListener('click', () => {
+            demoBox.classList.remove('highlight');
+            demoBox.textContent = "Highlight Removed.";
+        });
+
+        toggleBtn.addEventListener('click', () => {
+            demoBox.classList.toggle('error-text');
+            if (demoBox.classList.contains('error-text')) {
+                demoBox.textContent = "ERROR State Active!";
+            } else {
+                demoBox.textContent = "Error State Off.";
+            }
+        });
+
+        checkBtn.addEventListener('click', () => {
+            if (demoBox.classList.contains('highlight')) {
+                alert("Success! The element currently has the 'highlight' class.");
+            } else {
+                alert("The 'highlight' class is NOT present.");
+            }
+        });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

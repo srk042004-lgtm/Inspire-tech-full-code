@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Class 2: Variables & Data Types</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      .variable-box {
+        border: 1px solid #17a2b8;
+        border-left: 5px solid #17a2b8;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        background-color: #f1faff;
+      }
+      .comparison-table th {
+        background-color: #007bff;
+        color: white;
+      }
+      .code-example {
+        background-color: #272822; /* Dark background for code */
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-family: monospace;
+        white-space: pre-wrap;
+      }
+      .data-type-example {
+        border: 1px solid #28a745;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 4px;
+        background-color: #f0fff0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside
+          id="sidebar"
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar"
+        >
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Class 1 html.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Css Class 1 Syntax.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div
+                id="jsCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a
+                        href="/Js Class 1 introduction.html"
+                        class="text-decoration-none"
+                      >
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/js-class-2-variables-and-data-types.html"
+                        class="text-decoration-none active-link"
+                      >
+                        Class 2: Variables (var, let, const) & Data Types
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-3-operators.html"
+                        class="text-decoration-none"
+                      >
+                        Class 3: Operators & Type Conversion
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-4-conditionals.html"
+                        class="text-decoration-none"
+                      >
+                        Class 4: Conditional Statements (if/else, switch)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-5-loops.html"
+                        class="text-decoration-none"
+                      >
+                        Class 5: Loops (for, while, do/while)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-6-functions.html"
+                        class="text-decoration-none"
+                      >
+                        Class 6: Functions & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-7-arrays.html"
+                        class="text-decoration-none"
+                      >
+                        Class 7: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-8-objects-dom.html"
+                        class="text-decoration-none"
+                      >
+                        Class 8: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-9-dom-manipulation.html"
+                        class="text-decoration-none"
+                      >
+                        Class 9: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-10-events.html"
+                        class="text-decoration-none"
+                      >
+                        Class 10: Event Handling
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+          <section id="js2-main" class="mb-5">
+            <div class="card shadow-lg border-0">
+              <div class="card-body">
+                <h3 class="fw-bold mb-3 text-info">
+                  ⚙️ Class 2: Variables (`var`, `let`, `const`) & Data Types
+                </h3>
+
+                <div
+                  class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1"
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/ajdRvxDWH4w?si=aXe6XQQ3-jcy9vGi"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+
+                <p>
+                  This class covers the two pillars of foundational programming:
+                  **Variables** (the containers we use to store information) and
+                  **Data Types** (the different kinds of information those
+                  containers can hold).
+                </p>
+
+                <hr />
+
+                <h4 class="fw-bold text-primary mb-3 mt-4">
+                  PART 1: VARIABLES (`var`, `let`, `const`)
+                </h4>
+                <p>
+                  Variables are named storage locations. The keyword you use
+                  dictates the variable's **scope** (where it's accessible) and
+                  whether it can be **reassigned** (changed) or **redeclared**
+                  (defined again).
+                </p>
+
+                <h6 class="fw-bold text-secondary mt-3">
+                  Variable Comparison:
+                </h6>
+                <table class="table table-bordered comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Feature</th>
+                      <th>`var` (Old, Pre-ES6)</th>
+                      <th>`let` (Modern)</th>
+                      <th>`const` (Modern)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>**Scope**</td>
+                      <td>**Function Scope**</td>
+                      <td>**Block Scope**</td>
+                      <td>**Block Scope**</td>
+                    </tr>
+                    <tr>
+                      <td>**Reassignment?**</td>
+                      <td class="table-success">Yes</td>
+                      <td class="table-success">Yes</td>
+                      <td class="table-danger">No (Constant)</td>
+                    </tr>
+                    <tr>
+                      <td>**Redeclaration?**</td>
+                      <td class="table-danger">Yes (Avoid!)</td>
+                      <td class="table-success">No (Error)</td>
+                      <td class="table-success">No (Error)</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div id="scope-details" class="my-4">
+                  <h5 class="fw-bold text-info">Understanding Scope</h5>
+                  <p>
+                    **Block Scope** (used by `let` and `const`) means the
+                    variable is only visible within the nearest curly braces
+                    `{}`. This prevents accidental changes and is the safer
+                    standard for modern code.
+                  </p>
+                  <p>
+                    **Function Scope** (used by `var`) means the variable is
+                    visible throughout the entire function, even if declared
+                    inside a sub-block like an `if` statement or `for` loop.
+                    This leads to bugs.
+                  </p>
+                  <pre class="code-example">
+// Example of Block Scope (let/const) vs. Function Scope (var)
+var globalCount = 0;
+
+if (true) {
+    let blockID = 100;
+    var functionMessage = "Hello from inside block";
+}
+
+// console.log(blockID); // ERROR: Not defined (Block Scope works)
+console.log(functionMessage); // Output: "Hello from inside block" (var escapes block)
+                            </pre
+                  >
+                  <div class="alert alert-warning">
+                    **Modern Best Practice:** Use **`const`** by default. Only
+                    switch to **`let`** if you need to reassign the variable's
+                    value later. **Avoid `var`**.
+                  </div>
+                </div>
+
+                <hr />
+
+                <h4 class="fw-bold text-primary mb-3 mt-5">
+                  PART 2: DATA TYPES
+                </h4>
+                <p>
+                  Data types tell the computer what kind of data is stored in a
+                  variable, which dictates what operations can be performed on
+                  it. JavaScript is a **dynamically typed** language, meaning
+                  you don't declare the type; the type is determined
+                  automatically when the code is executed.
+                </p>
+
+                <h5 class="fw-bold text-info">
+                  I. Primitive Data Types (The Simple Types)
+                </h5>
+                <p>
+                  Primitives are simple data types that hold only a single
+                  value. There are seven primitive types:
+                </p>
+                <ol>
+                  <li>
+                    **String** (`"Hello World"`, `'Single Quote'`): Used for
+                    text. Strings must be enclosed in quotes.
+                    <div class="data-type-example">
+                      `const greeting = "Welcome";`
+                    </div>
+                  </li>
+                  <li>
+                    **Number** (`10`, `3.14`): Used for both integers (whole
+                    numbers) and floating-point numbers (decimals).
+                    <div class="data-type-example">
+                      `let age = 30;` <br />
+                      `let price = 19.99;`
+                    </div>
+                  </li>
+                  <li>
+                    **Boolean** (`true`, `false`): Used for logical decisions. A
+                    variable can only hold one of these two values.
+                    <div class="data-type-example">
+                      `const isStudent = true;`
+                    </div>
+                  </li>
+                  <li>
+                    **Undefined**: A variable that has been declared but has
+                    **not been assigned a value**.
+                    <div class="data-type-example">
+                      `let studentName; // Value is undefined`
+                    </div>
+                  </li>
+                  <li>
+                    **Null**: Represents the intentional absence of any object
+                    value. It means "nothing" or "empty."
+                    <div class="data-type-example">
+                      `let car = null; // We explicitly set the value to be
+                      empty`
+                    </div>
+                  </li>
+                  <li>
+                    **Symbol** (ES6+): Used to create unique identifiers (rarely
+                    used by beginners).
+                  </li>
+                  <li>
+                    **BigInt** (ES2020): Used for numbers larger than the
+                    standard `Number` type can safely represent.
+                  </li>
+                </ol>
+
+                <h5 class="fw-bold text-info mt-5">
+                  II. Non-Primitive (Reference) Data Types (The Complex Types)
+                </h5>
+                <p>
+                  Non-primitive types are complex and can store collections of
+                  data. They are stored by **reference**, meaning the variable
+                  holds a pointer to the location in memory where the data
+                  lives, not the data itself.
+                </p>
+                <ol>
+                  <li>
+                    **Object**: The most important non-primitive type. Used to
+                    store collections of key-value pairs (properties and
+                    methods).
+                    <div class="data-type-example">
+                      <pre class="code-example">
+const person = {
+  firstName: "Ali",
+  lastName: "Khan",
+  age: 25
+};
+                                    </pre
+                      >
+                    </div>
+                  </li>
+                  <li>
+                    **Array**: A special type of object used to store ordered
+                    lists of values (which can be of any data type).
+                    <div class="data-type-example">
+                      <pre class="code-example">
+const colors = ["red", "green", "blue"];
+                                    </pre
+                      >
+                    </div>
+                  </li>
+                  <li>
+                    **Function**: Also considered a non-primitive type in
+                    JavaScript, used to execute blocks of code.
+                  </li>
+                </ol>
+
+                <h5 class="fw-bold text-danger mt-5">Checking Data Types</h5>
+                <p>
+                  You can check the type of any variable using the built-in
+                  **`typeof`** operator.
+                </p>
+                <pre class="code-example">
+console.log(typeof "Hello");  // Output: "string"
+console.log(typeof 123);    // Output: "number"
+console.log(typeof true);   // Output: "boolean"
+console.log(typeof {});     // Output: "object"
+console.log(typeof []);     // Output: "object" (Note: Arrays are a type of object in JS)
+console.log(typeof null);   // Output: "object" (A historical bug in JavaScript!)
+                        </pre
+                >
+                <div class="alert alert-info">
+                  **IMPORTANT NOTE:** The `typeof null` returning `"object"` is
+                  a famous historical bug in JavaScript that was never fixed to
+                  avoid breaking old websites. You must remember this exception.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="container text-center my-5">
+            <a
+              href="/Js Class 1 introduction.html"
+              class="btn btn-secondary me-2"
+              >⬅ Previous Class</a
+            >
+            <a href="js-class-3-operators.html" class="btn btn-primary"
+              >Next Class (Operators) ➡</a
+            >
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

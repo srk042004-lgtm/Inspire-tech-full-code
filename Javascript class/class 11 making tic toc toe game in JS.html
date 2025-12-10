@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Project 1: Tic-Tac-Toe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* General Layout and Styling */
+      .list-group-item.hidden {
+        display: none;
+      }
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd;
+      }
+      .main-content {
+        padding-top: 20px;
+      }
+      .code-example {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-family: monospace;
+        white-space: pre-wrap;
+        margin-bottom: 20px;
+      }
+
+      /* Tic-Tac-Toe Specific Styles */
+      .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      #game-board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        gap: 0;
+        border: 3px solid #343a40; /* Dark border */
+        margin-bottom: 20px;
+      }
+
+      .cell {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #6c757d; /* Light grey dividers */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4rem; /* Large text for X/O */
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.1s;
+        user-select: none;
+      }
+      .cell:hover:not(.X):not(.O) {
+        background-color: #f8f9fa; /* Slight hover effect */
+      }
+      .cell.X {
+        color: #dc3545; /* Red for X */
+      }
+      .cell.O {
+        color: #007bff; /* Blue for O */
+      }
+
+      #status {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      /* Overriding default borders for better game look */
+      .cell:nth-child(3n + 1),
+      .cell:nth-child(3n + 2) {
+        border-right: 3px solid #343a40;
+      }
+      .cell:nth-child(n + 1):nth-child(-n + 6) {
+        border-bottom: 3px solid #343a40;
+      }
+      /* Remove outer thin borders, rely on the thick grid */
+      .cell {
+        border: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button
+          id="sidebarToggle"
+          class="btn btn-outline-light d-lg-none me-2"
+          aria-label="Toggle sidebar"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <a class="navbar-brand fw-bold" href="/index.html"
+          >Inspire Tech Institute</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside
+          id="sidebar"
+          class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar"
+        >
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search topics..."
+            />
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Class 1 html.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a
+                  href="/Css Class 1 Syntax.html"
+                  class="accordion-button collapsed text-decoration-none"
+                >
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div
+                id="jsCourse"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#coursesAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a
+                        href="/Js Class 1 introduction.html"
+                        class="text-decoration-none"
+                      >
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/js-class-2-variables-and-data-types.html"
+                        class="text-decoration-none"
+                      >
+                        Class 2: Variables (var, let, const) & Data Types
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/js-class-3-operators-and-conditionals.html"
+                        class="text-decoration-none"
+                      >
+                        Class 3: Operators & Conditional Statements
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="/js-class-4-loops-and-strings.html"
+                        class="text-decoration-none"
+                      >
+                        Class 4: Loops & String Manipulation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-5-arrays.html"
+                        class="text-decoration-none"
+                      >
+                        Class 5: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-6-functions.html"
+                        class="text-decoration-none"
+                      >
+                        Class 6: Functions, Methods & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-7-objects-dom.html"
+                        class="text-decoration-none"
+                      >
+                        Class 7: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-8-dom-manipulation.html"
+                        class="text-decoration-none"
+                      >
+                        Class 8: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-9-events.html"
+                        class="text-decoration-none"
+                      >
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-class-10-advanced-topics.html"
+                        class="text-decoration-none"
+                      >
+                        Class 10: Advanced Topics
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="js-project-1-tictactoe.html"
+                        class="text-decoration-none active-link"
+                      >
+                        **Project: Tic-Tac-Toe Game** 🎯
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+          <section id="js-project-1" class="mb-5">
+            <div class="card shadow-lg border-0">
+              <div class="card-body">
+                <h3 class="fw-bold mb-3 text-success">
+                  🎯 JavaScript Project 1: Tic-Tac-Toe Game
+                </h3>
+
+                <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/SqrppLEljkY?si=FqSTohOP7zBSNDW2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                     </div>
+
+                <p>
+                  This project brings together almost everything you have
+                  learned: HTML structure, CSS layout (Grid), JavaScript
+                  variables, arrays, loops, conditionals, DOM manipulation, and
+                  event handling.
+                </p>
+
+                <hr />
+
+                <h4 class="fw-bold text-secondary mb-3 mt-4">
+                  Demo: Play the Game
+                </h4>
+                <div class="game-container border p-4 rounded bg-light">
+                  <div id="status">Player X's Turn</div>
+                  <div id="game-board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                  </div>
+                  <button id="reset-btn" class="btn btn-warning mt-3">
+                    Reset Game
+                  </button>
+                </div>
+
+                <hr class="my-5" />
+
+                <h4 class="fw-bold text-primary mb-4 mt-4">
+                  Part 1: Setting up the JavaScript Logic
+                </h4>
+                <p>
+                  The game logic relies on an **array** to track the state of
+                  the 9 cells, and several **functions** to handle user
+                  interaction and check for a winner.
+                </p>
+
+                <h5 class="fw-bold text-warning">
+                  A. Variables and Initial Setup
+                </h5>
+                <div class="code-example">
+                  // Global Variables for Game State const statusDisplay =
+                  document.querySelector('#status'); const cells =
+                  document.querySelectorAll('.cell'); const resetButton =
+                  document.querySelector('#reset-btn'); let gameActive = true;
+                  let currentPlayer = "X"; // Array to track the state of the
+                  board: ["", "X", "O", "", "", "", "", "", ""] let gameState =
+                  ["", "", "", "", "", "", "", "", ""]; // Winning conditions:
+                  all possible lines of 3 cells const winningConditions = [ [0,
+                  1, 2], [3, 4, 5], [6, 7, 8], // Rows [0, 3, 6], [1, 4, 7], [2,
+                  5, 8], // Columns [0, 4, 8], [2, 4, 6] // Diagonals ]; //
+                  Messages displayed to the user const winMessage = (player) =>
+                  `Player ${player} has won!`; const drawMessage = () => `Game
+                  ended in a draw!`; const currentPlayerTurn = (player) =>
+                  `Player ${player}'s Turn`; statusDisplay.innerHTML =
+                  currentPlayerTurn(currentPlayer);
+                </div>
+
+                <h5 class="fw-bold text-warning mt-4">
+                  B. Core Function: Handling a Cell Click
+                </h5>
+                <p>
+                  This function is called when a user clicks on an empty cell.
+                  It updates the state, updates the DOM, and then checks for a
+                  winner.
+                </p>
+                <div class="code-example">
+                  function handleCellPlayed(clickedCell, clickedCellIndex) { //
+                  1. Update the gameState array with the current player's mark
+                  gameState[clickedCellIndex] = currentPlayer; // 2. Update the
+                  visual DOM element clickedCell.innerHTML = currentPlayer;
+                  clickedCell.classList.add(currentPlayer); // Add class for
+                  styling (X or O color) } function handlePlayerChange() { //
+                  Ternary Operator (Condition ? ValueIfTrue : ValueIfFalse)
+                  currentPlayer = currentPlayer === "X" ? "O" : "X";
+                  statusDisplay.innerHTML = currentPlayerTurn(currentPlayer); }
+                </div>
+
+                <h5 class="fw-bold text-warning mt-4">
+                  C. The Winner Checker Function (Using Loops)
+                </h5>
+                <p>
+                  This function loops through the `winningConditions` array and
+                  uses conditionals to see if any line has three matching marks.
+                </p>
+                <div class="code-example">
+                  function handleResultValidation() { let roundWon = false; //
+                  Loop through all 8 winning conditions for (let i = 0; i <= 7;
+                  i++) { const winCondition = winningConditions[i]; // Use
+                  destructuring to pull the three indices let a =
+                  gameState[winCondition[0]]; let b =
+                  gameState[winCondition[1]]; let c =
+                  gameState[winCondition[2]]; // If any cell in the line is
+                  empty, skip this check if (a === '' || b === '' || c === '') {
+                  continue; } // Check if all three cells match if (a === b && b
+                  === c) { roundWon = true; break; // Exit the loop immediately,
+                  we found a winner! } } if (roundWon) { statusDisplay.innerHTML
+                  = winMessage(currentPlayer); gameActive = false; return; } //
+                  Check for a Draw: if no winner and no empty cells left let
+                  roundDraw = !gameState.includes(""); if (roundDraw) {
+                  statusDisplay.innerHTML = drawMessage(); gameActive = false;
+                  return; } // If no win and no draw, switch players
+                  handlePlayerChange(); }
+                </div>
+
+                <hr />
+
+                <h4 class="fw-bold text-primary mb-4 mt-5">
+                  Part 2: Combining DOM and Events
+                </h4>
+
+                <h5 class="fw-bold text-success">A. The Main Click Handler</h5>
+                <p>
+                  This function acts as the main handler for all clicks,
+                  ensuring the game rules are followed before calling the logic
+                  functions.
+                </p>
+                <div class="code-example">
+                  function handleCellClick(event) { const clickedCell =
+                  event.target; const clickedCellIndex =
+                  parseInt(clickedCell.getAttribute('data-index')); // Rule
+                  Check 1: Is the cell already played OR is the game over? if
+                  (gameState[clickedCellIndex] !== "" || !gameActive) { return;
+                  // Ignore the click } // Core execution
+                  handleCellPlayed(clickedCell, clickedCellIndex);
+                  handleResultValidation(); }
+                </div>
+
+                <h5 class="fw-bold text-success mt-4">B. The Reset Function</h5>
+                <p>
+                  Clears the board, resets the state variables, and allows the
+                  game to restart.
+                </p>
+                <div class="code-example">
+                  function handleRestartGame() { gameActive = true;
+                  currentPlayer = "X"; gameState = ["", "", "", "", "", "", "",
+                  "", ""]; statusDisplay.innerHTML =
+                  currentPlayerTurn(currentPlayer); // Clear all cell contents
+                  and classes using a loop (Array method: forEach)
+                  cells.forEach(cell => { cell.innerHTML = "";
+                  cell.classList.remove('X'); cell.classList.remove('O'); }); }
+                </div>
+
+                <h5 class="fw-bold text-success mt-4">
+                  C. Attaching Listeners
+                </h5>
+                <p>
+                  We attach the `handleCellClick` listener to **every single
+                  cell** using the `forEach` array method, and attach the
+                  `handleRestartGame` to the button.
+                </p>
+                <div class="code-example">
+                  // Attach the click handler to all 9 cells cells.forEach(cell
+                  => cell.addEventListener('click', handleCellClick)); // Attach
+                  the restart handler to the button
+                  resetButton.addEventListener('click', handleRestartGame);
+                </div>
+
+                <hr />
+
+                <h4 class="fw-bold text-danger mb-4 mt-5">
+                  Putting It All Together (Full Script)
+                </h4>
+                <p>
+                  To make the demo above functional, this is the full JavaScript
+                  block that should be placed inside `&lt;script&gt;` tags at
+                  the end of the HTML body.
+                </p>
+                <div class="code-example">
+                  // FULL JAVASCRIPT CODE TO BE PLACED IN A &lt;script&gt; BLOCK
+                  const statusDisplay = document.querySelector('#status'); const
+                  cells = document.querySelectorAll('.cell'); const resetButton
+                  = document.querySelector('#reset-btn'); let gameActive = true;
+                  let currentPlayer = "X"; let gameState = ["", "", "", "", "",
+                  "", "", "", ""]; const winningConditions = [ [0, 1, 2], [3, 4,
+                  5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2,
+                  4, 6] ]; const winMessage = (player) => `Player ${player} has
+                  won!`; const drawMessage = () => `Game ended in a draw!`;
+                  const currentPlayerTurn = (player) => `Player ${player}'s
+                  Turn`; statusDisplay.innerHTML =
+                  currentPlayerTurn(currentPlayer); function
+                  handleCellPlayed(clickedCell, clickedCellIndex) {
+                  gameState[clickedCellIndex] = currentPlayer;
+                  clickedCell.innerHTML = currentPlayer;
+                  clickedCell.classList.add(currentPlayer); } function
+                  handlePlayerChange() { currentPlayer = currentPlayer === "X" ?
+                  "O" : "X"; statusDisplay.innerHTML =
+                  currentPlayerTurn(currentPlayer); } function
+                  handleResultValidation() { let roundWon = false; for (let i =
+                  0; i <= 7; i++) { const winCondition = winningConditions[i];
+                  let a = gameState[winCondition[0]]; let b =
+                  gameState[winCondition[1]]; let c =
+                  gameState[winCondition[2]]; if (a === '' || b === '' || c ===
+                  '') { continue; } if (a === b && b === c) { roundWon = true;
+                  break; } } if (roundWon) { statusDisplay.innerHTML =
+                  winMessage(currentPlayer); gameActive = false; return; } let
+                  roundDraw = !gameState.includes(""); if (roundDraw) {
+                  statusDisplay.innerHTML = drawMessage(); gameActive = false;
+                  return; } handlePlayerChange(); } function
+                  handleCellClick(event) { const clickedCell = event.target;
+                  const clickedCellIndex =
+                  parseInt(clickedCell.getAttribute('data-index')); if
+                  (gameState[clickedCellIndex] !== "" || !gameActive) { return;
+                  } handleCellPlayed(clickedCell, clickedCellIndex);
+                  handleResultValidation(); } function handleRestartGame() {
+                  gameActive = true; currentPlayer = "X"; gameState = ["", "",
+                  "", "", "", "", "", "", ""]; statusDisplay.innerHTML =
+                  currentPlayerTurn(currentPlayer); cells.forEach(cell => {
+                  cell.innerHTML = ""; cell.classList.remove('X');
+                  cell.classList.remove('O'); }); } cells.forEach(cell =>
+                  cell.addEventListener('click', handleCellClick));
+                  resetButton.addEventListener('click', handleRestartGame);
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="container text-center my-5">
+            <a
+              href="/js-class-10-advanced-topics.html"
+              class="btn btn-secondary me-2"
+              >⬅ Previous Class</a
+            >
+            <a href="/index.html" class="btn btn-primary"
+              >Finish Course / Home 🏠</a
+            >
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Paste the FULL JAVASCRIPT CODE block from above here for the demo to run if this HTML file is saved and opened in a browser.
+      const statusDisplay = document.querySelector("#status");
+      const cells = document.querySelectorAll(".cell");
+      const resetButton = document.querySelector("#reset-btn");
+
+      let gameActive = true;
+      let currentPlayer = "X";
+      let gameState = ["", "", "", "", "", "", "", "", ""];
+
+      const winningConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      const winMessage = (player) => `Player ${player} has won!`;
+      const drawMessage = () => `Game ended in a draw!`;
+      const currentPlayerTurn = (player) => `Player ${player}'s Turn`;
+
+      statusDisplay.innerHTML = currentPlayerTurn(currentPlayer);
+
+      function handleCellPlayed(clickedCell, clickedCellIndex) {
+        gameState[clickedCellIndex] = currentPlayer;
+        clickedCell.innerHTML = currentPlayer;
+        clickedCell.classList.add(currentPlayer);
+      }
+
+      function handlePlayerChange() {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        statusDisplay.innerHTML = currentPlayerTurn(currentPlayer);
+      }
+
+      function handleResultValidation() {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) {
+          const winCondition = winningConditions[i];
+          let a = gameState[winCondition[0]];
+          let b = gameState[winCondition[1]];
+          let c = gameState[winCondition[2]];
+
+          if (a === "" || b === "" || c === "") {
+            continue;
+          }
+
+          if (a === b && b === c) {
+            roundWon = true;
+            break;
+          }
+        }
+
+        if (roundWon) {
+          statusDisplay.innerHTML = winMessage(currentPlayer);
+          gameActive = false;
+          return;
+        }
+
+        let roundDraw = !gameState.includes("");
+        if (roundDraw) {
+          statusDisplay.innerHTML = drawMessage();
+          gameActive = false;
+          return;
+        }
+
+        handlePlayerChange();
+      }
+
+      function handleCellClick(event) {
+        const clickedCell = event.target;
+        const clickedCellIndex = parseInt(
+          clickedCell.getAttribute("data-index")
+        );
+
+        if (gameState[clickedCellIndex] !== "" || !gameActive) {
+          return;
+        }
+
+        handleCellPlayed(clickedCell, clickedCellIndex);
+        handleResultValidation();
+      }
+
+      function handleRestartGame() {
+        gameActive = true;
+        currentPlayer = "X";
+        gameState = ["", "", "", "", "", "", "", "", ""];
+        statusDisplay.innerHTML = currentPlayerTurn(currentPlayer);
+
+        cells.forEach((cell) => {
+          cell.innerHTML = "";
+          cell.classList.remove("X");
+          cell.classList.remove("O");
+        });
+      }
+
+      cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
+      resetButton.addEventListener("click", handleRestartGame);
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

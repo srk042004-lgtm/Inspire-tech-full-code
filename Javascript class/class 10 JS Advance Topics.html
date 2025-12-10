@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Class 10: Advanced Topics</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      .code-example {
+          background-color: #272822; /* Dark background for code */
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 5px;
+          overflow-x: auto;
+          font-family: monospace;
+          white-space: pre-wrap;
+          margin-bottom: 20px;
+      }
+      .advanced-box {
+          border: 1px solid #ff3366; /* Magenta theme for advanced topics */
+          border-left: 5px solid #ff3366;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #ffeaea;
+      }
+      .fetch-box {
+          border: 1px solid #17a2b8; /* Cyan theme for Fetch API */
+          border-left: 5px solid #17a2b8;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #f1faff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Css Class 1 Syntax.html" class="accordion-button collapsed text-decoration-none">
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div id="jsCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Js Class 1 introduction.html" class="text-decoration-none">
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-2-variables-and-data-types.html" class="text-decoration-none">
+                        Class 2: Variables (var, let, const) & Data Types
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-3-operators-and-conditionals.html" class="text-decoration-none">
+                        Class 3: Operators & Conditional Statements
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-4-loops-and-strings.html" class="text-decoration-none">
+                        Class 4: Loops & String Manipulation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-5-arrays.html" class="text-decoration-none">
+                        Class 5: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-6-functions.html" class="text-decoration-none">
+                        Class 6: Functions, Methods & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-7-objects-dom.html" class="text-decoration-none">
+                        Class 7: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-8-dom-manipulation.html" class="text-decoration-none">
+                        Class 8: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-9-events.html" class="text-decoration-none">
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-10-advanced-topics.html" class="text-decoration-none active-link">
+                        Class 10: Advanced Topics
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="js10-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-info">
+                            🚀 Class 10: Advanced Topics (The Next Steps)
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ks4MFTHLfyg?si=NnsIBZKeL75GMMxo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <p>
+                            This final class introduces key modern concepts that professional JavaScript developers use daily. Understanding these topics—especially asynchronous code—is crucial for working with external data and building real-world applications.
+                        </p>
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-4">PART 1: Asynchronous JavaScript (Promises & Fetch)</h4>
+                        <p>
+                            JavaScript is fundamentally **single-threaded** (it executes one operation at a time). However, tasks like fetching data from a server or setting a timer can take time. If JavaScript waited for these tasks, the entire web page would freeze.
+                        </p>
+                        <p>
+                            **Asynchronous** code solves this by allowing these slow tasks to run in the background while the rest of the code continues executing. 
+                        </p>
+
+                        <h5 class="fw-bold text-danger">A. Promises (The Foundation)</h5>
+                        <p>
+                            A Promise is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value. A Promise can be in one of three states:
+                        </p>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">**Pending**: Initial state, neither fulfilled nor rejected.</li>
+                            <li class="list-group-item">**Fulfilled**: The operation completed successfully (use `.then()`).</li>
+                            <li class="list-group-item">**Rejected**: The operation failed (use `.catch()`).</li>
+                        </ul>
+
+                        <h5 class="fw-bold text-danger mt-4">B. Making Network Requests with `fetch()`</h5>
+                        <p>
+                            The `fetch()` API is the modern way to retrieve resources (like data from an API) asynchronously. It returns a Promise.
+                        </p>
+                        <div class="fetch-box">
+                            <h6 class="fw-bold text-info">Example: Using `fetch()` and `.then()`</h6>
+                            <pre class="code-example">
+// Fetch returns a response object (Promise 1)
+fetch('https://api.example.com/data')
+    .then(response => {
+        // We must call .json() to parse the body (Promise 2)
+        return response.json(); 
+    })
+    .then(data => {
+        // Work with the actual data
+        console.log("Data received:", data); 
+    })
+    .catch(error => {
+        // Handle any error during fetch or parsing
+        console.error("Fetch error:", error);
+    });
+                            </pre>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 2: Error Handling with `try...catch`</h4>
+                        <p>
+                            Bugs and unexpected issues (like network errors) are inevitable. Proper error handling ensures your application doesn't crash completely when something goes wrong.
+                        </p>
+                        <div class="advanced-box">
+                            <h6 class="fw-bold text-info">The `try...catch` Statement</h6>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">**`try`**: Defines the block of code to be tested for errors.</li>
+                                <li class="list-group-item">**`catch`**: Defines the block of code to be executed if an error occurs in the `try` block.</li>
+                                <li class="list-group-item">**`finally`**: Defines code that is executed regardless of the result (e.g., closing a connection).</li>
+                            </ul>
+                            <pre class="code-example">
+try {
+    // Attempt to run code that might fail
+    let result = complexFunction(); 
+    console.log("Success!");
+} catch (error) {
+    // If complexFunction fails, the error object is caught here
+    console.error("An error occurred:", error.message);
+    // You could display an error message to the user here
+} finally {
+    console.log("This always runs.");
+}
+                            </pre>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 3: Modern ES6+ Features</h4>
+                        <p>
+                            These are powerful, concise syntax features that significantly improve code readability.
+                        </p>
+
+                        <h5 class="fw-bold text-success">A. Object and Array Destructuring</h5>
+                        <p>
+                            Destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables.
+                        </p>
+                        <div class="advanced-box">
+                            <h6 class="fw-bold text-info">Object Destructuring</h6>
+                            <pre class="code-example">
+const user = { id: 101, name: "Ali", email: "a@mail.com" };
+
+// Traditional way
+// const name = user.name;
+// const id = user.id;
+
+// Destructuring (Pulls properties out by name)
+const { name, id } = user;
+console.log(name); // Output: Ali
+                            </pre>
+
+                            <h6 class="fw-bold text-info mt-3">Array Destructuring</h6>
+                            <pre class="code-example">
+const colors = ["Red", "Green", "Blue"];
+
+// Destructuring (Pulls values out by position)
+const [c1, c2] = colors;
+console.log(c1); // Output: Red
+                            </pre>
+                        </div>
+
+                        <h5 class="fw-bold text-success mt-4">B. Spread (`...`) and Rest Operators (`...`)</h5>
+                        <p>
+                            These use the same syntax (`...`) but serve different purposes based on where they are used.
+                        </p>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">**Spread Operator**: Expands an iterable (like an array) into its individual elements. **Use case: Copying arrays, combining arrays/objects.**</li>
+                            <li class="list-group-item">**Rest Operator**: Collects multiple elements and "packs" them into a single array. **Use case: Function parameters.**</li>
+                        </ul>
+                        <pre class="code-example">
+// 1. Spread (Used in array/object literal)
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const combined = [...arr1, ...arr2]; // combined is [1, 2, 3, 4]
+
+// 2. Rest (Used in function parameter)
+function logArguments(first, ...restOfArgs) {
+    console.log(restOfArgs); // restOfArgs is an array of remaining arguments
+}
+logArguments(10, 20, 30, 40); // Output: [20, 30, 40]
+                        </pre>
+                        
+                        <hr>
+
+                        <div class="alert alert-success mt-5 text-center">
+                            <h4>🎉 Congratulations on Completing the Course!</h4>
+                            <p>You have now covered the fundamentals of HTML, CSS, and modern JavaScript, including DOM manipulation, which is enough to begin building complex, dynamic web applications.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/js-class-9-events.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="/index.html" class="btn btn-dark">Return to Home / Course Index</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

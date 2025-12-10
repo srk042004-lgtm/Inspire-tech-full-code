@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Class 6: Functions & Methods</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      .code-example {
+          background-color: #272822; /* Dark background for code */
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 5px;
+          overflow-x: auto;
+          font-family: monospace;
+          white-space: pre-wrap;
+          margin-bottom: 20px;
+      }
+      .function-box {
+          border: 1px solid #6f42c1; /* Purple theme for functions */
+          border-left: 5px solid #6f42c1;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #f9f5ff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Css Class 1 Syntax.html" class="accordion-button collapsed text-decoration-none">
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div id="jsCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Js Class 1 introduction.html" class="text-decoration-none">
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-2-variables-and-data-types.html" class="text-decoration-none">
+                        Class 2: Variables (var, let, const) & Data Types
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-3-operators-and-conditionals.html" class="text-decoration-none">
+                        Class 3: Operators & Conditional Statements
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-4-loops-and-strings.html" class="text-decoration-none">
+                        Class 4: Loops & String Manipulation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-5-arrays.html" class="text-decoration-none">
+                        Class 5: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-6-functions.html" class="text-decoration-none active-link">
+                        Class 6: Functions, Methods & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-7-objects-dom.html" class="text-decoration-none">
+                        Class 7: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-8-dom-manipulation.html" class="text-decoration-none">
+                        Class 8: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-9-events.html" class="text-decoration-none">
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-10-advanced-topics.html" class="text-decoration-none">
+                        Class 10: Advanced Topics
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="js6-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-info">
+                            📦 Class 6: Functions, Methods & Scope
+                        </h3>
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/P0XMXqDGttU?si=zT-JRsUlaGtexK2d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <p>
+                            **Functions** are the core of all organized JavaScript programming. They allow you to bundle a block of code, give it a name, and reuse it throughout your application. They are essential for writing clean, efficient, and readable code.
+                        </p>
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-4">PART 1: Function Fundamentals</h4>
+                        
+                        <h5 class="fw-bold text-secondary">A. Function Declaration and Calling</h5>
+                        <p>
+                            A function is defined using the `function` keyword, followed by the function name, a list of parameters (if any), and the function body enclosed in curly braces.
+                        </p>
+                        <div class="function-box">
+                            <h6 class="fw-bold text-info">Syntax: Function Declaration</h6>
+                            <pre class="code-example">
+// 1. Function Declaration (Definition)
+function greetUser() {
+    console.log("Welcome to Inspire Tech Academy!");
+}
+
+// 2. Function Call (Execution)
+greetUser(); // Output: Welcome to Inspire Tech Academy!
+                            </pre>
+                        </div>
+                        
+                        <h5 class="fw-bold text-secondary mt-4">B. Parameters and Arguments</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">**Parameters**: The names listed in the function definition (like local variables waiting for input).</li>
+                            <li class="list-group-item">**Arguments**: The actual values passed to the function when it is called.</li>
+                        </ul>
+                        <div class="function-box">
+                            <h6 class="fw-bold text-info">Example: Parameters and Arguments</h6>
+                            <pre class="code-example">
+// 'num1' and 'num2' are parameters
+function addNumbers(num1, num2) {
+    let sum = num1 + num2;
+    console.log(sum);
+}
+
+// 5 and 3 are arguments
+addNumbers(5, 3); // Output: 8
+                            </pre>
+                        </div>
+
+                        <h5 class="fw-bold text-secondary mt-4">C. The `return` Keyword</h5>
+                        <p>
+                            The `return` statement immediately stops function execution and returns a value back to the place where the function was called. If you don't use `return`, the function returns `undefined` by default.
+                        </p>
+                        <div class="function-box">
+                            <h6 class="fw-bold text-info">Example: Returning a Value</h6>
+                            <pre class="code-example">
+function calculateArea(length, width) {
+    let area = length * width;
+    return area; // Sends the 'area' value back
+}
+
+// The returned value (20) is stored in the variable 'roomArea'
+let roomArea = calculateArea(4, 5);
+console.log(roomArea); // Output: 20
+                            </pre>
+                        </div>
+                        
+                        
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 2: Arrow Functions (Modern Syntax)</h4>
+                        <p>
+                            Introduced in ES6, **Arrow Functions (`=>`)** offer a concise, cleaner syntax for writing function expressions. They are now the standard way to write functions in modern JavaScript, especially for shorter operations.
+                        </p>
+
+                        <h5 class="fw-bold text-secondary">Comparison: Traditional vs. Arrow</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr><th>Type</th><th>Syntax</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>**Traditional**</td>
+                                    <td>`function isEven(num) { return num % 2 === 0; }`</td>
+                                </tr>
+                                <tr>
+                                    <td>**Arrow (Full)**</td>
+                                    <td>`const isEven = (num) => { return num % 2 === 0; };`</td>
+                                </tr>
+                                <tr>
+                                    <td>**Arrow (Concise/Implicit Return)**</td>
+                                    <td>`const isEven = num => num % 2 === 0;` <span class="badge bg-success">Best for simple code</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="function-box mt-4">
+                            <h6 class="fw-bold text-info">Concise Arrow Function Rules:</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">If there is only **one parameter**, you can omit the parentheses around it (`num => ...`).</li>
+                                <li class="list-group-item bg-transparent">If the function body is a **single expression**, you can omit the curly braces `{}` and the `return` keyword (Implicit Return).</li>
+                            </ul>
+                            <pre class="code-example">
+// Zero parameters require parentheses
+const sayHi = () => console.log("Hi");
+
+// One parameter, no parentheses needed
+const double = x => x * 2;
+console.log(double(10)); // Output: 20
+                            </pre>
+                        </div>
+                        
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 3: Functions, Methods & Scope</h4>
+                        
+                        <h5 class="fw-bold text-secondary">A. The Difference: Function vs. Method</h5>
+                        <p>
+                            Technically, a **Method** is just a function that is stored as a property of an **Object**.
+                        </p>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">**Function**: Exists independently (e.g., `greetUser()`, `addNumbers(a, b)`).</li>
+                            <li class="list-group-item">**Method**: Is called on an object using dot notation (e.g., `students.push('Ali')`, `myString.toUpperCase()`).</li>
+                        </ul>
+                        <div class="function-box">
+                            <h6 class="fw-bold text-info">Example: Method</h6>
+                            <pre class="code-example">
+// 'person' is an Object
+const person = {
+    firstName: "Sarah",
+    // 'introduce' is a Method
+    introduce: function() {
+        console.log("My name is " + this.firstName);
+    }
+};
+
+person.introduce(); // Output: My name is Sarah
+                            </pre>
+                        </div>
+                        
+                        <h5 class="fw-bold text-secondary mt-4">B. Function Scope and Variable Access</h5>
+                        <p>
+                            Functions create their own local scope. Variables defined inside a function (including parameters) are **Local** and cannot be accessed from outside the function.
+                        </p>
+                        <p>
+                            Variables defined outside any function are **Global** and can be accessed and modified by any function. 
+                        </p>
+                        <pre class="code-example">
+let globalVar = 50; // Global Variable
+
+function updateVar() {
+    let localVar = 10; // Local Variable
+    globalVar = globalVar + localVar;
+    console.log(globalVar); // Can access both
+}
+
+updateVar(); // Output: 60 (50 + 10)
+
+// console.log(localVar); // ERROR: localVar is not defined outside the function
+                        </pre>
+                        <div class="alert alert-warning">
+                            **Best Practice:** Always try to use local variables within functions and pass necessary data in through parameters. Minimizing the use of global variables prevents conflicts and makes your code easier to debug.
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/js-class-5-arrays.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="js-class-7-objects-dom.html" class="btn btn-primary">Next Class (Objects & DOM) ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

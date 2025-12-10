@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inspire Tech Academy - JS Class 7: Objects & Introduction to DOM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Hide list items when not matched */
+      .list-group-item.hidden {
+        display: none;
+      }
+      /* Ensure current page link is highlighted */
+      .course-list a.active-link {
+        font-weight: bold;
+        color: #0d6efd; /* Bootstrap primary color */
+      }
+      /* Ensure main content doesn't get hidden under fixed navbar */
+      .main-content {
+        padding-top: 20px; /* Adjust as needed */
+      }
+      .code-example {
+          background-color: #272822; /* Dark background for code */
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 5px;
+          overflow-x: auto;
+          font-family: monospace;
+          white-space: pre-wrap;
+          margin-bottom: 20px;
+      }
+      .object-box {
+          border: 1px solid #fd7e14; /* Orange theme for objects */
+          border-left: 5px solid #fd7e14;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #fff8f2;
+      }
+      .dom-selector-box {
+          border: 1px solid #198754; /* Green theme for DOM */
+          border-left: 5px solid #198754;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          background-color: #f6fff9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+      <div class="container">
+        <button id="sidebarToggle" class="btn btn-outline-light d-lg-none me-2" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <a class="navbar-brand fw-bold" href="/index.html">Inspire Tech Institute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/Class 1 html.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside id="sidebar" class="col-lg-3 col-md-4 bg-light border-end vh-100 overflow-auto p-3 sticky-sidebar">
+          <h5 class="fw-bold">Courses</h5>
+          <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search topics..."/>
+          </div>
+
+          <div class="accordion" id="coursesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Class 1 html.html" class="accordion-button collapsed text-decoration-none">
+                  HTML Full Course
+                </a>
+              </h2>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <a href="/Css Class 1 Syntax.html" class="accordion-button collapsed text-decoration-none">
+                  CSS Full Course
+                </a>
+              </h2>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#jsCourse"
+                  aria-expanded="true"
+                >
+                  JavaScript Full Course
+                </button>
+              </h2>
+              <div id="jsCourse" class="accordion-collapse collapse show" data-bs-parent="#coursesAccordion">
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush course-list">
+                    <li class="list-group-item">
+                      <a href="/Js Class 1 introduction.html" class="text-decoration-none">
+                        Class 1: Introduction, History & Core Function
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-2-variables-and-data-types.html" class="text-decoration-none">
+                        Class 2: Variables (var, let, const) & Data Types
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-3-operators-and-conditionals.html" class="text-decoration-none">
+                        Class 3: Operators & Conditional Statements
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="/js-class-4-loops-and-strings.html" class="text-decoration-none">
+                        Class 4: Loops & String Manipulation
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-5-arrays.html" class="text-decoration-none">
+                        Class 5: Arrays & Array Methods
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-6-functions.html" class="text-decoration-none">
+                        Class 6: Functions, Methods & Scope
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-7-objects-dom.html" class="text-decoration-none active-link">
+                        Class 7: Objects & Introduction to DOM
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-8-dom-manipulation.html" class="text-decoration-none">
+                        Class 8: DOM Manipulation (Changing HTML/CSS)
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-9-events.html" class="text-decoration-none">
+                        Class 9: Event Handling
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="js-class-10-advanced-topics.html" class="text-decoration-none">
+                        Class 10: Advanced Topics
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="col-lg-9 col-md-8 main-content p-4">
+
+            <section id="js7-main" class="mb-5">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3 text-info">
+                            🏛️ Class 7: Objects & Introduction to DOM
+                        </h3>
+
+                        <div class="ratio ratio-16x9 mb-4 border border-secondary rounded p-1">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/7zcXPCt8Ck0?si=FxsynDpwdZEi6zQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <p>
+                            Before we interact with the web page, we must deeply understand the **Object** structure, as everything in the browser (the page, the elements, the history) is represented as an object. This leads directly into the **DOM**.
+                        </p>
+                        
+                        <hr>
+                        
+                        <h4 class="fw-bold text-primary mb-4 mt-4">PART 1: JavaScript Objects (Key-Value Pairs)</h4>
+                        <p>
+                            Objects are non-primitive data types used to store collections of data and more complex entities. They store information in **key: value** pairs.
+                        </p>
+
+                        <h5 class="fw-bold text-warning">A. Object Creation and Structure</h5>
+                        <p>
+                            Objects are defined using curly braces `{}`. The keys are strings (but usually unquoted) and the values can be any data type, including other objects or functions (methods).
+                        </p>
+                        <div class="object-box">
+                            <pre class="code-example">
+const student = {
+    // Properties (Key-Value Pairs)
+    name: "Hassan",
+    rollNumber: 42,
+    isEnrolled: true,
+    courses: ["JS", "HTML", "CSS"], // Value is an Array
+    
+    // Method (Key-Value Pair where the value is a function)
+    greet: function() {
+        return "Hello, my name is " + this.name;
+    }
+};
+                            </pre>
+                        </div>
+
+                        <h5 class="fw-bold text-warning mt-4">B. Accessing and Modifying Properties</h5>
+                        <p>There are two primary ways to access object properties:</p>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">**Dot Notation (`.`)**: Used when you know the property name (most common).</li>
+                            <li class="list-group-item">**Bracket Notation (`[]`)**: Used when the property name contains spaces or when the property name is stored in a variable.</li>
+                        </ul>
+                        <pre class="code-example">
+// Access
+console.log(student.name);      // Output: Hassan
+console.log(student["rollNumber"]); // Output: 42
+
+// Execute Method
+console.log(student.greet());   // Output: Hello, my name is Hassan
+
+// Modify
+student.rollNumber = 43; 
+
+// Add New Property
+student.city = "Lahore";
+                            </pre>
+
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 2: Introduction to the DOM</h4>
+                        <p>
+                            The **Document Object Model (DOM)** is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.
+                        </p>
+                        <p>
+                            When a web page is loaded, the browser creates a DOM of the page. This model is structured like a **tree**, where every HTML tag is an **Object** (called a **Node**).
+                        </p>
+                        
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">**Document**: The entry point to the DOM tree (the `document` object).</li>
+                            <li class="list-group-item">**Element**: Represents HTML tags (e.g., `&lt;div&gt;`, `&lt;p&gt;`, `&lt;h1&gt;`).</li>
+                            <li class="list-group-item">**Text Node**: The actual text content inside elements.</li>
+                        </ul>
+                        <div class="alert alert-info">
+                            **The Bridge:** JavaScript uses the global **`document`** object to access and modify this tree structure.
+                        </div>
+
+                        <hr>
+
+                        <h4 class="fw-bold text-primary mb-4 mt-5">PART 3: DOM Selectors (Finding Elements)</h4>
+                        <p>
+                            The first step in DOM manipulation is always **selecting** (finding) the HTML element you want to work with.
+                        </p>
+
+                        <h5 class="fw-bold text-success">A. Selecting a Single Element</h5>
+                        <p>These methods return the **first** matching element found in the document, or `null` if nothing is found.</p>
+                        <div class="dom-selector-box">
+                            <h6 class="fw-bold text-info">1. `getElementById()` (By ID)</h6>
+                            <p>Used to find an element by its unique `id` attribute. This is the fastest selector.</p>
+                            <pre class="code-example">
+// HTML: &lt;h1 id="main-title"&gt;...&lt;/h1&gt;
+const title = document.getElementById("main-title");
+                            </pre>
+
+                            <h6 class="fw-bold text-info mt-3">2. `querySelector()` (By CSS Selector)</h6>
+                            <p>The versatile modern method. Finds the first element that matches the specified CSS selector (e.g., tag name, class, ID).</p>
+                            <pre class="code-example">
+const firstParagraph = document.querySelector("p"); // Selects the first &lt;p&gt; tag
+const myDiv = document.querySelector(".container"); // Selects the first element with class 'container'
+                            </pre>
+                        </div>
+                        
+                        <h5 class="fw-bold text-success mt-4">B. Selecting Multiple Elements</h5>
+                        <p>These methods return a collection of all matching elements, which acts like an array and can be looped through.</p>
+                        <div class="dom-selector-box">
+                            <h6 class="fw-bold text-info">1. `getElementsByClassName()` (By Class)</h6>
+                            <p>Returns a live HTMLCollection of all elements with a given class name.</p>
+                            <pre class="code-example">
+// HTML: &lt;li class="list-item"&gt;...&lt;/li&gt;
+const allListItems = document.getElementsByClassName("list-item");
+console.log(allListItems.length); // Get the count of elements
+                            </pre>
+                            
+                            <h6 class="fw-bold text-info mt-3">2. `querySelectorAll()` (By CSS Selector)</h6>
+                            <p>Returns a static NodeList of all elements matching the CSS selector. This is the most popular modern method for multiple selection.</p>
+                            <pre class="code-example">
+// Select all elements that are &lt;li&gt; inside a &lt;ul&gt;
+const allNavLinks = document.querySelectorAll("ul li a");
+                            </pre>
+                        </div>
+
+                        <hr>
+
+                        <div class="alert alert-primary mt-5">
+                            **Next Class Preview:** Now that we know how to **find** elements, Class 8 will focus entirely on **DOM Manipulation**: changing their text, attributes, styles, and adding/removing them from the page.
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="container text-center my-5">
+                <a href="/js-class-6-functions.html" class="btn btn-secondary me-2">⬅ Previous Class</a>
+                <a href="js-class-8-dom-manipulation.html" class="btn btn-primary">Next Class (DOM Manipulation) ➡</a>
+            </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white text-center p-3 mt-4">
+      <div class="container">
+        <p class="mb-1">📍 Inspire Tech Institute | Nowshera, Pakistan</p>
+        <p class="mb-1">📞 0346-2345453 | ✉ info@inspiretech.com</p>
+        <p>Follow us on Facebook, Instagram & YouTube</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
